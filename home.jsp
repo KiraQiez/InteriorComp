@@ -3,128 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" src="home.css">
-    <style>
-        body {
-            background: url(rsc/background.png);
-            background-size: cover;
-        }
-
-        header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .navbar ul {
-            list-style: none;
-        }
-
-        .navbar li a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 5px;
-            margin-left: 30px;
-            display: block;
-            text-align: center;
-            transition: all 0.3s ease 0s;
-
-        }
-
-        .navbar a {
-            font-family: 'Inter Black';
-            border-bottom: 5px solid transparent;
-            transform: 0.3s ease;
-        }
-
-        .navbar a:hover,
-        .navbar a.active {
-            color: #fdae30;
-            border-bottom: 3px solid #fdae30;
-            transition: all 0.3s ease 0s;
-        }
-
-        .navbar li {
-            display: inline-block;
-            font-family: 'Inter Black';
-            padding: 0px 30px 0px 0px;
-        }
-
-
-        .site-logo h1 {
-            float: left;
-            color: #ffffff;
-            font-family: 'Inter Black';
-            position: absolute;
-            top: 10px;
-            left: 130px;
-            font-size: 30px;
-        }
-
-        .logo {
-            width: 98px;
-            height: 70px;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        .title {
-            color: #ffffff;
-            font-family: Inter;
-            font-size: 35px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            margin-top: 190px;
-            margin-left: 730px;
-        }
-
-        .desc {
-            width: 557px;
-            height: 77px;
-            flex-shrink: 0;
-            color: #ffffff;
-            font-family: Inter;
-            font-size: 23px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            margin-top: 0px;
-            margin-left: 730px;
-        }
-
-        .btn_book {
-            width: 317px;
-            height: 70px;
-            flex-shrink: 0;
-            border-radius: 30px;
-            background: #FCBB6D;
-            font-family: 'Inter Black';
-            font-size: 24px;
-            margin-top: 0px;
-            margin-left: 730px;
-            transition: all 0.3s ease 0s;
-        }
-
-        .btn_book:hover,
-        .btn_book:active {
-            width: 317px;
-            height: 70px;
-            flex-shrink: 0;
-            border-radius: 30px;
-            background: #ffffff;
-            font-family: 'Inter Black';
-            font-size: 24px;
-            color: chartreuse;
-            margin-top: 0px;
-            margin-left: 730px;
-            transition: all 0.3s ease 0s;
-        }
-    </style>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="home.css">
 </head>
-
 <body>
     <header>
         <nav class="navbar">
@@ -141,8 +22,8 @@
                         d="M70.1254 71.2642C70.799 71.9853 71.1771 72.9605 71.1771 73.9771C71.1771 74.9936 70.799 75.9688 70.1254 76.6899L65.4356 81.6792C64.7579 82.3958 63.8412 82.798 62.8857 82.798C61.9302 82.798 61.0135 82.3958 60.3357 81.6792L48.1516 68.7169C47.4739 68.0003 46.5572 67.5981 45.6017 67.5981C44.6462 67.5981 43.7295 68.0003 43.0518 68.7169L29.246 83.4045C28.5683 84.1211 27.6516 84.5233 26.6961 84.5233C25.7406 84.5233 24.8239 84.1211 24.1461 83.4045L19.7911 78.7713C19.1171 78.0514 18.739 77.0763 18.74 76.0601C18.741 75.0439 19.1209 74.0697 19.7963 73.3512L43.4361 48.2958C44.1152 47.5799 45.0325 47.1783 45.9886 47.1783C46.9446 47.1783 47.862 47.5799 48.5411 48.2958L70.1254 71.2642Z"
                         fill="#FCDE57" />
                 </svg>
-
                 <h1>INTERIOR</h1>
+
             </div>
 
             <ul class="nav_links">
@@ -154,9 +35,12 @@
         </nav>
     </header>
 
-    <p class="title">‘LUXURY IS NO LONGER A DREAM’</p>
-    <p class="desc">Rent a luxury room for yourself at a suitable price. </p>
-    <button class="btn_book">BOOK NOW</button>
+    <div class="block">
+        <p class="title">‘LUXURY IS NO LONGER A DREAM’</p>
+        <p class="desc">Rent a luxury room for yourself at a suitable price. </p>
+        <button class="btn_book">BOOK NOW</button>
+    </div>
+    
 
 </body>
 
