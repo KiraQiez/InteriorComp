@@ -18,8 +18,61 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px;
+            width: 100%;
             background-color: #232323;
-            padding: 10px 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar a {
+            font-size: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 800;
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .navbar a::after {
+            content: "";
+            display: block;
+            height: 4px;
+            border-radius: 15px;
+            width: 100%;
+            background-color: #fdae30;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+            position: absolute;
+            bottom: -3px;
+            left: -5px;
+        }
+
+        .navbar a:hover::after {
+            transform: scaleX(1.2);
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #fdae30;
+
         }
 
         .navbar .logo {
@@ -34,35 +87,6 @@
         .navbar .nav-links {
             display: flex;
             gap: 20px;
-        }
-
-        .navbar li {
-            display: inline-block;
-            font-family: 'Inter Black';
-            padding: 0px 30px 0px 0px;
-        }
-
-        .navbar a {
-            font-family: 'Inter Black';
-            border-bottom: 5px solid transparent;
-            transform: 0.3s ease;
-        }
-
-        .navbar a:hover,
-        .navbar a.active {
-            color: #fdae30;
-            border-bottom: 3px solid #fdae30;
-            transition: all 0.3s ease 0s;
-        }
-
-        .navbar li a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 5px;
-            margin-left: 30px;
-            display: block;
-            text-align: center;
-            transition: all 0.3s ease 0s;
         }
 
         .logo-name {
