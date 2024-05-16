@@ -20,7 +20,7 @@
             align-items: center;
             padding: 20px;
             width: 100%;
-            background-color: #232323;
+
         }
 
         .navbar ul {
