@@ -33,25 +33,29 @@
             </ul>
         </nav>
     </header>
+
     <div class="board">
-        <div class="login">
-            <h1>Login</h1>
-            <form action="login.jsp" method="post">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-        </div>
         <div class="loginChange">
             <h1>Hello friend!</h1>
             <p>Did you have an account yet?
                 <br>
                 No register a new account now</p>
-                <form action="register.jsp">
-                    <button type="submit">Register</button>
+                <form action="login.jsp">
+                    <button type="submit">Sign In</button>
                 </form>
                 
         </div>
+
+        <div class="login">
+            <h1>Register</h1>
+            <form action="login.jsp" method="post">
+                <input type="text" name="email" placeholder="Email" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
     </div>
 </body>
 </html>
