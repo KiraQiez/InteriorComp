@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -37,7 +37,7 @@
 
     <div class="block">
         <p class="title">‘LUXURY IS NO LONGER A DREAM’</p>
-        <p class="desc">Rent a luxury room for yourself at a suitable price. </p>
+        <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
         <button class="btn_book">BOOK NOW</button>
     </div>
     

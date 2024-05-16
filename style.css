@@ -1,45 +1,148 @@
-
-header {
-    background-color: #1D222D;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.logoText {
-    color: #f7f7f5;
-    font-size: 24px;
-    margin-left: -1200px;
+body {
+    background: url(rsc/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .navbar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
 }
 
 .navbar ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    margin-right: 20px;
 }
 
-.navbar li {
+.navbar ul li {
     margin-left: 20px;
 }
 
-.navbar a {
+.navbar ul li{
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: text-decoration 0.5s, color 0.5s;
+}
+.navbar a {
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    position: relative;
+    margin-left: 20px;
 }
 
-.navbar a:hover {
-    text-decoration: underline;
-    color: #1D222D;
+.navbar a::after {
+    content: "";
+    display: block;
+    height: 4px;
+    border-radius: 15px;
+    width: 100%;
+    background-color: #fdae30;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+    position: absolute;
+    bottom: -3px;
+    left: -5px;
 }
 
+.navbar a:hover::after {
+    transform: scaleX(1.2);
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #fdae30;
+    
+}
+
+.site-logo h1 {
+    float: left;
+    color: #ffffff;
+    font-size: 24px;
+    margin-left: 10px;
+    position: absolute;
+    top: 30px;
+    left: 130px;
+    font-size: 30px;
+}
+
+.logo {
+    width: 98px;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.block{
+    width:700px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    top: 40vh;
+    right: 5vw;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 8px;
+}
+
+.desc {
+    flex-shrink: 0;
+    color: #ffffff;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 50px;
+}
+
+.btn_book {
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    border-color:transparent;
+    font-size: 22px;
+    font-weight: bold;
+    background: #FCBB6D;
+    
+}
+
+.btn_book:hover {
+    background: rgb(248, 202, 127);
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+
+/* Login Page */
+.board{
+    display: flex;
+}
 
