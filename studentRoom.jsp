@@ -57,6 +57,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 40px;
         }
 
         .btn_book {
@@ -81,6 +82,10 @@
             font-size: 24px;
             color: #000000;
             transition: all 0.3s ease 0s;
+        }
+
+        .pricing {
+            color: #a0a0a0;
         }
     </style>
 </head>
@@ -120,7 +125,8 @@
             <img src="rsc/4.png">
             <h3>Normal Room</h3>
             <br>
-            <p>From RM200/month</p>
+            <p>Simple and minimalistic room</p>
+            <p class="pricing">From RM200/month</p>
             <div class="btn_container">
                 <button class="btn_book">BOOK</button>
             </div>
@@ -131,7 +137,8 @@
             <img src="rsc/3.png">
             <h3>Deluxe Room</h3>
             <br>
-            <p>From RM300/month</p>
+            <p>Simple and minimalistic room</p>
+            <p class="pricing">From RM300/month</p>
             <div class="btn_container">
                 <button class="btn_book">BOOK</button>
             </div>
@@ -141,7 +148,8 @@
             <img src="rsc/2.png">
             <h3>Luxury Room</h3>
             <br>
-            <p>From RM500/month</p>
+            <p>Simple and minimalistic room</p>
+            <p class="pricing">From RM500/month</p>
             <div class="btn_container">
                 <button class="btn_book">BOOK</button>
             </div>
