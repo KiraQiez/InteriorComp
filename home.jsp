@@ -27,10 +27,10 @@
             </div>
 
             <ul class="nav_links">
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">Room</a></li>
-                <li><a href="#">Report</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a class="active" href="login.jsp">Home</a></li>
+                <li><a href="login.jsp">Room</a></li>
+                <li><a href="login.jsp">Report</a></li>
+                <li><a href="login.jsp">Profile</a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +38,10 @@
     <div class="block">
         <p class="title">‘LUXURY IS NO LONGER A DREAM’</p>
         <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
-        <button class="btn_book">BOOK NOW</button>
+        <form action="login.jsp">
+            <button type="submit" class="btn_book">BOOK NOW</button>
+        </form>
+        
     </div>
     
 
