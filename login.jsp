@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -23,9 +24,7 @@
                         fill="#FCDE57" />
                 </svg>
                 <h1>INTERIOR</h1>
-
             </div>
-
             <ul class="nav_links">
                 <li><a class="active" href="#">Home</a></li>
                 <li><a href="#">Room</a></li>
@@ -34,7 +33,6 @@
             </ul>
         </nav>
     </header>
-
     <div class="board">
         <div class="login">
             <h1>Login</h1>
@@ -45,15 +43,12 @@
             </form>
         </div>
         <div class="loginChange">
-            <p>Don't have an account?</p>
-            <a href="register.jsp">Register</a>
+            <h1>Hello friend!</h1>
+            <p>Did you have an account yet?
+                <br>
+                No register a new account now</p>
+                <button type="submit">Register</button>
         </div>
     </div>
-
-
-
-    
-
 </body>
-
 </html>
