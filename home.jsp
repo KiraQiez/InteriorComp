@@ -6,6 +6,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -23,7 +24,6 @@
                         fill="#FCDE57" />
                 </svg>
                 <h1>INTERIOR</h1>
-
             </div>
 
             <ul class="nav_links">
@@ -40,7 +40,7 @@
         <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
         <button class="btn_book">BOOK NOW</button>
     </div>
-    
+
 
 </body>
 
