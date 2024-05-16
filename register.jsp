@@ -26,7 +26,7 @@
                 <h1>INTERIOR</h1>
             </div>
             <ul class="nav_links">
-                <li><a class="active" href="#">Home</a></li>
+                <li><a class="active" href="home.jsp">Home</a></li>
                 <li><a href="#">Room</a></li>
                 <li><a href="#">Report</a></li>
                 <li><a href="#">Profile</a></li>
