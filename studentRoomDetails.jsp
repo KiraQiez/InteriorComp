@@ -14,10 +14,39 @@
         }
 
         /*START NEW CSS HERE*/
+        .title {
+            color: #FCBB6D;
+            text-shadow: 0px 10px 4px #00000040;
+            font-family: Inter;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            text-align: center;
+        }
+
         .base {
-            color: #ffffff;
-            height: 30px;
-            width: 60px
+            border-radius: 15px;
+            background: #FFF0DE;
+            width: 1080px;
+            height: 480px;
+            margin: 0 auto;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .base-white {
+            width: 930px;
+            height: 350px;
+            margin: 0 auto;
+            display: flex;
+            border-radius: 10px;
+            background: #FFF;
+            align-items: center;
+        }
+
+        .base-white img {
+            border-radius: 10px 127px 0px 45px;
         }
     </style>
 </head>
@@ -50,8 +79,39 @@
         </nav>
     </header>
 
+    <p class="title">ROOM DETAILS</p>
     <div class="base">
-        <p>Hello</p>
+        <div class="base-white">
+            <div>
+                <img src="rsc/2.png">
+            </div>
+
+            <div>
+                <p>Room No</p>
+                <br>
+                <p>Start Date</p>
+                <br>
+                <p>End Date</p>
+                <br>
+                <p>Remaining Payment (RM)</p>
+                <br>
+            </div>
+
+            <div>
+                <h3>Room No</h3>
+                <br>
+                <h3>Start Date</h3>
+                <br>
+                <h3>End Date</h3>
+                <br>
+                <h3>Remaining Payment (RM)</h3>
+                <br>
+            </div>
+
+            <div>
+
+            </div>
+        </div>
     </div>
 </body>
 
