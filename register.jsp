@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <title>Register Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -37,9 +37,9 @@
     <div class="board">
         <div class="loginChange">
             <h1>Hello friend!</h1>
-            <p>Did you have an account yet?
+            <p>Already have an account?
                 <br>
-                No register a new account now</p>
+                Sign In now!</p>
                 <form action="login.jsp">
                     <button type="submit">Sign In</button>
                 </form>
