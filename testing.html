@@ -5,10 +5,12 @@
     <title>Page Title</title>
     <style>
         /* BASE STYLES */
+        /* BASE STYLES */
         :root {
             --clr-dark: #0f172a;
             --clr-light: #f1f5f9;
             --clr-accent: #e11d48;
+            --clr-line: #004cff;
         }
 
         *,
@@ -36,6 +38,24 @@
             height: 700px;
             margin: 0 auto;
             border: 10px solid var(--clr-dark);
+            flex-direction: column;
+        }
+
+        .row1 {
+            width: 90%;
+            height: 30%;
+            margin: 0 auto;
+            border: 10px solid var(--clr-line);
+            display: flex;
+        }
+
+        .row2 {
+            width: 90%;
+            height: 30%;
+            margin: 0 auto;
+            border: 10px solid var(--clr-line);
+            display: flex;
+            justify-content: space-evenly;
         }
 
         .item {
@@ -53,19 +73,44 @@
         /* END OF BASE STYLES */
         .container {
             display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
         }
 
         .item-1 {
-            height: auto;
+            flex-grow: 1;
+        }
+
+        .item-2 {
+            flex-grow: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <div class="item item-1">Item 1</div>
         <div class="item item-2">Item 2</div>
         <div class="item item-3">Item 3</div>
+        <div class="item item-4">Item 4</div>
+        <div class="item item-5">Item 5</div>
+        <div class="item item-6">Item 6</div>
+    </div> -->
+
+    <div class="container">
+        <div class="row1">
+            <div class="item item-1">Item 1</div>
+            <div class="item item-2">Item 2</div>
+        </div>
+
+        <div class="row2">
+            <div class="item item-3">Item 3</div>
+            <div class="item item-4">Item 4</div>
+            <div class="item item-5">Item 5</div>
+            <div class="item item-6">Item 6</div>
+        </div>
+
+
     </div>
 </body>
 
