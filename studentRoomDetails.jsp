@@ -47,6 +47,20 @@
 
         .base-white img {
             border-radius: 10px 127px 0px 45px;
+            padding: 15px;
+        }
+
+        .base-white table {
+            border-collapse: separate;
+            border-spacing: 70px 20px;
+        }
+
+        .bookingID p {
+            text-align: right;
+            color: #726E6E;
+            font-family: Inter;
+            font-style: normal;
+            line-height: normal;
         }
     </style>
 </head>
@@ -86,31 +100,49 @@
                 <img src="rsc/2.png">
             </div>
 
-            <div>
-                <p>Room No</p>
-                <br>
-                <p>Start Date</p>
-                <br>
-                <p>End Date</p>
-                <br>
-                <p>Remaining Payment (RM)</p>
-                <br>
-            </div>
+            <table>
+                <tr>
+                    <td class="bookingID" colspan="2">
+                        <p>BOOKING ID: B1001</p>
+                    </td>
+                </tr>
 
-            <div>
-                <h3>Room No</h3>
-                <br>
-                <h3>Start Date</h3>
-                <br>
-                <h3>End Date</h3>
-                <br>
-                <h3>Remaining Payment (RM)</h3>
-                <br>
-            </div>
+                <tr>
+                    <td>
+                        <h3>Room No</h3>
+                    </td>
+                    <td>
+                        <p>L101</p>
+                    </td>
+                </tr>
 
-            <div>
+                <tr>
+                    <td>
+                        <h3>Start Date</h3>
+                    </td>
+                    <td>
+                        <p>12-MAY-2024</p>
+                    </td>
+                </tr>
 
-            </div>
+                <tr>
+                    <td>
+                        <h3>End Date</h3>
+                    </td>
+                    <td>
+                        <p>16-MAY-2024</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>Remaining Payemnt</h3>
+                    </td>
+                    <td>
+                        <p>500.00</p>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
