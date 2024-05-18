@@ -4,8 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Staff Statistic</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* BASE STYLES */
+        :root {
+            --clr-dark: #8b97b4;
+            --clr-light: #f1f5f9;
+            --clr-accent: #e11d48;
+            --clr-line: #004cff;
+        }
+
+        .container {
+            width: 80%;
+            height: 600px;
+            margin: 0 auto;
+            border: 10px solid var(--clr-dark);
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-content: center;
+        }
+
+        .row1 {
+            width: 90%;
+            height: 40%;
+            margin: 0 auto;
+            border: 10px solid var(--clr-line);
+            display: flex;
+        }
+
+        .row2 {
+            width: 90%;
+            height: 50%;
+            margin: 0 auto;
+            border: 10px solid var(--clr-line);
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .item {
+            width: 150px;
+            height: 150px;
+            background-color: #fb7185;
+            padding: 1em;
+            font-weight: 700;
+            color: var(--clr-light);
+            text-align: center;
+            border: 10px solid var(--clr-accent);
+            border-radius: 10px;
+        }
+
+        /* END OF BASE STYLES */
+        .row1 {
+            width: 90%;
+            height: 30%;
+            margin: 0 auto;
+            border: 10px solid var(--clr-line);
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .row2 {
+            width: 90%;
+            height: 30%;
+            margin: 0 auto;
+            border: 10px solid var(--clr-line);
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .item {
+            width: 150px;
+            height: 150px;
+            background-color: #fb7185;
+            padding: 1em;
+            font-weight: 700;
+            color: var(--clr-light);
+            text-align: center;
+            border: 10px solid var(--clr-accent);
+            border-radius: 10px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .item-1 {
+            min-width: 50vh;
+        }
+
+        .item-2 {
+            min-width: 50vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,16 +129,20 @@
         </nav>
     </header>
 
-    <div class="block">
-        <p class="title">‘LUXURY IS NO LONGER A DREAM’</p>
-        <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
-        <form action="login.jsp">
-            <button type="submit" class="btn_book">BOOK NOW</button>
-        </form>
+    <div class="container">
+        <div class="row1">
+            <div class="item item-1">Active Room</div>
+            <div class="item item-2">Active Room</div>
+        </div>
 
+        <div class="row2">
+            <div class="item item-3">Total Room</div>
+            <div class="item item-4">Empty Room</div>
+            <div class="item item-5">Unpaid Amount</div>
+            <div class="item item-6">Total Income</div>
+            <div class="item item-6">Pending Report</div>
+        </div>
     </div>
-
-
 </body>
 
 </html>
