@@ -19,71 +19,23 @@
             width: 80%;
             height: 600px;
             margin: 0 auto;
-            border: 10px solid var(--clr-dark);
+            /* border: 10px solid var(--clr-dark); */
             flex-direction: column;
             justify-content: space-evenly;
             align-content: center;
         }
 
-        .row1 {
-            width: 90%;
-            height: 40%;
-            margin: 0 auto;
-            border: 10px solid var(--clr-line);
-            display: flex;
-        }
-
-        .row2 {
-            width: 90%;
-            height: 50%;
-            margin: 0 auto;
-            border: 10px solid var(--clr-line);
-            display: flex;
-            justify-content: space-evenly;
-        }
-
         .item {
             width: 150px;
             height: 150px;
-            background-color: #fb7185;
+            background-color: #ffffff;
             padding: 1em;
             font-weight: 700;
-            color: var(--clr-light);
-            text-align: center;
-            border: 10px solid var(--clr-accent);
             border-radius: 10px;
+            justify-content: center;
         }
 
         /* END OF BASE STYLES */
-        .row1 {
-            width: 90%;
-            height: 30%;
-            margin: 0 auto;
-            border: 10px solid var(--clr-line);
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .row2 {
-            width: 90%;
-            height: 30%;
-            margin: 0 auto;
-            border: 10px solid var(--clr-line);
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .item {
-            width: 150px;
-            height: 150px;
-            background-color: #fb7185;
-            padding: 1em;
-            font-weight: 700;
-            color: var(--clr-light);
-            text-align: center;
-            border: 10px solid var(--clr-accent);
-            border-radius: 10px;
-        }
 
         .container {
             display: flex;
@@ -91,12 +43,23 @@
             gap: 1em;
         }
 
-        .item-1 {
-            min-width: 50vh;
+        .container table {
+            height: 80%;
+            width: 90%;
         }
 
+        .item-1 {
+            width: 90%;
+        }
+
+        .item-1 svg {
+            height: 70px;
+            float: left;
+        }
+
+
         .item-2 {
-            min-width: 50vh;
+            width: 100%;
         }
     </style>
 </head>
@@ -130,18 +93,64 @@
     </header>
 
     <div class="container">
-        <div class="row1">
-            <div class="item item-1">Active Room</div>
-            <div class="item item-2">Active Room</div>
-        </div>
+        <table border="2">
+            <tr>
+                <td colspan="2">
+                    <div class="item item-1">
+                        <h2>Active Room</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="82" height="136" viewBox="0 0 82 136"
+                            fill="none">
+                            <path
+                                d="M0.864793 0.746414L0 1.61121L0.0576542 59.3794C0.115307 113.688 0.17296 117.205 0.634183 118.07C0.922447 118.531 1.26836 119.05 1.38367 119.108C1.9602 119.454 59.959 136 60.6508 136C61.6309 136 63.2452 134.905 63.7064 134.04C63.937 133.521 64.0523 131.445 64.0523 126.891V120.491L72.412 120.434C78.8114 120.376 80.8293 120.261 81.1175 119.973C81.4058 119.684 81.4635 108.961 81.4635 62.4926C81.4635 11.5851 81.4058 5.35864 81.0599 4.95507C80.714 4.60915 76.7359 4.32089 58.1141 3.22549C45.7187 2.53365 28.8841 1.55355 20.6974 1.09233C12.5107 0.631108 4.90049 0.169885 3.74743 0.0545797C1.78724 -0.060726 1.72959 -0.0607261 0.864793 0.746414ZM35.2259 17.0045L58.4023 23.9229V76.041V128.159L57.7681 128.044C57.4222 127.986 45.6034 124.527 31.5361 120.318L5.93824 112.708V60.4748V8.24128L8.99384 9.16373C10.7234 9.6826 22.4846 13.1994 35.2259 17.0045Z"
+                                fill="black" />
+                            <path
+                                d="M48.6011 61.8007C48.2552 61.916 47.7363 62.3772 47.3904 62.8385C46.8139 63.5879 46.7562 63.7609 46.8715 71.9476L46.9292 80.3073L47.7363 80.9991C49.12 82.2098 51.2532 81.7486 52.0603 80.1343C52.4062 79.3848 52.4639 77.8859 52.4639 71.544C52.4639 64.4527 52.4639 63.8762 51.8873 63.0114C51.0802 61.6854 49.9271 61.2242 48.6011 61.8007Z"
+                                fill="black" />
+                        </svg>
+                        <h1>32</h1>
+                    </div>
+                </td>
 
-        <div class="row2">
-            <div class="item item-3">Total Room</div>
-            <div class="item item-4">Empty Room</div>
-            <div class="item item-5">Unpaid Amount</div>
-            <div class="item item-6">Total Income</div>
-            <div class="item item-6">Pending Report</div>
-        </div>
+                <td colspan="3">
+                    <div class="item item-2">
+                        <h3>Active Room</h3>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="item item-3">
+                        <h3>Total Room</h3>
+                        <h1>32</h1>
+                    </div>
+                </td>
+                <td>
+                    <div class="item item-4">
+                        <h3>Empty Room</h3>
+                        <h1>32</h1>
+                    </div>
+                </td>
+                <td>
+                    <div class="item item-5">
+                        <h3>Unpaid Amount</h3>
+                        <h1>32</h1>
+                    </div>
+                </td>
+                <td>
+                    <div class="item item-6">
+                        <h3>Total Income</h3>
+                        <h1>32</h1>
+                    </div>
+                </td>
+                <td>
+                    <div class="item item-7">
+                        <h3>Pending Report</h3>
+                        <h1>32</h1>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 
