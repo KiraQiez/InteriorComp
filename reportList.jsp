@@ -45,7 +45,8 @@
         }
 
         .table {
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0 10px;
             font-size: 14px;
             width: 900px;
             background-color: #ffffff;
@@ -63,12 +64,21 @@
 
         .table th,
         .table td {
-            padding: 8px 8px;
             font-weight: normal;
+            padding: 8px 8px;
         }
 
         .table tr {
             scroll-snap-align: start;
+        }
+
+        .status {
+            text-align: center;
+            font-family: Calibri;
+            border-radius: 10px;
+            align-content: center;
+            background-color: #A7E8A8;
+            color: #1A946F;
         }
     </style>
 </head>
@@ -129,7 +139,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -140,7 +150,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -151,7 +161,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -162,7 +172,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -173,7 +183,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -184,7 +194,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -195,7 +205,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -206,7 +216,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -217,7 +227,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -228,7 +238,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -239,7 +249,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -250,7 +260,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -261,7 +271,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
 
                     <tr>
@@ -272,7 +282,7 @@
                         <td><a href='#'>Review</a></td>
                         <td>01-JAN-2024</td>
                         <td>04-JAN-2024</td>
-                        <td>Solved</td>
+                        <td class="status">Solved</td>
                     </tr>
                 </tbody>
             </table>
