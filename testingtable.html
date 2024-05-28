@@ -5,7 +5,6 @@
     <title>Page Title</title>
     <style>
         /* BASE STYLES */
-        /* BASE STYLES */
         :root {
             --clr-dark: #0f172a;
             --clr-light: #f1f5f9;
@@ -55,6 +54,11 @@
         }
 
         /* END OF BASE STYLES */
+        .frame {
+            border-collapse: separate;
+            border-spacing: 50px 0px;
+        }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -63,6 +67,7 @@
 
         .item-1 {
             min-width: 50vh;
+            min-height: 80vh;
         }
 
         .item-2 {
@@ -72,19 +77,14 @@
 </head>
 
 <body>
-    <!-- <div class="container">
-        <div class="item item-1">Item 1</div>
-        <div class="item item-2">Item 2</div>
-        <div class="item item-3">Item 3</div>
-        <div class="item item-4">Item 4</div>
-        <div class="item item-5">Item 5</div>
-        <div class="item item-6">Item 6</div>
-    </div> -->
-
-    <table border="2">
+    <table class="frame" border="2">
         <tr>
             <td colspan="2">
-                <div class="item item-1">Item 1</div>
+                <div class="item item-1">
+                    <div class="item item2">
+
+                    </div>
+                </div>
             </td>
 
             <td colspan="3">
@@ -92,23 +92,7 @@
             </td>
         </tr>
 
-        <tr>
-            <td>
-                <div class="item item-3">Item 3</div>
-            </td>
-            <td>
-                <div class="item item-4">Item 4</div>
-            </td>
-            <td>
-                <div class="item item-5">Item 5</div>
-            </td>
-            <td>
-                <div class="item item-6">Item 6</div>
-            </td>
-            <td>
-                <div class="item item-7">Item 6</div>
-            </td>
-        </tr>
+
     </table>
 </body>
 
