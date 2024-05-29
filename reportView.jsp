@@ -26,6 +26,11 @@
             border-spacing: 20px;
         }
 
+        .cell-2,
+        .cell-3 {
+            border-radius: 10px;
+        }
+
         .cell-1 {
             width: 40vh;
             height: 20vh;
@@ -35,23 +40,31 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            padding: 20px;
         }
 
 
         .cell-2 {
             min-width: 20vh;
+            background-color: #FFF0DE;
         }
 
-        .cell-2 div {}
+        .cell-2 div {
+            background-color: #f18500;
+            padding: 1em;
+        }
 
         .cell-3 {
             width: 40vh;
+            background: #FFF0DE;
         }
 
         .desc {
-            border-radius: 10px;
-            background: #FFF0DE;
             color: #000000;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
     </style>
 </head>
@@ -109,15 +122,15 @@
 
                 <td class="cell-2" rowspan="2">
                     <div>
-                        <h4>Manager</h4>
+                        <h3>Manager</h3>
                         <p>Madam Tiniey</p>
                         <br>
                         <br>
-                        <h4>Inspection Officer</h4>
+                        <h3>Inspection Officer</h3>
                         <p>Sir Zambri</p>
                         <br>
                         <br>
-                        <h4>Current Status</h4>
+                        <h3>Current Status</h3>
                         <select>
                             <option>pending</option>
                             <option>solved</option>
@@ -130,10 +143,13 @@
             <tr>
                 <td class="cell-3" colspan="2">
                     <div class="desc">
-                        <h1>LEAKING PIPE</h1>
-                        <p>The pipes was rusting and do not have maintenance in such a long time.
-                            Requesting attention
-                            ASAP.</p>
+                        <div>
+                            <h1>LEAKING PIPE</h1>
+                        </div>
+                        <div>
+                            <p>The pipes was rusting and do not have maintenance in such a long time.
+                                Requesting attention ASAP.</p>
+                        </div>
                     </div>
                 </td>
             </tr>
