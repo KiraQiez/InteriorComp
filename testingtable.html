@@ -56,7 +56,9 @@
         /* END OF BASE STYLES */
         .frame {
             border-collapse: separate;
-            border-spacing: 50px 0px;
+            /* border-spacing: 20px 0px; */
+            width: 600px;
+            height: 500px;
         }
 
         .container {
@@ -66,11 +68,19 @@
         }
 
         .item-1 {
+            min-width: 70vh;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .item-2 {
             min-width: 50vh;
             min-height: 80vh;
         }
 
-        .item-2 {
+        .item-3 {
             min-width: 50vh;
         }
     </style>
@@ -80,19 +90,19 @@
     <table class="frame" border="2">
         <tr>
             <td colspan="2">
-                <div class="item item-1">
-                    <div class="item item2">
 
-                    </div>
-                </div>
             </td>
 
-            <td colspan="3">
-                <div class="item item-2">Item 2</div>
+            <td rowspan="2">
+
             </td>
         </tr>
 
+        <tr>
+            <td colspan="2">
 
+            </td>
+        </tr>
     </table>
 </body>
 
