@@ -22,27 +22,36 @@
             background-color: #ffffff;
             width: 160vh;
             border-collapse: separate;
-            border-spacing: 20px 20px;
+            height: 80vh;
+            border-spacing: 20px;
         }
 
-        .item-1 {
-            min-width: 70vh;
-            min-height: 80vh;
+        .cell-1 {
+            width: 40vh;
+            height: 20vh;
+        }
+
+        .rpt-header {
             display: flex;
-            flex-direction: column;
-            gap: 7em;
-            background-color: #fa2121;
+            flex-direction: row;
+            justify-content: space-between;
         }
 
-        .item-2 {
-            min-width: 50vh;
-            min-height: 80vh;
-            background-color: blue;
+
+        .cell-2 {
+            min-width: 20vh;
         }
 
-        .item-3 {
-            width: 100;
-            background-color: #0deb10;
+        .cell-2 div {}
+
+        .cell-3 {
+            width: 40vh;
+        }
+
+        .desc {
+            border-radius: 10px;
+            background: #FFF0DE;
+            color: #000000;
         }
     </style>
 </head>
@@ -77,22 +86,55 @@
 
 
     <div class="mainframe">
-        <table class="frame" border="2">
+        <table border="2">
             <tr>
-                <td colspan="2">
-                    <div class="item-1">
-                        <div class="item-3">
-                            <p>content</p>
+                <td class="cell-1" colspan="2">
+                    <div class="rpt-header">
+                        <div>
+                            <p>Report Number</p>
+                            <p>R101</p>
+                            <br>
+                            <br>
+                            <p>Reported by</p>
+                            <p>Iqmal Nigger</p>
                         </div>
 
-                        <div class="item-3">
-                            <p>content</p>
+                        <div>
+                            <p>20-APRIL-2024</p>
                         </div>
                     </div>
+
+
                 </td>
 
-                <td colspan="3">
-                    <div class="item item-2">Item 2</div>
+                <td class="cell-2" rowspan="2">
+                    <div>
+                        <h4>Manager</h4>
+                        <p>Madam Tiniey</p>
+                        <br>
+                        <br>
+                        <h4>Inspection Officer</h4>
+                        <p>Sir Zambri</p>
+                        <br>
+                        <br>
+                        <h4>Current Status</h4>
+                        <select>
+                            <option>pending</option>
+                            <option>solved</option>
+                            <option>rejected</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="cell-3" colspan="2">
+                    <div class="desc">
+                        <h1>LEAKING PIPE</h1>
+                        <p>The pipes was rusting and do not have maintenance in such a long time.
+                            Requesting attention
+                            ASAP.</p>
+                    </div>
                 </td>
             </tr>
         </table>
