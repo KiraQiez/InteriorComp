@@ -14,14 +14,35 @@
         .mainframe {
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
 
-        .col1 {
+        .mainframe table {
+            background-color: #ffffff;
+            width: 160vh;
+            border-collapse: separate;
+            border-spacing: 20px 20px;
+        }
+
+        .item-1 {
+            min-width: 70vh;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            gap: 7em;
+            background-color: #fa2121;
+        }
+
+        .item-2 {
+            min-width: 50vh;
+            min-height: 80vh;
             background-color: blue;
         }
 
-        .col2 {
-            background-color: blue;
+        .item-3 {
+            width: 100;
+            background-color: #0deb10;
         }
     </style>
 </head>
@@ -54,14 +75,27 @@
         </nav>
     </header>
 
+
     <div class="mainframe">
-        <div class="col1">
+        <table class="frame" border="2">
+            <tr>
+                <td colspan="2">
+                    <div class="item-1">
+                        <div class="item-3">
+                            <p>content</p>
+                        </div>
 
-        </div>
+                        <div class="item-3">
+                            <p>content</p>
+                        </div>
+                    </div>
+                </td>
 
-        <div class="col2">
-
-        </div>
+                <td colspan="3">
+                    <div class="item item-2">Item 2</div>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 
