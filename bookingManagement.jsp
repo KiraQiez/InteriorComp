@@ -108,8 +108,8 @@
             </div>
 
             <ul class="nav_links">
-                <li><a class="active" href="login.jsp">Home</a></li>
-                <li><a href="login.jsp">Room</a></li>
+                <li><a href="login.jsp">Home</a></li>
+                <li><a class="active" href="login.jsp">Room</a></li>
                 <li><a href="login.jsp">Report</a></li>
                 <li><a href="login.jsp">Profile</a></li>
             </ul>
