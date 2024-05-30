@@ -64,23 +64,13 @@
             scroll-snap-align: start;
         }
 
-        .edit {
+        .active {
             text-align: center;
             font-family: Calibri;
             border-radius: 10px;
             align-content: center;
-            background-color: #BFD6F8;
-            color: #4C92F4;
-            padding: 5px;
-        }
-
-        .delete {
-            text-align: center;
-            font-family: Calibri;
-            border-radius: 10px;
-            align-content: center;
-            background-color: #ffbaba;
-            color: #ff5252;
+            background-color: #fffd88;
+            color: #ffb30c;
             padding: 5px;
         }
     </style>
@@ -115,7 +105,7 @@
     </header>
     <div class="container">
         <div>
-            <h1>Room Management</h1>
+            <h1>Booking Management</h1>
         </div>
 
         <div class="scrollable-table">
@@ -123,8 +113,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Room ID</th>
-                        <th>Room Type</th>
+                        <th>Book ID</th>
+                        <th>UserID</th>
+                        <th>Room No</th>
                         <th>Room Capacity</th>
                         <th>Room Price</th>
                         <th>Status</th>
@@ -141,178 +132,11 @@
                         <td>800</td>
                         <td>VACANT</td>
                         <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
+                            <a class="active" href="#">Active</a>
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>2</td>
-                        <td>A026</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>3</td>
-                        <td>A120</td>
-                        <td>DELUXE</td>
-                        <td>4</td>
-                        <td>600</td>
-                        <td>FULL</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>A220</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5</td>
-                        <td>A025</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>A024</td>
-                        <td>DELUXE</td>
-                        <td>4</td>
-                        <td>500</td>
-                        <td>FULL</td>
-                        <td>
-                            <a class="edit" href="#">Edit</a>
-                            <a class="delete" href="#">Delete</a>
-                        </td>
                     </tr>
                 </tbody>
             </table>
