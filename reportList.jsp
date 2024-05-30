@@ -10,13 +10,6 @@
         /* BASE STYLES */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-        :root {
-            --clr-dark: #8b97b4;
-            --clr-light: #f1f5f9;
-            --clr-accent: #e11d48;
-            --clr-line: #004cff;
-        }
-
         /* END OF BASE STYLES */
         /* START NEW CSS FROM HERE */
 
