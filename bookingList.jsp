@@ -114,10 +114,11 @@
                     <tr>
                         <th>No</th>
                         <th>Book ID</th>
-                        <th>UserID</th>
+                        <th>User ID</th>
                         <th>Room No</th>
-                        <th>Room Capacity</th>
-                        <th>Room Price</th>
+                        <th>User Profile</th>
+                        <th>Date Start</th>
+                        <th>Date End</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -125,17 +126,145 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>A020</td>
-                        <td>LUXURY</td>
-                        <td>1</td>
-                        <td>800</td>
-                        <td>VACANT</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
                         <td>
                             <a class="active-status" href="#">Active</a>
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
 
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>24-JAN-2024</td>
+                        <td>
+                            <a class="active-status" href="#">Active</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
