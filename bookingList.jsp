@@ -64,7 +64,7 @@
             scroll-snap-align: start;
         }
 
-        .active {
+        .active-status {
             text-align: center;
             font-family: Calibri;
             border-radius: 10px;
@@ -105,7 +105,7 @@
     </header>
     <div class="container">
         <div>
-            <h1>Booking Management</h1>
+            <h1>Booking List</h1>
         </div>
 
         <div class="scrollable-table">
@@ -119,7 +119,6 @@
                         <th>Room Capacity</th>
                         <th>Room Price</th>
                         <th>Status</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -132,7 +131,7 @@
                         <td>800</td>
                         <td>VACANT</td>
                         <td>
-                            <a class="active" href="#">Active</a>
+                            <a class="active-status" href="#">Active</a>
                         </td>
                     </tr>
 
