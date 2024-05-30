@@ -148,6 +148,135 @@
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>B1001</td>
+                        <td>001</td>
+                        <td>A132</td>
+                        <td><a href="#">View Profile</a></td>
+                        <td>21-JAN-2024</td>
+                        <td>
+                            <a class="approve" href="#">Approve</a>
+                            <a class="reject" href="#">Reject</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
