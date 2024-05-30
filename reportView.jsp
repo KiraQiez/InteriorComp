@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Statistic</title>
+    <title>View Report</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* BASE STYLES */
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         /* START NEW CSS FROM HERE */
 
-        .mainframe {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+        h1,
+        h3 {
+            font-family: 'Inter Black';
+        }
+
+        p {
+            font-family: 'Inter';
+            font-size: 20px;
         }
 
         .mainframe table {
@@ -24,6 +27,8 @@
             border-collapse: separate;
             height: 80vh;
             border-spacing: 20px;
+            border-radius: 15px;
+            margin: 0 auto;
         }
 
         .cell-2,
@@ -31,6 +36,7 @@
             border-radius: 10px;
         }
 
+        /*Header Information*/
         .cell-1 {
             width: 40vh;
             height: 20vh;
@@ -43,28 +49,32 @@
             padding: 20px;
         }
 
-
+        /*Vertical box*/
         .cell-2 {
             min-width: 20vh;
             background-color: #FFF0DE;
         }
 
         .cell-2 div {
-            background-color: #f18500;
             padding: 1em;
         }
 
+        /*Description box*/
         .cell-3 {
-            width: 40vh;
+            min-width: 30vh;
+            max-width: 50vh;
+            height: 20px;
             background: #FFF0DE;
+            padding: 1em;
+            border-radius: 10px;
         }
 
-        .desc {
-            color: #000000;
+        .cell-4 {
+            min-width: 30vh;
+            max-width: 50vh;
+            background: #FFF0DE;
             padding: 1em;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -89,9 +99,9 @@
             </div>
 
             <ul class="nav_links">
-                <li><a class="active" href="login.jsp">Home</a></li>
+                <li><a href="login.jsp">Home</a></li>
                 <li><a href="login.jsp">Room</a></li>
-                <li><a href="login.jsp">Report</a></li>
+                <li><a class="active" href="login.jsp">Report</a></li>
                 <li><a href="login.jsp">Profile</a></li>
             </ul>
         </nav>
@@ -99,28 +109,26 @@
 
 
     <div class="mainframe">
-        <table border="2">
+        <table>
             <tr>
                 <td class="cell-1" colspan="2">
                     <div class="rpt-header">
                         <div>
-                            <p>Report Number</p>
+                            <h3>Report Number</h3>
                             <p>R101</p>
                             <br>
                             <br>
-                            <p>Reported by</p>
+                            <h3>Reported by</h3>
                             <p>Iqmal Nigger</p>
                         </div>
 
                         <div>
-                            <p>20-APRIL-2024</p>
+                            <h3>20-APRIL-2024</h3>
                         </div>
                     </div>
-
-
                 </td>
 
-                <td class="cell-2" rowspan="2">
+                <td class="cell-2" rowspan="3">
                     <div>
                         <h3>Manager</h3>
                         <p>Madam Tiniey</p>
@@ -141,16 +149,18 @@
             </tr>
 
             <tr>
-                <td class="cell-3" colspan="2">
-                    <div class="desc">
-                        <div>
-                            <h1>LEAKING PIPE</h1>
-                        </div>
-                        <div>
-                            <p>The pipes was rusting and do not have maintenance in such a long time.
-                                Requesting attention ASAP.</p>
-                        </div>
-                    </div>
+                <td class="cell-3">
+                    <h1>LEAKING PIPE</h1>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="cell-4" colspan="2">
+
+                    <p>The pipes was rusting and do not have maintenance in such a long time.
+                        Requesting attention ASAP.</p>
+
                 </td>
             </tr>
         </table>
