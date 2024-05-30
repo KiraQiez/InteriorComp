@@ -66,6 +66,7 @@
 
         .edit {
             text-align: center;
+            text-decoration: none;
             font-family: Calibri;
             border-radius: 10px;
             align-content: center;
@@ -76,6 +77,7 @@
 
         .delete {
             text-align: center;
+            text-decoration: none;
             font-family: Calibri;
             border-radius: 10px;
             align-content: center;
