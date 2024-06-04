@@ -11,12 +11,22 @@ body {
     background-repeat: no-repeat;
 }
 
+.normal{
+   background-color: #ffffff;
+   
+
+}
+
+
+
 header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-
+.back{
+    background-color: #4e5d7c;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -270,3 +280,18 @@ header {
     text-decoration: underline;
 }
 
+.box{
+    display: flex;
+
+    background-color: #ffffff;
+    margin: 0 auto;
+    width: 80%;
+    height: 70vh;
+    border-radius: 10px;
+}
+
+
+.normalTitle{
+    color: #fdae30;
+    font-size: 30px;
+}

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="normal">
     <header>
         <nav class="navbar">
             <div class="site-logo">
@@ -48,11 +48,11 @@
 
         <div class="login">
             <h1>Register</h1>
-            <form action="login.jsp" method="post">
+            <form action="home.jsp" method="post">
                 <input type="text" name="email" placeholder="Email" required>
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
         </div>
 
