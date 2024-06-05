@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url(rsc/background.png);
+    background: url(resource/background.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -294,4 +294,9 @@ header {
 .normalTitle{
     color: #fdae30;
     font-size: 30px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
 }

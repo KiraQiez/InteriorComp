@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Register Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="normal">
+<body>
     <header>
         <nav class="navbar">
             <div class="site-logo">
@@ -25,37 +26,26 @@
                 </svg>
                 <h1>INTERIOR</h1>
             </div>
+
             <ul class="nav_links">
-                <li><a class="active" href="home.jsp">Home</a></li>
-                <li><a href="#">Room</a></li>
-                <li><a href="#">Report</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a class="active" href="login.jsp">Home</a></li>
+                <li><a href="login.jsp">Room</a></li>
+                <li><a href="login.jsp">Report</a></li>
+                <li><a href="login.jsp">Profile</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="board">
-        <div class="loginChange">
-            <h1>Hello friend!</h1>
-            <p>Already have an account?
-                <br>
-                Sign In now!</p>
-                <form action="login.jsp">
-                    <button type="submit">Sign In</button>
-                </form>
-                
-        </div>
-
-        <div class="login">
-            <h1>Register</h1>
-            <form action="home.jsp" method="post">
-                <input type="text" name="email" placeholder="Email" required>
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Register</button>
-            </form>
-        </div>
-
+    <div class="block">
+        <p class="title">"LUXURY IS NO LONGER A DREAM"</p>
+        <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
+        <form action="login.jsp">
+            <button type="submit" class="btn_book">BOOK NOW</button>
+        </form>
+        
     </div>
+
+
 </body>
+
 </html>

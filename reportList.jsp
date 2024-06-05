@@ -54,7 +54,7 @@
             top: 0px;
             font-family: 'Inter Black';
         }
-
+        
         .table th,
         .table td {
             font-weight: normal;
