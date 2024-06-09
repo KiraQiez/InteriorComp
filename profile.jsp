@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Interior\web\style.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
         </nav>
     </header>
 
-    <h1 class="normalTitle">PROFILE</h1> 
+    <h1 class="normalTitle">PROFILE</h1>
 
     <div class="box">
         <img src="images/profile.jpg" alt="profile" class="profile">
