@@ -97,7 +97,7 @@
     <div class="base">
         <div class="base-white">
             <div>
-                <img src="rsc/2.png">
+                <img src="Interior\web\resource\2.png">
             </div>
 
             <table>
