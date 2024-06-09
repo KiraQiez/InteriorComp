@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Management</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Interior\web\style.css">
     <style>
         /* BASE STYLES */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -18,72 +18,34 @@
             align-items: center;
             flex-direction: column;
             gap: 2em;
+            color: #fff;
         }
 
-        .container h1 {
-            color: #ffffff;
-            font-family: 'Inter Black';
+        .input-container {
+            background-color: #fff;
         }
 
-        .scrollable-table {
-            height: 500px;
-            overflow-y: auto;
-            width: 1000px;
-            scroll-snap-type: y mandatory;
+        .input-container td {
+            color: #000;
+            text-align: right;
         }
 
-        .scrollable-table>.table {
-            width: 100%;
+        .create-btn {
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
         }
 
-        .table {
-            border-collapse: separate;
-            border-spacing: 0 10px;
-            font-size: 14px;
-            width: 900px;
-            background-color: #ffffff;
-            text-align: center;
-            font-size: 20px;
-        }
-
-        .table th {
+        .input-container input {
+            height: 100%;
+            width: 500px;
+            background-color: #d9d9d9;
+            border: none;
+            outline: none;
+            font-size: 16px;
             color: #000000;
-            background-color: #ffffff;
-            position: sticky;
-            top: 0px;
-            font-family: 'Inter Black';
-        }
-
-        .table th,
-        .table td {
-            font-weight: normal;
-            padding: 8px 8px;
-        }
-
-        .table tr {
-            scroll-snap-align: start;
-        }
-
-        .edit {
-            text-align: center;
-            text-decoration: none;
-            font-family: Calibri;
-            border-radius: 10px;
-            align-content: center;
-            background-color: #BFD6F8;
-            color: #4C92F4;
-            padding: 5px;
-        }
-
-        .delete {
-            text-align: center;
-            text-decoration: none;
-            font-family: Calibri;
-            border-radius: 10px;
-            align-content: center;
-            background-color: #ffbaba;
-            color: #ff5252;
-            padding: 5px;
+            padding: 20px 45px 20px 20px;
+            margin: 30px 0;
         }
     </style>
 </head>
@@ -120,7 +82,53 @@
             <h1>Create Room</h1>
         </div>
 
+        <div class="input-container">
+            <form action="#">
+                <table>
+                    <tr>
+                        <td>Room Type: </td>
+                        <td>
+                            <div class="input-box">
+                                <input type="number">
+                            </div>
+                        </td>
+                    </tr>
 
+                    <tr>
+                        <td>Block: </td>
+                        <td>
+                            <div class="input-box">
+                                <input type="number">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Capacity: </td>
+                        <td>
+                            <div class="input-box">
+                                <input type="number">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Price: </td>
+                        <td>
+                            <div class="input-box">
+                                <input type="number">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <a class="create-btn" href="#">Create</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 
 </body>
