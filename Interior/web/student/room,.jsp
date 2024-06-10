@@ -5,89 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Room</title>
-    <link rel="stylesheet" href="Interior\web\style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
-        /*START NEW CSS HERE*/
-        .title {
-            color: #FCBB6D;
-            text-shadow: 0px 10px 4px #00000040;
-            font-family: Inter;
-            font-size: 50px;
-            font-style: normal;
-            font-weight: 800;
-            line-height: normal;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            height: 500px;
-            gap: 48px;
-            flex-grow: 1;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .div1,
-        .div2,
-        .div3 {
-            width: 336px;
-            height: 400px;
-            background-color: #ffffff;
-            border-radius: 20px;
-        }
-
-        .container img {
-            width: 336px;
-            height: 200px;
-        }
-
-        .container h3 {
-            text-align: center;
-        }
-
-        .container p {
-            font-family: 'Inter Regular', Arial, sans-serif;
-            text-align: center;
-        }
-
-        .btn_container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .btn_book {
-            width: 150px;
-            height: 50px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            background: #FCBB6D;
-            font-family: 'Inter Black';
-            font-size: 24px;
-            transition: all 0.3s ease 0s;
-        }
-
-        .btn_book:hover,
-        .btn_book:active {
-            width: 150px;
-            height: 50px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            background: #f14e1d;
-            font-family: 'Inter Black';
-            font-size: 24px;
-            color: #000000;
-            transition: all 0.3s ease 0s;
-        }
-
-        .pricing {
-            color: #a0a0a0;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -110,10 +28,10 @@
 
         <div class="nav-links">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="home.jsp">Home</a></li>
                 <li><a class="active" href="#">Room</a></li>
-                <li><a href="#">Report</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="report.jsp">Report</a></li>
+                <li><a href="profile.jsp">Profile</a></li>
             </ul>
         </div>
     </nav>
@@ -121,8 +39,8 @@
     <p class="title">ROOM BOOKING</p>
 
     <div class="container">
-        <div class="div1">
-            <img src="Interior\web\resource\4.png">
+        <div class="selector_room">
+            <img src="resource\4.png">
             <h3>Normal Room</h3>
             <br>
             <p>Simple and minimalistic room</p>
@@ -133,8 +51,8 @@
 
         </div>
 
-        <div class="div2">
-            <img src="Interior\web\resource\3.png">
+        <div class="selector_room">
+            <img src="resource\3.png">
             <h3>Deluxe Room</h3>
             <br>
             <p>Simple and minimalistic room</p>
@@ -144,8 +62,8 @@
             </div>
         </div>
 
-        <div class="div3">
-            <img src="Interior\web\resource\2.png">
+        <div class="selector_room">
+            <img src="resource\2.png">
             <h3>Luxury Room</h3>
             <br>
             <p>Simple and minimalistic room</p>

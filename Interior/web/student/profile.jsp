@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="Interior\web\style.css">
+    <link rel="stylesheet" href="..\style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 
             <ul class="nav_links">
                 <li><a class="active" href="home.jsp">Home</a></li>
-                <li><a href="#">Room</a></li>
+                <li><a href="room.jsp">Room</a></li>
                 <li><a href="report.jsp">Report</a></li>
                 <li><a href="#">Profile</a></li>
             </ul>
