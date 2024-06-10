@@ -11,9 +11,9 @@ body {
     background-repeat: no-repeat;
 }
 
-.normal{
-   background-color: #ffffff;
-   
+.normal {
+    background-color: #ffffff;
+
 
 }
 
@@ -22,9 +22,11 @@ header {
     justify-content: flex-end;
     align-items: center;
 }
-.back{
+
+.back {
     background-color: #4e5d7c;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -154,7 +156,7 @@ header {
     align-items: center;
     height: 70vh;
     margin: 40px 200px;
-    
+
 }
 
 .login {
@@ -191,7 +193,7 @@ header {
     margin-bottom: 20px;
     font-size: 28px;
     position: relative;
-    
+
 }
 
 .login h1::after {
@@ -200,10 +202,11 @@ header {
     left: 0;
     bottom: -8px;
     width: 100%;
-    height: 5px; 
-    background-color: #ffffff; 
+    height: 5px;
+    background-color: #ffffff;
     border-radius: 15px;
 }
+
 .login form {
     display: flex;
     flex-direction: column;
@@ -224,7 +227,7 @@ header {
     color: #ffffff;
     transition: background-color 0.3s ease;
     margin-bottom: 20px;
- 
+
 }
 
 .login form input::placeholder {
@@ -236,7 +239,8 @@ header {
     outline: none;
 }
 
-.login button,.loginChange button {
+.login button,
+.loginChange button {
     height: 45px;
     border-radius: 25px;
     border: none;
@@ -254,11 +258,11 @@ header {
     background-color: #f8ca7f;
 }
 
-.loginChange{
+.loginChange {
     height: 65vh;
 }
 
-.loginChange h1{
+.loginChange h1 {
     color: #ffffff;
 }
 
@@ -278,7 +282,7 @@ header {
     text-decoration: underline;
 }
 
-.box{
+.box {
     display: flex;
     background-color: #ffffff;
     margin: 0 auto;
@@ -289,7 +293,7 @@ header {
 }
 
 
-.normalTitle{
+.normalTitle {
     color: #fdae30;
     font-size: 30px;
 }

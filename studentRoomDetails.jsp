@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Deatils</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Interior\web\style.css">
     <style>
         body {
             margin: 0;
@@ -97,7 +97,7 @@
     <div class="base">
         <div class="base-white">
             <div>
-                <img src="rsc/2.png">
+                <img src="Interior\web\resource\2.png">
             </div>
 
             <table>

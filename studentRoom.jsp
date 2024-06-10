@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Room</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Interior\web\style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
@@ -122,7 +122,7 @@
 
     <div class="container">
         <div class="div1">
-            <img src="rsc/4.png">
+            <img src="Interior\web\resource\4.png">
             <h3>Normal Room</h3>
             <br>
             <p>Simple and minimalistic room</p>
@@ -134,7 +134,7 @@
         </div>
 
         <div class="div2">
-            <img src="rsc/3.png">
+            <img src="Interior\web\resource\3.png">
             <h3>Deluxe Room</h3>
             <br>
             <p>Simple and minimalistic room</p>
@@ -145,7 +145,7 @@
         </div>
 
         <div class="div3">
-            <img src="rsc/2.png">
+            <img src="Interior\web\resource\2.png">
             <h3>Luxury Room</h3>
             <br>
             <p>Simple and minimalistic room</p>
