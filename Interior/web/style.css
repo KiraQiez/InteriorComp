@@ -17,8 +17,6 @@ body {
 
 }
 
-
-
 header {
     display: flex;
     justify-content: flex-end;
@@ -282,12 +280,12 @@ header {
 
 .box{
     display: flex;
-
     background-color: #ffffff;
     margin: 0 auto;
     width: 80%;
     height: 70vh;
     border-radius: 10px;
+    position: relative;
 }
 
 
@@ -296,7 +294,54 @@ header {
     font-size: 30px;
 }
 
+.message {
+    color: white;
+}
+
+
 .error-message {
     color: red;
-    font-weight: bold;
 }
+
+/*Profile Style*/
+.profile{
+    margin-top:20px;
+    width:30vw;
+    height: 60vh;
+}
+
+.profile-text{
+    margin-top: 20px;
+}
+
+.profile-text p{
+    color: #555;
+}
+
+.line {
+    display: block;
+    background-color:#8f8f8f;
+    width: 40vw;
+    height: 4px; 
+    margin: 10px 0;
+    border-radius: 5px; 
+}
+
+.profile-content p{
+    margin-top: 10px;
+}
+
+.edit-profile {
+    position: absolute;
+    right: 20px; 
+    top: 20px; 
+    padding: 10px 20px; 
+    background-color: #FCBB6D; 
+    color: #000000;
+    font-weight: bold; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+

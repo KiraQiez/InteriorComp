@@ -63,10 +63,10 @@ password="root"/>
                 <input type="password" name="password" placeholder="Password" id="password" required>
                 <button type="submit">Register</button>
             <c:if test="${result >= 1}">
-                <p>User registered successfully!</p>
+                <p class="message">User registered successfully!</p>
             </c:if>
             <c:if test="${result < 1}">
-                <p>Error: User registration failed.</p>
+                <p class="error-message">Error: User registration failed.</p>
             </c:if>
             </form>
         </div>
