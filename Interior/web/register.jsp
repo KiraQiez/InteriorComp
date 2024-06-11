@@ -43,9 +43,10 @@ password="root"/>
                 <button type="submit">Sign In</button>
             </form>
         </div>
-        
+ 
         <c:set var="username" value="${param.username}"/>  
         <c:set var="password" value="${param.password}"/>
+
         <c:set var="usertype" value="student"/>
         
         <c:if test="${(username != null) && (password != null)}">
