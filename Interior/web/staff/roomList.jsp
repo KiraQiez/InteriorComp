@@ -70,6 +70,31 @@ password="root"/>
         tbody tr:nth-child(even) {
             background-color: #e9e9e9;
         }
+
+        /* Button Styles */
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-container button {
+            background-color: #FCBB6D;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #e0a354;
+        }
     </style>
 </head>
 
@@ -102,14 +127,19 @@ password="root"/>
     </nav>
 
     <p class="title-ot">ROOM LIST</p>
-
-        <sql:query var="room_list" dataSource="${myDatasource_1}">
-            SELECT * FROM ROOM
-        </sql:query>
     
+
+    
+    <sql:query var="room_list" dataSource="${myDatasource_1}">
+        SELECT * FROM ROOM LIMIT 1, 5
+
+    </sql:query>
 
     <div class="table-container">
         <h2>Room List</h2>
+        <div class="button-container">
+            <button>Create Room</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -129,7 +159,13 @@ password="root"/>
                 </c:forEach>   
             </tbody>
         </table>
+        <div class="button-container">
+            <button>Prev</button>
+            <button>Next</button>
+        </div>
     </div>
+    
+
 
 </body>
 
