@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-<sql:setDataSource var="myDatasource" 
+<sql:setDataSource var="myDatasource_1" 
 driver="org.apache.derby.jdbc.ClientDriver"
- url="jdbc:derby://localhost:1527/UserDB" user="root" 
+ url="jdbc:derby://localhost:1527/InteriorDB" user="root" 
 password="root"/>
 
 <!DOCTYPE html>
@@ -46,13 +46,15 @@ password="root"/>
         
         <c:set var="username" value="${param.username}"/>  
         <c:set var="password" value="${param.password}"/>
+        <c:set var="usertype" value="student"/>
         
         <c:if test="${(username != null) && (password != null)}">
-            <sql:update dataSource="${myDatasource}" var="result">
-                INSERT INTO users (username, password)
-                VALUES (?, ?)
+            <sql:update dataSource="${myDatasource_1}" var="result">
+                INSERT INTO USERS (username, password, usertype)
+                VALUES (?, ?, ?)
                 <sql:param value="${username}"/>  
-                <sql:param value="${password}"/>  
+                <sql:param value="${password}"/>
+                <sql:param value="${usertype}"/> 
             </sql:update>
         </c:if>
         
