@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<sql:setDataSource var="myDatasource_1" 
+<sql:setDataSource var="myDatasource" 
 driver="org.apache.derby.jdbc.ClientDriver"
  url="jdbc:derby://localhost:1527/InteriorDB" user="root" 
 password="root"/>
@@ -129,41 +129,64 @@ password="root"/>
     <p class="title-ot">ROOM LIST</p>
     
 
+<%
+    int rowsPerPage = 10; 
+    int currentPage = 1; 
+    String pageParam = request.getParameter("page");
     
-    <sql:query var="room_list" dataSource="${myDatasource_1}">
-        SELECT * FROM ROOM LIMIT 1, 5
+    if (pageParam != null) {
+        try {
+            currentPage = Integer.parseInt(pageParam);
+        } catch (NumberFormatException e) {
+            currentPage = 1; 
+        }
+    }
 
-    </sql:query>
+    int offset = (currentPage - 1) * rowsPerPage;
+%>
 
-    <div class="table-container">
-        <h2>Room List</h2>
-        <div class="button-container">
-            <button>Create Room</button>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Room ID</th>
-                    <th>Room Type</th>
-                    <th>Price</th>
-                    <th>Max Capacity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="row" items="${room_list.rowsByIndex}">
-                    <tr>
-                        <c:forEach var="column" items="${row}">
-                            <td><c:out value="${column}"/></td>
-                        </c:forEach>
-                    </tr>
-                </c:forEach>   
-            </tbody>
-        </table>
-        <div class="button-container">
-            <button>Prev</button>
-            <button>Next</button>
-        </div>
+<sql:query var="room_list" dataSource="${myDatasource}">
+    SELECT * FROM ROOM OFFSET <%= offset %> ROWS FETCH NEXT <%= rowsPerPage %> ROWS ONLY
+</sql:query>
+
+<div class="table-container">
+    <h2>Room List</h2>
+    <div class="button-container">
+        <button>Create Room</button>
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Room ID</th>
+                <th>Room Type</th>
+                <th>Price</th>
+                <th>Max Capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="row" items="${room_list.rowsByIndex}">
+                <tr>
+                    <c:forEach var="column" items="${row}">
+                        <td><c:out value="${column}"/></td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>   
+        </tbody>
+    </table>
+    <div class="button-container">
+        <form action="roomList.jsp" method="get" style="display:inline;">
+            <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
+            <button type="submit">Prev</button>
+        </form>
+        <form action="roomList.jsp" method="get" style="display:inline;">
+            <input type="hidden" name="page" value="<%= currentPage + 1 %>" />
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</div>
+
+
+
     
 
 
