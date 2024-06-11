@@ -63,7 +63,7 @@ public class CheckLogin extends HttpServlet {
     }
 
     private int loginPass(String username, String password) throws SQLException {
-        String sqlCheckUsername = "SELECT * FROM DATA WHERE username = ?";
+        String sqlCheckUsername = "SELECT * FROM USERS WHERE username = ?";
         pstmt = conn.prepareStatement(sqlCheckUsername);
         pstmt.setString(1, username);
         ResultSet rs = pstmt.executeQuery();
@@ -72,7 +72,7 @@ public class CheckLogin extends HttpServlet {
             return 1; // Username does not exist
         }
 
-        String sqlCheckPassword = "SELECT * FROM DATA WHERE username = ? AND password = ?";
+        String sqlCheckPassword = "SELECT * FROM USERS WHERE username = ? AND password = ?";
         pstmt = conn.prepareStatement(sqlCheckPassword);
         pstmt.setString(1, username);
         pstmt.setString(2, password);

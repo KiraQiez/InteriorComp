@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="Interior\web\style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -28,26 +28,36 @@
             </div>
 
             <ul class="nav_links">
-                <li><a class="active" href="login.jsp">Home</a></li>
-                <li><a href="login.jsp">Room</a></li>
-                <li><a href="login.jsp">Report</a></li>
-                <li><a href="login.jsp">Profile</a></li>
+                <li><a class="active" href="home.jsp">Home</a></li>
+                <li><a href="#">Room</a></li>
+                <li><a href="report.jsp">Report</a></li>
+                <li><a href="#">Profile</a></li>
             </ul>
         </nav>
     </header>
 
-    <h1 class="normalTitle">PROFILE</h1>
+    <h1 class="normalTitle">PROFILE</h1> 
 
     <div class="box">
-        <img src="images/profile.jpg" alt="profile" class="profile">
-        <div class="text">
-            <h1>Muhammad Aqilzafry</h1>
-            <p>Username: <span>John Doe</span></p>
-            <p>Room No: </p>
-            <p>Room No: </p>
-            <p>Room No: </p>
-            <p>Room No: </p>
+        <img src="resource/profile.png" alt="profile" class="profile">
+        <div class="profile-text">
+            <h1>Muhammad Aqilzafry</h1><break>
+            <p>Kuala Terengganu, Terengganu</p>
+            <div class="line"></div>
+            <div class="profile-content">
+                <p>Username: </p>
+                <input type="text" name="username" required>
+                <p>Room No: </p>
+                <input type="text" name="username" required>
+                <p>Room No: </p>
+                <input type="text" name="username" required>
+                <p>Room No: </p>
+                <input type="text" name="username" required>
+                <p>Room No: </p>
+                <input type="text" name="username" required>
+            </div>
         </div>
+        <button class="edit-profile" >Save</button>
     </div>
 
 

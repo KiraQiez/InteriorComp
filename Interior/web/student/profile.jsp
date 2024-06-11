@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="..\style.css">
 </head>
 
 <body>
@@ -28,21 +28,31 @@
             </div>
 
             <ul class="nav_links">
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="login.jsp">Room</a></li>
+                <li><a class="active" href="home.jsp">Home</a></li>
+                <li><a href="room.jsp">Room</a></li>
                 <li><a href="report.jsp">Report</a></li>
-                <li><a href="profile.jsp">Profile</a></li>
+                <li><a href="#">Profile</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="block">
-        <p class="title">"LUXURY IS NO LONGER A DREAM"</p>
-        <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
-        <form action="login.jsp">
-            <button type="submit" class="btn_book">BOOK NOW</button>
-        </form>
-        
+    <h1 class="normalTitle">PROFILE</h1>
+
+    <div class="box">
+        <img src="resource/profile.png" alt="profile" class="profile">
+        <div class="profile-text">
+            <h1>Muhammad Aqilzafry</h1><break>
+            <p>Kuala Terengganu, Terengganu</p>
+            <div class="line"></div>
+            <div class="profile-content">
+                <p>Username: <span>John Doe</span></p>
+                <p>Room No: </p>
+                <p>Room No: </p>
+                <p>Room No: </p>
+                <p>Room No: </p>
+            </div>
+        </div>
+        <button class="edit-profile" >EDIT PROFILE</button>
     </div>
 
 
