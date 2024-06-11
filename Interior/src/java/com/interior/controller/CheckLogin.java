@@ -52,7 +52,7 @@ public class CheckLogin extends HttpServlet {
     private void initializeJdbc() {
         try {
             String driver = "org.apache.derby.jdbc.ClientDriver";
-            String connectionString = "jdbc:derby://localhost:1527/UserDB";
+            String connectionString = "jdbc:derby://localhost:1527/InteriorDB";
             String usr = "root", pass = "root";
 
             Class.forName(driver);
