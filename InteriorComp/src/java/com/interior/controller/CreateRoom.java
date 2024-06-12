@@ -19,7 +19,6 @@ public class CreateRoom extends HttpServlet {
         String roomType = request.getParameter("roomType");
         String block = request.getParameter("block");
         int capacity = Integer.parseInt(request.getParameter("capacity"));
-        double price = Double.parseDouble(request.getParameter("price"));
 
         // Database connection
         String jdbcUrl = "jdbc:derby://localhost:1527/InteriorDB";
@@ -51,24 +50,25 @@ public class CreateRoom extends HttpServlet {
             }
 
             // Step 2: Insert new room with generated ROOMID
-            String insertSql = "INSERT INTO ROOM (ROOMID, ROOMTYPE, BLOCK, CAPACITY, PRICE) VALUES (?, ?, ?, ?, ?)";
+            String insertSql = "INSERT INTO ROOM (ROOMID, BLOCK, ROOMTYPE, MAXCAPACITY, Availability, STATUS) VALUES (?, ?, ?, ?, ?, ?)";
             insertStatement = connection.prepareStatement(insertSql);
             insertStatement.setString(1, newRoomId);
-            insertStatement.setString(2, roomType);
-            insertStatement.setString(3, block);
+            insertStatement.setString(2, block);
+            insertStatement.setString(3, roomType);
             insertStatement.setInt(4, capacity);
-            insertStatement.setDouble(5, price);
+            insertStatement.setInt(5, capacity);
+            insertStatement.setString(6, "Working");
 
             // Execute the insert operation
             insertStatement.executeUpdate();
 
             // Redirect to a success page
-            response.sendRedirect("success.jsp");
+            response.sendRedirect("roomList.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();
             // Redirect to an error page
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("home.jsp");
         } finally {
             // Close resources
             try {

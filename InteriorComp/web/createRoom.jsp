@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Room</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         /* ROOM */
         .title-ot {
@@ -120,8 +120,6 @@
             <label for="capacity">Capacity:</label>
             <input type="number" id="capacity" name="capacity" required>
 
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" required>
 
             <button type="submit">Create Room</button>
         </form>

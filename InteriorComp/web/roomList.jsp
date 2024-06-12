@@ -160,17 +160,24 @@ password="root"/>
         <thead>
             <tr>
                 <th>Room ID</th>
+                <th>Block</th>
                 <th>Room Type</th>
-                <th>Price</th>
                 <th>Max Capacity</th>
+                <th>Availability</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="row" items="${room_list.rowsByIndex}">
                 <tr>
+                    <form action="#">
                     <c:forEach var="column" items="${row}">
                         <td><c:out value="${column}"/></td>
                     </c:forEach>
+                        <button>View</button>
+                        <button></button>
+                    </form>
                 </tr>
             </c:forEach>   
         </tbody>
