@@ -14,38 +14,69 @@
 
         .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            gap: 2em;
-            color: #fff;
+            min-height: 80vh;
         }
 
         .input-container {
-            background-color: #fff;
-        }
-
-        .input-container td {
-            color: #000;
-            text-align: right;
-        }
-
-        .create-btn {
-            text-decoration: none;
+            background: #fefefe;
+            border-radius: 20px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        .input-container input {
-            height: 100%;
-            width: 500px;
-            background-color: #d9d9d9;
+        .input-container table {
+            border-spacing: 2em;
+        }
+
+        .input-box {
+            width: 100%;
+        }
+
+        .input-box select,
+        .input-box input {
+            width: 40vh;
+            height: 40px;
+            background-color: #D9D9D9;
             border: none;
-            outline: none;
-            font-size: 16px;
+            border-radius: 10px;
+            padding: 0 10px;
+            box-sizing: border-box;
             color: #000000;
-            padding: 20px 45px 20px 20px;
-            margin: 30px 0;
+        }
+
+        .input-box input::placeholder {
+            color: #ffffff;
+        }
+
+        .create-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 18px;
+            border-radius: 10px;
+            background-color: #fdae30;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .label {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .create-btn:hover {
+            background-color: #ffcf67;
         }
     </style>
 </head>
@@ -77,6 +108,7 @@
             </ul>
         </nav>
     </header>
+
     <div class="container">
         <div>
             <h1>Create Room</h1>
@@ -86,44 +118,52 @@
             <form action="#">
                 <table>
                     <tr>
-                        <td>Room Type: </td>
+                        <td class="label">Room Type: </td>
                         <td>
                             <div class="input-box">
-                                <input type="number">
+                                <select>
+                                    <option>Basic</option>
+                                    <option>Deluxe</option>
+                                    <option>Luxury</option>
+                                </select>
                             </div>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Block: </td>
+                        <td class="label">Block: </td>
                         <td>
                             <div class="input-box">
-                                <input type="number">
+                                <select>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                </select>
                             </div>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Capacity: </td>
+                        <td class="label">Capacity: </td>
                         <td>
                             <div class="input-box">
-                                <input type="number">
+                                <input type="text">
                             </div>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Price: </td>
+                        <td class="label">Price: </td>
                         <td>
                             <div class="input-box">
-                                <input type="number">
+                                <input type="text">
                             </div>
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="2">
-                            <a class="create-btn" href="#">Create</a>
+                            <button class="create-btn" type="submit">Create</button>
                         </td>
                     </tr>
                 </table>
