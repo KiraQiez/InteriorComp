@@ -4,9 +4,17 @@
         <servlet-name>CheckLogin</servlet-name>
         <servlet-class>com.interior.controller.CheckLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateRoom</servlet-name>
+        <servlet-class>com.interior.controller.CreateRoom</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateRoom</servlet-name>
+        <url-pattern>/CreateRoom</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

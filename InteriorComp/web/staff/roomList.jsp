@@ -151,9 +151,11 @@ password="root"/>
 
 <div class="table-container">
     <h2>Room List</h2>
-    <div class="button-container">
-        <button>Create Room</button>
-    </div>
+    <form action="../createRoom.jsp" method="get" style="display:inline;">
+        <div class="button-container">
+            <button>Create Room</button>
+        </div>
+    </form>
     <table>
         <thead>
             <tr>

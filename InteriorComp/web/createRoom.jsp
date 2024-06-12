@@ -102,7 +102,7 @@
 
     <div class="form-container">
         <h2>Create Room</h2>
-        <form action="createRoom.jsp" method="post">
+        <form action="CreateRoom" method="post">
             <label for="roomType">Room Type:</label>
             <select id="roomType" name="roomType" required>
                 <option value="Normal">Normal</option>
