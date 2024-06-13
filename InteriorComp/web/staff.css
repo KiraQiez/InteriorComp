@@ -1,0 +1,376 @@
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.navbar {
+    width: 250px;
+    background-color: #161b22;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.navbar .logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #58a6ff;
+}
+
+.profile {
+    margin-bottom: 30px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #30363d;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar li {
+    width: 100%;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar a i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.navbar a span {
+    display: block;
+    margin-top: 5px;
+}
+
+.navbar a:hover {
+    background-color: #21262d;
+    color: #58a6ff;
+}
+
+.navbar a:hover i {
+    color: #58a6ff;
+}
+
+.navbar a.active {
+    background-color: #0366d6;
+    color: white;
+}
+
+.navbar a.active i {
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    margin-left: 250px;
+    background-color: #0d1117;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #c9d1d9;
+}
+
+.search-profile {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #21262d;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 4px;
+    flex-grow: 1;
+    color: #c9d1d9;
+}
+
+.search-bar button {
+    padding: 8px;
+    background-color: #0366d6;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0255b6;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    margin-right: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #c9d1d9;
+}
+
+.staff-rank {
+    font-size: 14px;
+    color: gray;
+}
+
+.profile-pic-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #30363d;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+    width: 140px;
+}
+
+.user-profile:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #c9d1d9;
+    text-decoration: none;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.dropdown-menu a:hover {
+    background-color: #21262d;
+}
+
+.dropdown-menu a:focus {
+    background-color: #21262d;
+    outline: none;
+}
+
+.content {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #c9d1d9;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.table-container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table-container table thead {
+    background-color: #21262d;
+}
+
+.table-container table thead th {
+    padding: 10px;
+    text-align: left;
+    color: #c9d1d9;
+    border-bottom: 1px solid #30363d;
+}
+
+.table-container table tbody tr {
+    transition: background 0.3s;
+}
+
+.table-container table tbody tr:hover {
+    background-color: #21262d;
+}
+
+.table-container table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #30363d;
+    color: #c9d1d9;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.header-actions button {
+    padding: 10px 20px;
+    background-color: #0366d6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.header-actions button:hover {
+    background-color: #0255b6;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-container span {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #c9d1d9;
+}
+
+.pagination-container button {
+    padding: 10px 20px;
+    background-color: #0366d6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination-container button:hover {
+    background-color: #0255b6;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    color: #c9d1d9;
+}
+
+.breadcrumb a {
+    color: #58a6ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #0366d6;
+}
+
+.breadcrumb a.active {
+    color: #c9d1d9;
+    pointer-events: none;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #58a6ff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.back-button:hover {
+    color: #0366d6;
+}

@@ -63,12 +63,12 @@ public class CreateRoom extends HttpServlet {
             insertStatement.executeUpdate();
 
             // Redirect to a success page
-            response.sendRedirect("roomList.jsp");
+            response.sendRedirect("roomS.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();
             // Redirect to an error page
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("roomError.jsp");
         } finally {
             // Close resources
             try {
