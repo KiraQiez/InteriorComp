@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CheckLogin extends HttpServlet {
     private PreparedStatement pstmt;
@@ -42,6 +43,10 @@ public class CheckLogin extends HttpServlet {
                 request.setAttribute("password", password);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             } else {
+                // Create a new session if it doesn't exist
+                HttpSession session = request.getSession(true);
+                // Set session attributes
+                session.setAttribute("username", username);
                 response.sendRedirect(request.getContextPath() + "/home.jsp");
             }
         } catch (Exception ex) {

@@ -157,31 +157,34 @@ password="root"/>
         </div>
     </form>
     <table>
-        <thead>
+    <thead>
+        <tr>
+            <th>Room ID</th>
+            <th>Block</th>
+            <th>Room Type</th>
+            <th>Max Capacity</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="row" items="${room_list.rowsByIndex}">
             <tr>
-                <th>Room ID</th>
-                <th>Block</th>
-                <th>Room Type</th>
-                <th>Max Capacity</th>
-                <th>Availability</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="row" items="${room_list.rowsByIndex}">
-                <tr>
-                    <form action="#">
+                <form action="StaffRoomDetails.jsp" method="get">
                     <c:forEach var="column" items="${row}">
                         <td><c:out value="${column}"/></td>
                     </c:forEach>
-                        <button>View</button>
-                        <button></button>
-                    </form>
-                </tr>
-            </c:forEach>   
-        </tbody>
-    </table>
+                    <td>
+                        <input type="hidden" name="roomID" value="<c:out value='${row[0]}'/>"/>
+                        <button type="submit">View</button>
+                    </td>
+                </form>
+            </tr>
+        </c:forEach>   
+    </tbody>
+</table>
+
     <div class="button-container">
         <form action="roomList.jsp" method="get" style="display:inline;">
             <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
