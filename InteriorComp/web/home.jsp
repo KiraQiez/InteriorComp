@@ -39,7 +39,7 @@
     <div class="block">
         <p class="title">"LUXURY IS NO LONGER A DREAM"</p>
         <p class="desc">Rent a luxury room for yourself at a </br>suitable price. </p>
-        <form action="roomList.jsp">
+        <form action="selectRoom.jsp">
             <button type="submit" class="btn_book">BOOK NOW</button>
         </form>
         

@@ -21,6 +21,7 @@ public class CheckLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String userType = "Student";
 
         String errorMessage = null;
 
