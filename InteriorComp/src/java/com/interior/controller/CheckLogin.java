@@ -35,6 +35,9 @@ public class CheckLogin extends HttpServlet {
                 } else if (loginStatus == 2) {
                     errorMessage = "Password is incorrect.";
                 }
+                 else if (loginStatus == 3) {
+                    errorMessage = "Username already exist.";
+                }
             }
 
             if (errorMessage != null) {
@@ -47,7 +50,13 @@ public class CheckLogin extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 // Set session attributes
                 session.setAttribute("username", username);
-                response.sendRedirect(request.getContextPath() + "/home.jsp");
+                if(userType != "Student"){
+                    response.sendRedirect(request.getContextPath() + "/StaffHome.jsp");
+                }
+                else{
+                    response.sendRedirect(request.getContextPath() + "/home.jsp");
+                }
+                
             }
         } catch (Exception ex) {
             throw new ServletException(ex);
@@ -82,10 +91,12 @@ public class CheckLogin extends HttpServlet {
         pstmt.setString(1, username);
         pstmt.setString(2, password);
         rs = pstmt.executeQuery();
+    
 
         if (!rs.next()) {
             return 2; // Password is incorrect
         }
+        
 
         return 0; // login account successfully
     }

@@ -1,3 +1,16 @@
+    <%
+        // Get the session object
+        HttpSession session1 = request.getSession(false);
+        if (session1 == null || session1.getAttribute("username") == null) {
+            // No session or user not logged in, redirect to login page
+            response.sendRedirect("login.jsp");
+            return;
+        }
+        // Get username from the session
+        String username = (String) session.getAttribute("username");
+    %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="..\style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
