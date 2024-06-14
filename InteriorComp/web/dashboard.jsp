@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,19 +17,17 @@
                 <span>INTERIOR</span>
             </div>
             <div class="profile">
-                <img src="adminPic.png" alt="Admin Profile Picture">
+                <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="room.html" ><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="booking.html"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guest.html"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staff.html"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="dashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="roomS.jsp" ><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
-        <div class="breadcrumb">
-            <a href="roomS.jsp">Room</a> / <a href="#" class="active">Create Room</a>
-        </div>
+        
         <div class="main-content">
             <header>
                 <h1>Dashboard</h1>
@@ -39,25 +38,41 @@
                     </div>
                     <div class="user-profile">
                         <div class="profile-pic-container">
-                            <img src="adminPic.png" alt="Profile Picture">
+                            <img src="resource/adminPic.png" alt="Profile Picture">
                         </div>
                         <div class="profile-info">
                             <span class="username">Username</span>
                             <span class="staff-rank">Manager</span>
                         </div>
                         <div class="dropdown-menu">
-                            <a href="#">Edit Profile</a>
-                            <a href="#">Settings</a>
-                            <a href="#">Log Out</a>
+                            
+                            <form action="editSP.jsp" method="GET">
+                                <button type="submit" class="menu-button">Edit Profile</button>
+                            </form>
+                        
+                            
+                            <form action="settingS.jsp" method="GET">
+                                <button type="event" class="menu-button">Settings</button>
+                            </form>
+                        
+                           
+                            <form action="LogoutServlet" method="GET">
+                                <input type="hidden" name="action" value="logout">
+                                <button type="submit" class="menu-button">Log Out</civ>
+                            </form>
                         </div>
+                        
                     </div>
                 </div>
             </header>
+            <div class="breadcrumb">
+                <a href="#" class="active">Dashboard</a> 
+            </div>
+
             <div class="content">
                 <h1>The Dashboard</h1>
-                <p>Lorem Ipsum</p>
+                <p>test</p>
             </div>
-        </div>
     </div>
 </body>
 </html>

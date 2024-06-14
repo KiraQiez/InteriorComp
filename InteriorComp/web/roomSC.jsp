@@ -116,15 +116,27 @@
                             <span class="staff-rank">Manager</span>
                         </div>
                         <div class="dropdown-menu">
-                            <a href="#">Edit Profile</a>
-                            <a href="#">Settings</a>
-                            <a href="#">Log Out</a>
+                            
+                            <form action="editSP.jsp" method="GET">
+                                <button type="submit" class="menu-button">Edit Profile</button>
+                            </form>
+                        
+                            
+                            <form action="settingS.jsp" method="GET">
+                                <button type="event" class="menu-button">Settings</button>
+                            </form>
+                        
+                           
+                            <form action="LogoutServlet" method="GET">
+                                <input type="hidden" name="action" value="logout">
+                                <button type="submit" class="menu-button">Log Out</civ>
+                            </form>
                         </div>
                     </div>
                 </div>
             </header>
             <div class="breadcrumb">
-                <a href="roomS.jsp">Room</a> / <a href="#" class="active">Create Room</a>
+                <a href="roomS.jsp">Room</a> / <a href="roomSL.jsp">Room List</a> / <a href="#" class="active">Create Room</a>
             </div>
             <div class="back-button" onclick="history.back()">
                 <i class="fas fa-arrow-left"></i> Back
