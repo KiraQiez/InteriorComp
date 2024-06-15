@@ -10,7 +10,7 @@ password="root"/>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room</title>
+    <title>Filtered Rooms</title>
     <link rel="stylesheet" href="staff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@ password="root"/>
         
         <div class="main-content">
             <header>
-                <h1>Room</h1>
+                <h1>Filtered Rooms</h1>
                 <div class="search-profile">
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
@@ -66,32 +66,18 @@ password="root"/>
                 </div>
             </header>
             <div class="breadcrumb">
-                <a href="roomS.jsp">Room</a> / <a href="#" class="active">Room List</a>
+                <a href="roomS.jsp">Room</a> / <a href="#" class="active">Filtered Room List</a>
             </div>
 
             <div class="content">
                 <h1>Room List</h1>
                 <%
-                    int rowsPerPage = 10; 
-                    int currentPage = 1; 
-                    String pageParam = request.getParameter("page");
-                    
-                    if (pageParam != null) {
-                        try {
-                            currentPage = Integer.parseInt(pageParam);
-                        } catch (NumberFormatException e) {
-                            currentPage = 1; 
-                        }
-                    }
-                    int offset = (currentPage - 1) * rowsPerPage;
+                    String capacity = (String) request.getAttribute("capacity");
+                    String availability = (String) request.getAttribute("availability");
+                    String roomType = (String) request.getAttribute("roomType");
 
-                    // Get filter parameters
-                    String capacity = request.getParameter("capacity");
-                    String availability = request.getParameter("availability");
-                    String roomType = request.getParameter("roomType");
-
-                    // Construct the SQL query with filters
                     StringBuilder query = new StringBuilder("SELECT * FROM ROOM WHERE 1=1");
+
                     if (capacity != null && !capacity.isEmpty()) {
                         query.append(" AND MAX_CAPACITY = ").append(capacity);
                     }
@@ -101,45 +87,14 @@ password="root"/>
                     if (roomType != null && !roomType.equals("all")) {
                         query.append(" AND ROOMTYPE = '").append(roomType).append("'");
                     }
-                    query.append(" OFFSET ").append(offset).append(" ROWS FETCH NEXT ").append(rowsPerPage).append(" ROWS ONLY");
+                    query.append(" OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY");
 
                     String sqlQuery = query.toString();
                 %>
 
-                <sql:query var="room_list" dataSource="${myDatasource}" sql="<%= sqlQuery %>"/>
+                <sql:query var="filtered_room_list" dataSource="${myDatasource}" sql="<%= sqlQuery %>"/>
 
                 <div class="table-container">
-                    <div class="header-actions">
-                        <form action="roomSC.jsp" method="get" style="display:inline;">
-                            <button class="action-button">Create Room</button>
-                        </form>
-                        <div class="filter-dropdown">
-                            <button class="action-button">Filter</button>
-                            <div class="dropdown-menu">
-                                <form action="roomSL.jsp" method="get" style="display:inline;">
-                                    <label for="capacity">Capacity</label>
-                                    <input type="number" name="capacity" id="capacity" min="1" max="10" />
-
-                                    <label for="availability">Availability</label>
-                                    <select name="availability" id="availability">
-                                        <option value="all">All</option>
-                                        <option value="available">Available</option>
-                                        <option value="occupied">Occupied</option>
-                                    </select>
-
-                                    <label for="roomType">Room Type</label>
-                                    <select name="roomType" id="roomType">
-                                        <option value="all">All</option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Deluxe">Deluxe</option>
-                                        <option value="Luxury">Luxury</option>
-                                    </select>
-                                    <button type="submit" class="apply-button">Apply</button>
-                                    <button type="reset" class="clear-button">Clear</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -153,7 +108,7 @@ password="root"/>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="row" items="${room_list.rowsByIndex}">
+                            <c:forEach var="row" items="${filtered_room_list.rowsByIndex}">
                                 <tr>
                                     <c:forEach var="column" items="${row}">
                                         <td><c:out value="${column}"/></td>
@@ -168,18 +123,6 @@ password="root"/>
                             </c:forEach>
                         </tbody>
                     </table>
-                    
-                    <div class="pagination-container">
-                        <form action="roomSL.jsp" method="get" style="display:inline;">
-                            <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
-                            <button type="submit" class="pagination-button">Prev</button>
-                        </form>
-                        <span>Page <%= currentPage %></span>
-                        <form action="roomSL.jsp" method="get" style="display:inline;">
-                            <input type="hidden" name="page" value="<%= currentPage + 1 %>" />
-                            <button type="submit" class="pagination-button">Next</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

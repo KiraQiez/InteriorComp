@@ -70,12 +70,12 @@
 
             <div class="content">
                 <h1>Staff</h1>
-                <div class="navigation-card" onclick="window.location.href='guestList.jsp';">
+                <div class="navigation-card" onclick="window.location.href='staffSL.jsp';">
                     <img src="resource/guest-list.png" alt="Guest List" class="card-image">
                     <div class="card-content">
                         <div class="card-title">Staff List</div>
                         <div class="card-description">View and manage all registered guests. This section allows for quick access to guest profiles, stay history, and contact information.</div>
-                        <button class="card-button">View Guest List</button>
+                        <button class="card-button">View StaffList</button>
                     </div>
                 </div>
             </div>

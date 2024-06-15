@@ -28,6 +28,10 @@
         <servlet-name>studentRoomDetails</servlet-name>
         <servlet-class>com.interior.controller.studentRoomDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RoomFilterServlet</servlet-name>
+        <servlet-class>com.interior.controller.RoomFilterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>studentRoomDetails</servlet-name>
         <url-pattern>/studentRoomDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomFilterServlet</servlet-name>
+        <url-pattern>/RoomFilterServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
