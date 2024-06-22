@@ -353,6 +353,33 @@ header h1 {
     background-color: #0255b6;
 }
 
+.view-button {
+    padding: 8px 16px;
+    background-color: #2d333b; /* Darker background similar to GitHub */
+    color: #c9d1d9; /* Light text color */
+    border: 1px solid #444c56; /* Border similar to GitHub's button border */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.view-button:hover {
+    background-color: #444c56; /* Slightly lighter background on hover */
+    border-color: #636e7b; /* Lighter border color on hover */
+    transform: translateY(-2px); /* Lift the button slightly on hover */
+}
+
+.view-button:active {
+    background-color: #2d333b; /* Keep the original background on active */
+    border-color: #444c56; /* Keep the original border on active */
+    transform: translateY(0); /* Reset the button position on active */
+}
+
+.view-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3); /* Add a focus outline similar to GitHub */
+}
+
 .pagination-container {
     display: flex;
     justify-content: center;
