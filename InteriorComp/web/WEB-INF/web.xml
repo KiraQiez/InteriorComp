@@ -86,6 +86,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>staff/roomS.jsp</welcome-file>
+        <welcome-file>staff/dashboard.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

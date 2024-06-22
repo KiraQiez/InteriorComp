@@ -11,3 +11,8 @@ CREATE TABLE Room (
     blockid VARCHAR(2),
     FOREIGN KEY (blockid) REFERENCES block(blockid)
 );
+
+
+Create table User (
+    
+)

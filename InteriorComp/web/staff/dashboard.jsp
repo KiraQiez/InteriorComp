@@ -145,7 +145,7 @@
                             <form action="settingS.jsp" method="GET">
                                 <button type="event" class="menu-button">Settings</button>
                             </form>
-                            <form action="LogoutServlet" method="GET">
+                            <form action="${pageContext.request.contextPath}/LogoutServlet" method="GET">
                                 <input type="hidden" name="action" value="logout">
                                 <button type="submit" class="menu-button">Log Out</button>
                             </form>
