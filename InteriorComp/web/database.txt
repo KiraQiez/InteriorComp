@@ -1,0 +1,13 @@
+CREATE TABLE block (
+    blockid VARCHAR(2) PRIMARY KEY NOT NULL,
+    maxRoom INT
+);
+
+CREATE TABLE Room (
+    roomid VARCHAR(255) PRIMARY KEY NOT NULL,
+    roomtype VARCHAR(8),
+    maxcapacity INT,
+    availability VARCHAR(8),
+    blockid VARCHAR(2),
+    FOREIGN KEY (blockid) REFERENCES block(blockid)
+);

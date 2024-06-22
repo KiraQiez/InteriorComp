@@ -46,7 +46,7 @@ public class CreateRoom extends HttpServlet {
             if (resultSet.next()) {
                 String highestRoomId = resultSet.getString("ROOMID");
                 int nextId = Integer.parseInt(highestRoomId.substring(1)) + 1;
-                newRoomId = "R" + String.format("%03d", nextId);
+                newRoomId = block + "-R" + String.format("%03d", nextId);
             }
 
             // Step 2: Insert new room with generated ROOMID

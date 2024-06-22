@@ -25,9 +25,9 @@ password="root"/>
 
         .rank-title {
             font-size: 24px;
-            color: #58a6ff;
+            color: #adbbcc;
             margin-bottom: 10px;
-            border-bottom: 2px solid #58a6ff;
+            border-bottom: 2px solid #adbbcc;
             display: inline-block;
             padding-bottom: 5px;
         }
@@ -74,7 +74,7 @@ password="root"/>
         .staff-card h2 {
             margin: 0;
             font-size: 20px;
-            color: #58a6ff;
+            color: #8094ab;
         }
 
         .staff-card p {

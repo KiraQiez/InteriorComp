@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="staff.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .settings-container {
+        .profile-container {
             padding: 20px;
             background-color: #161b22;
             color: #c9d1d9;
@@ -19,7 +19,7 @@
             position: relative;
         }
 
-        .settings-form {
+        .profile-form {
             display: flex;
             flex-direction: column;
         }
@@ -40,7 +40,7 @@
             border: 1px solid #30363d;
             background-color: #0d1117;
             color: #c9d1d9;
-            width: 98%;
+            width: 90%;
         }
 
         input[type="submit"] {
@@ -48,6 +48,7 @@
             cursor: pointer;
             border: none;
             margin-top: 20px;
+            padding: 12px 25px;
         }
 
         input[type="submit"]:hover {
@@ -66,7 +67,7 @@
             display: none;
             position: fixed;
             top: 20%;
-            left: 57%;
+            left: 50%;
             transform: translateX(-50%);
             background: #0366d6;
             color: white;
@@ -77,7 +78,7 @@
         }
     </style>
     <script>
-        function saveSettings(e) {
+        function saveProfile(e) {
             e.preventDefault(); // Stop form from submitting normally
             var alertBox = document.getElementById('alert-box');
             alertBox.style.display = 'block'; // Show the alert box
@@ -99,7 +100,7 @@
             </div>
             <ul>
                 <li><a href="dashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="roomS.jsp" ><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
                 <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                 <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
                 <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
@@ -108,7 +109,7 @@
 
         <div class="main-content">
             <header>
-                <h1>Settings</h1>
+                <h1>Edit Profile</h1>
                 <div class="search-profile">
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
@@ -123,63 +124,56 @@
                             <span class="staff-rank">Manager</span>
                         </div>
                         <div class="dropdown-menu">
-                            
                             <form action="editSP.jsp" method="GET">
                                 <button type="submit" class="menu-button">Edit Profile</button>
                             </form>
-                        
-                            
                             <form action="settingS.jsp" method="GET">
                                 <button type="event" class="menu-button">Settings</button>
                             </form>
-                        
-                           
                             <form action="LogoutServlet" method="GET">
                                 <input type="hidden" name="action" value="logout">
-                                <button type="submit" class="menu-button">Log Out</civ>
+                                <button type="submit" class="menu-button">Log Out</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </header>
-        <div class="settings-container">
-            <h1>Account Settings</h1>
-            <form class="settings-form" onsubmit="saveSettings(event)">
-                <form class="settings-form" action="/updateSettings" method="POST">
-                    <div class="form-section-title">Security</div>
+            <div class="breadcrumb">
+                <a href="dashboard.jsp">Dashboard</a> / <a href="#" class="active">Edit Profile</a>
+            </div>
+
+            <div class="profile-container">
+                <h1>Profile Settings</h1>
+                <form class="profile-form" onsubmit="saveProfile(event)">
+                    <div class="form-section-title">Personal Information</div>
                     <div class="form-group">
-                        <label for="password">Reset Password:</label>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-section-title">Change Password</div>
+                    <div class="form-group">
+                        <label for="password">New Password:</label>
                         <input type="password" id="password" name="password" placeholder="Enter new password">
                     </div>
                     <div class="form-group">
                         <label for="confirm-password">Confirm New Password:</label>
                         <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password">
                     </div>
-                    
-                    <div class="form-section-title">Notification Settings</div>
-                    <div class="form-group">
-                        <label for="email-notifications">Email Notifications:</label>
-                        <select id="email-notifications" name="email-notifications">
-                            <option value="enabled">Enabled</option>
-                            <option value="disabled">Disabled</option>
-                        </select>
-                    </div>
-    
-                    <div class="form-section-title">Privacy</div>
-                    <div class="form-group">
-                        <label for="profile-visibility">Profile Visibility:</label>
-                        <select id="profile-visibility" name="profile-visibility">
-                            <option value="public">Public</option>
-                            <column value="private">Private</option>
-                        </select>
-                    </div>
     
                     <input type="submit" value="Save Changes">
                 </form>
-
-            </form>
+            </div>
+            <div id="alert-box" class="alert-box">Profile Updated Successfully!</div>
         </div>
-        <div id="alert-box" class="alert-box">Settings Saved Successfully!</div>
     </div>
 </body>
 </html>

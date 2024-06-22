@@ -32,6 +32,14 @@
         <servlet-name>RoomFilterServlet</servlet-name>
         <servlet-class>com.interior.controller.RoomFilterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateBlock</servlet-name>
+        <servlet-class>com.interior.controller.CreateBlock</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBlock</servlet-name>
+        <servlet-class>com.interior.controller.DeleteBlock</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -64,12 +72,20 @@
         <servlet-name>RoomFilterServlet</servlet-name>
         <url-pattern>/RoomFilterServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateBlock</servlet-name>
+        <url-pattern>/CreateBlock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBlock</servlet-name>
+        <url-pattern>/DeleteBlock</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>roomS.jsp</welcome-file>
+        <welcome-file>staff/roomS.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
