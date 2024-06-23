@@ -92,7 +92,7 @@
 <body>
     <div class="header">
         <h1>
-            <img src="resource/logo.svg" alt="INTERIOR Logo">
+            <img src="logo.svg" alt="INTERIOR Logo">
             INTERIOR
         </h1>
         <div class="nav">
@@ -150,6 +150,8 @@
         const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
         const confirmPassword = document.querySelector('#confirmPassword');
         const alertBox = document.getElementById('alert-box');
+
+        
 
         togglePassword.addEventListener('click', function () {
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';

@@ -19,11 +19,11 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="dashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="roomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="booking.html"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guest.html"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staff.html"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="booking.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="guest.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="staff.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
 
@@ -58,8 +58,9 @@
                 <i class="fas fa-arrow-left"></i> Back
             </div>
             <div class="content">
-                    <h1>Error Occured</h1>
-                    <p>Something went wrong. Please try again later.</p>
+                <h1>Error Occurred</h1>
+                <p>Something went wrong. Please try again.</p>
+                <p><%= request.getAttribute("message") %></p>
             </div>
         </div>
     </div>

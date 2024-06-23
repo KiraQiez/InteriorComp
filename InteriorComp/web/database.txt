@@ -1,28 +1,164 @@
 name database: InteriorDB
 // demoDB
 
-CREATE TABLE block (
-    blockid VARCHAR(2) PRIMARY KEY NOT NULL,
-    maxRoom INT
+-- Create the BLOCK table
+CREATE TABLE BLOCK (
+    blockID VARCHAR(2) PRIMARY KEY NOT NULL,
+    blockName VARCHAR(255) NOT NULL,
+    blockDesc VARCHAR(255)
 );
 
-CREATE TABLE Room (
-    roomid VARCHAR(255) PRIMARY KEY NOT NULL,
-    roomtype VARCHAR(8),
-    maxcapacity INT,
+-- Create the ROOM table
+CREATE TABLE ROOM (
+    roomID VARCHAR(8) PRIMARY KEY NOT NULL,
+    blockID VARCHAR(2),
+    roomType VARCHAR(8),
+    maxCapacity INT,
     availability VARCHAR(8),
-    blockid VARCHAR(2),
-    FOREIGN KEY (blockid) REFERENCES block(blockid)
+    FOREIGN KEY (blockID) REFERENCES BLOCK(blockID)
 );
 
-
-CREATE TABLE Users (
-    userid VARCHAR(8) PRIMARY KEY,
+-- Create the USERS table
+CREATE TABLE USERS (
+    userID VARCHAR(8) PRIMARY KEY NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    usertype VARCHAR(50) NOT NULL
+    userType VARCHAR(50) NOT NULL
 );
+
+-- Create the STUDENT table
+CREATE TABLE STUDENT (
+    stdID VARCHAR(8) PRIMARY KEY NOT NULL,
+    stdName VARCHAR(255) NOT NULL,
+    stdIC VARCHAR(12) NOT NULL,
+    stdPhone VARCHAR(20) NOT NULL,
+    stdAddress VARCHAR(255) NOT NULL,
+    stdIncome DECIMAL(10, 2) NOT NULL,
+    stdParentPhoneNum VARCHAR(30) NOT NULL,
+    FOREIGN KEY (stdID) REFERENCES USERS(userID)
+);
+
+-- Create the STAFF table
+CREATE TABLE STAFF (
+    staffID VARCHAR(8) PRIMARY KEY NOT NULL,
+    staffName VARCHAR(255) NOT NULL,
+    staffType VARCHAR(30) NOT NULL,
+    FOREIGN KEY (staffID) REFERENCES USERS(userID)
+);
+
+-- Create the BOOKING table
+CREATE TABLE BOOKING (
+    bookingID VARCHAR(8) PRIMARY KEY NOT NULL,
+    bookingDate DATE NOT NULL,
+    checkIn DATE NOT NULL,
+    checkOut DATE NOT NULL,
+    stdID VARCHAR(8) NOT NULL,
+    staffID VARCHAR(8) NOT NULL,
+    roomID VARCHAR(8) NOT NULL,
+    FOREIGN KEY (stdID) REFERENCES STUDENT(stdID),
+    FOREIGN KEY (staffID) REFERENCES STAFF(staffID),
+    FOREIGN KEY (roomID) REFERENCES ROOM(roomID)
+);
+
+
+
+
+===========================
+       INSERT DATA
+===========================
+-- Insert data into BLOCK table
+INSERT INTO BLOCK (blockID, blockName, blockDesc) VALUES 
+('A', 'Alpha Block', 'This is the Alpha Block.'),
+('B', 'Beta Block', 'This is the Beta Block.'),
+('C', 'Gamma Block', 'This is the Gamma Block.');
+
+-- Insert data into ROOM table
+INSERT INTO ROOM (roomID, blockID, roomType, maxCapacity, availability) VALUES 
+('A-R001', 'A', 'Normal', 1, 'Empty'),
+('A-R002', 'A', 'Normal', 2, 'Empty'),
+('B-R001', 'B', 'Normal', 1, 'Empty'),
+('B-R002', 'B', 'Normal', 2, 'Empty'),
+('C-R001', 'C', 'Normal', 4, 'Empty');
+
+-- Insert data into USERS table
+INSERT INTO USERS (userID, email, username, password, userType) VALUES 
+('U001', 'student1@example.com', 'student1', 'password1', 'Student'),
+('U002', 'student2@example.com', 'student2', 'password2', 'Student'),
+('U003', 'student3@example.com', 'student3', 'password3', 'Student'),
+('U004', 'student4@example.com', 'student4', 'password4', 'Student'),
+('U005', 'student5@example.com', 'student5', 'password5', 'Student'),
+('U006', 'student6@example.com', 'student6', 'password6', 'Student'),
+('U007', 'student7@example.com', 'student7', 'password7', 'Student'),
+('U008', 'student8@example.com', 'student8', 'password8', 'Student'),
+('U009', 'student9@example.com', 'student9', 'password9', 'Student'),
+('U010', 'student10@example.com', 'student10', 'password10', 'Student'),
+('U011', 'student11@example.com', 'student11', 'password11', 'Student'),
+('U012', 'student12@example.com', 'student12', 'password12', 'Student'),
+('U013', 'student13@example.com', 'student13', 'password13', 'Student'),
+('U014', 'student14@example.com', 'student14', 'password14', 'Student'),
+('U015', 'student15@example.com', 'student15', 'password15', 'Student'),
+('U016', 'student16@example.com', 'student16', 'password16', 'Student'),
+('U017', 'student17@example.com', 'student17', 'password17', 'Student'),
+('U018', 'student18@example.com', 'student18', 'password18', 'Student'),
+('U019', 'student19@example.com', 'student19', 'password19', 'Student'),
+('U020', 'student20@example.com', 'student20', 'password20', 'Student'),
+('S001', 'staff1@example.com', 'staff1', 'password1', 'Staff'),
+('S002', 'staff2@example.com', 'staff2', 'password2', 'Staff'),
+('S003', 'staff3@example.com', 'staff3', 'password3', 'Staff'),
+('S004', 'staff4@example.com', 'staff4', 'password4', 'Staff'),
+('S005', 'staff5@example.com', 'staff5', 'password5', 'Staff');
+
+-- Insert data into STAFF table
+INSERT INTO STAFF (staffID, staffName, staffType) VALUES 
+('S001', 'Alice Smith', 'Manager'),
+('S002', 'Bob Johnson', 'Receptionist'),
+('S003', 'Carol White', 'Housekeeper'),
+('S004', 'David Brown', 'Security'),
+('S005', 'Eve Black', 'Technician');
+
+-- Insert data into STUDENT table
+INSERT INTO STUDENT (stdID, stdName, stdIC, stdPhone, stdAddress, stdIncome, stdParentPhoneNum) VALUES 
+('U001', 'John Doe', '123456789012', '0123456789', '123 Main St', 1500.00, '0987654321'),
+('U002', 'Jane Roe', '234567890123', '0234567890', '456 Elm St', 1200.00, '0987654322'),
+('U003', 'Jim Beam', '345678901234', '0345678901', '789 Pine St', 1300.00, '0987654323'),
+('U004', 'Jake Blues', '456789012345', '0456789012', '101 Maple St', 1400.00, '0987654324'),
+('U005', 'Jill Hill', '567890123456', '0567890123', '102 Oak St', 1600.00, '0987654325'),
+('U006', 'Ann Smith', '678901234567', '0678901234', '103 Cedar St', 1700.00, '0987654326'),
+('U007', 'Ben Johnson', '789012345678', '0789012345', '104 Birch St', 1100.00, '0987654327'),
+('U008', 'Chris White', '890123456789', '0890123456', '105 Walnut St', 1800.00, '0987654328'),
+('U009', 'Diana Brown', '901234567890', '0901234567', '106 Cherry St', 1900.00, '0987654329'),
+('U010', 'Ella Black', '012345678901', '0012345678', '107 Willow St', 2000.00, '0987654330'),
+('U011', 'Frank Green', '123456789012', '1123456789', '108 Spruce St', 2100.00, '0987654331'),
+('U012', 'Grace Lee', '234567890123', '1223456789', '109 Fir St', 2200.00, '0987654332'),
+('U013', 'Harry Moore', '345678901234', '1323456789', '110 Ash St', 2300.00, '0987654333'),
+('U014', 'Ivy Hall', '456789012345', '1423456789', '111 Poplar St', 2400.00, '0987654334'),
+('U015', 'Jack King', '567890123456', '1523456789', '112 Beech St', 2500.00, '0987654335'),
+('U016', 'Kate Young', '678901234567', '1623456789', '113 Linden St', 2600.00, '0987654336'),
+('U017', 'Luke Scott', '789012345678', '1723456789', '114 Palm St', 2700.00, '0987654337'),
+('U018', 'Mia Harris', '890123456789', '1823456789', '115 Bamboo St', 2800.00, '0987654338'),
+('U019', 'Nina Davis', '901234567890', '1923456789', '116 Teak St', 2900.00, '0987654339'),
+('U020', 'Oscar Wright', '012345678901', '2023456789', '117 Elm St', 3000.00, '0987654340');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // IKUT PROPOSAL
 // IKUT PROPOSAL

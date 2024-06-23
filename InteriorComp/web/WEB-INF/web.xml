@@ -56,6 +56,22 @@
         <servlet-name>updateStaff</servlet-name>
         <servlet-class>com.interior.controller.updateStaff</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateRoom</servlet-name>
+        <servlet-class>com.interior.controller.CreateRoom</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>java</servlet-name>
+        <servlet-class>DeleteRoomServlet.java</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteRoomServlet</servlet-name>
+        <servlet-class>com.interior.controller.DeleteRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateRoomServlet</servlet-name>
+        <servlet-class>com.interior.controller.UpdateRoomServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -111,6 +127,22 @@
     <servlet-mapping>
         <servlet-name>updateStaff</servlet-name>
         <url-pattern>/updateStaff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateRoom</servlet-name>
+        <url-pattern>/CreateRoom</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>java</servlet-name>
+        <url-pattern>/java</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteRoomServlet</servlet-name>
+        <url-pattern>/DeleteRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateRoomServlet</servlet-name>
+        <url-pattern>/UpdateRoomServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

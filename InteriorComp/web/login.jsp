@@ -110,7 +110,7 @@
 <body>
     <div class="header">
         <h1>
-            <img src="resource/logo.svg" alt="INTERIOR Logo">
+            <img src="logo.svg" alt="INTERIOR Logo">
             INTERIOR
         </h1>
         <div class="nav">

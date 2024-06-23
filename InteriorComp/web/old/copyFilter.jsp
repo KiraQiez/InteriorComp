@@ -1,10 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <sql:setDataSource var="myDatasource" 
-    driver="org.apache.derby.jdbc.ClientDriver"
-    url="jdbc:derby://localhost:1527/InteriorDB" 
-    user="root" 
-    password="root" />
+driver="org.apache.derby.jdbc.ClientDriver"
+url="jdbc:derby://localhost:1527/InteriorDB" user="root" 
+password="root"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,20 +100,61 @@
                         }
                     }
                     int offset = (currentPage - 1) * rowsPerPage;
-                 %>
-                
-                <sql:query var="room_list" dataSource="${myDatasource}">
-                    SELECT * FROM ROOM 
-                    ORDER BY roomID 
-                    OFFSET <%= offset %> ROWS 
-                    FETCH NEXT <%= rowsPerPage %> ROWS ONLY
-                </sql:query>
+
+                    // Get filter parameters
+                    String capacity = request.getParameter("capacity");
+                    String availability = request.getParameter("availability");
+                    String roomType = request.getParameter("roomType");
+
+                    // Construct the SQL query with filters
+                    StringBuilder query = new StringBuilder("SELECT * FROM ROOM WHERE 1=1");
+                    if (capacity != null && !capacity.isEmpty()) {
+                        query.append(" AND MAX_CAPACITY = ").append(capacity);
+                    }
+                    if (availability != null && !availability.equals("all")) {
+                        query.append(" AND AVAILABILITY = '").append(availability).append("'");
+                    }
+                    if (roomType != null && !roomType.equals("all")) {
+                        query.append(" AND ROOMTYPE = '").append(roomType).append("'");
+                    }
+                    query.append(" OFFSET ").append(offset).append(" ROWS FETCH NEXT ").append(rowsPerPage).append(" ROWS ONLY");
+
+                    String sqlQuery = query.toString();
+                %>
+
+                <sql:query var="room_list" dataSource="${myDatasource}" sql="<%= sqlQuery %>"/>
 
                 <div class="table-container">
                     <div class="header-actions">
                         <form action="roomSC.jsp" method="get" style="display:inline;">
                             <button class="action-button">Create Room</button>
                         </form>
+                        <div class="filter-dropdown">
+                            <button class="action-button">Filter</button>
+                            <div class="dropdown-menu">
+                                <form action="roomSL.jsp" method="get" style="display:inline;">
+                                    <label for="capacity">Capacity</label>
+                                    <input type="number" name="capacity" id="capacity" min="1" max="10" />
+
+                                    <label for="availability">Availability</label>
+                                    <select name="availability" id="availability">
+                                        <option value="all">All</option>
+                                        <option value="available">Available</option>
+                                        <option value="occupied">Occupied</option>
+                                    </select>
+
+                                    <label for="roomType">Room Type</label>
+                                    <select name="roomType" id="roomType">
+                                        <option value="all">All</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Deluxe">Deluxe</option>
+                                        <option value="Luxury">Luxury</option>
+                                    </select>
+                                    <button type="submit" class="apply-button">Apply</button>
+                                    <button type="reset" class="clear-button">Clear</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <table>
                         <thead>
@@ -128,91 +168,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:choose>
-                                <c:when test="${empty room_list.rows}">
-                                    <tr><td colspan="6">No room available.</td></tr>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:forEach var="row" items="${room_list.rows}">
-                                        <tr>
-                                            <td><c:out value="${row.roomID}"/></td>
-                                            <td><c:out value="${row.blockID}"/></td>
-                                            <td><c:out value="${row.roomType}"/></td>
-                                            <td><c:out value="${row.maxCapacity}"/></td>
-                                            <td><c:out value="${row.availability}"/></td>
-                                            <td class="actions">
-                                                <form action="StaffRoomDetails.jsp" method="get" style="display:inline;">
-                                                    <input type="hidden" name="roomID" value="${row.roomID}"/>
-                                                    <button type="submit" class="view-button">View</button>
-                                                </form>
-                                                <form action="UpdateRoomServlet" method="get" style="display:inline;">
-                                                    <input type="hidden" name="roomID" value="${row.roomID}"/>
-                                                    <button type="submit" class="view-button">Update</button>
-                                                </form>
-                                                <form action="${pageContext.request.contextPath}/DeleteRoomServlet" method="post" style="display:inline;">
-                                                    <input type="hidden" name="roomID" value="${row.roomID}"/>
-                                                    <button type="submit" class="view-button">Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                            <c:forEach var="row" items="${room_list.rowsByIndex}">
+                                <tr>
+                                    <c:forEach var="column" items="${row}">
+                                        <td><c:out value="${column}"/></td>
                                     </c:forEach>
-                                </c:otherwise>
-                            </c:choose>
+                                    <td>
+                                        <form action="StaffRoomDetails.jsp" method="get" style="display:inline;">
+                                            <input type="hidden" name="roomID" value="${row[0]}"/>
+                                            <button type="submit" class="view-button">View</button>
+                                        </form>
+                                        <form action="StaffRoomDetails.jsp" method="get" style="display:inline;">
+                                            <input type="hidden" name="roomID" value="${row[0]}"/>
+                                            <button type="submit" class="view-button">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
-                        
                     </table>
-
-                    <c:if test="${sessionScope.createResult != null}">
-                        <div id="alert-box" class="alert-box show">
-                            <c:choose>
-                                <c:when test="${sessionScope.createResult}">
-                                    Room created successfully!
-                                </c:when>
-                                <c:otherwise>
-                                    Room creation failed: <c:out value="${sessionScope.createMessage}" />
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                        <%
-                            session.removeAttribute("createResult");
-                            session.removeAttribute("createMessage");
-                        %>
-                    </c:if>
-
-                    <c:if test="${sessionScope.deleteResult != null}">
-                        <div id="alert-box" class="alert-box show">
-                            <c:choose>
-                                <c:when test="${sessionScope.deleteResult}">
-                                    Room deleted successfully!
-                                </c:when>
-                                <c:otherwise>
-                                    Room deletion failed: <c:out value="${sessionScope.deleteMessage}" />
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                        <%
-                            session.removeAttribute("deleteResult");
-                            session.removeAttribute("deleteMessage");
-                        %>
-                    </c:if>
-
-                    <c:if test="${sessionScope.updateResult != null}">
-                        <div id="alert-box" class="alert-box show">
-                            <c:choose>
-                                <c:when test="${sessionScope.updateResult}">
-                                    Room updated successfully!
-                                </c:when>
-                                <c:otherwise>
-                                    Room update failed: <c:out value="${sessionScope.updateMessage}" />
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                        <%
-                            session.removeAttribute("updateResult");
-                            session.removeAttribute("updateMessage");
-                        %>
-                    </c:if>
-
+                    
                     <div class="pagination-container">
                         <form action="roomSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
@@ -228,17 +203,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const alertBox = document.getElementById('alert-box');
-        
-        if (alertBox) {
-            setTimeout(() => {
-                alertBoxCreate.classList.remove('show');
-            }, 3000);
-        }
-
-
-    </script>
 </body>
 </html>
