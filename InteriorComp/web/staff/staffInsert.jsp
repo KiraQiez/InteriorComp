@@ -144,7 +144,7 @@
             <div class="content">
                 <div class="profile-container">
                     <h1>Register New Staff</h1>
-                    <form class="profile-form" action="#" method="POST">
+                    <form class="profile-form" action="insertStaff" method="POST">
                         <div class="form-section-title">Personal Information</div>
                         <div class="form-group">
                             <div class="form-group">
@@ -165,9 +165,9 @@
                         <div class="form-group">
                             <label for="type">Staff Type:</label>
                             <select id="type" name="type">
-                                <option value="manager">Manager</option>
-                                <option value="clerk">Clerk</option>
-                                <option value="maintenacestaff">Maintenace Staff</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Clerk">Clerk</option>
+                                <option value="Maintenace">Maintenace Staff</option>
                             </select>
 
                         </div>
@@ -182,8 +182,7 @@
                             <input type="password" id="confirm-password" name="confirm-password"
                                 placeholder="Confirm new password">
                         </div>
-
-                        <input type="submit" value="Save Changes">
+                        <input type="submit" value="Submit">
                     </form>
                 </div>
 

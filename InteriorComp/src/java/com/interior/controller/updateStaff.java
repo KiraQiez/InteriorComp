@@ -10,8 +10,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import javax.servlet.RequestDispatcher;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Iqmal
  */
-public class insertStaff extends HttpServlet {
+public class updateStaff extends HttpServlet {
 
     private PreparedStatement pstmt;
     private Connection conn;
@@ -50,10 +50,10 @@ public class insertStaff extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet insertStaff</title>");            
+            out.println("<title>Servlet updateStaff</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet insertStaff at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet updateStaff at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,7 +79,7 @@ public class insertStaff extends HttpServlet {
         String staffType = request.getParameter("type");
         
         try{
-            createStaff(name, staffType);
+            updateStaff(name, phoneNo, staffType);
         }catch(Exception e){
             out.println("Error: " + e.getMessage());
         }finally{
@@ -92,15 +92,15 @@ public class insertStaff extends HttpServlet {
         
     }
 
-    protected void createStaff(String name, String type)
+    protected void updateStaff(String name, String phone, String type)
             throws SQLException{
         
         // create a statement
-        String sql = "INSERT INTO STAFF (STAFFNAME, STAFFTYPE)"
-                + "VALUES(?, ?)";
+        String sql = "UPDATE TABLE STAFF SET STAFFNAME = ? AND STAFFPHONE = ? AND STAFFTYPE = ?";
         
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, name);
+        pstmt.setString(2, phone);
         pstmt.setString(2, type);
         
         pstmt.executeUpdate();
