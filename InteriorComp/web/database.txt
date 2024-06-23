@@ -1,3 +1,6 @@
+name database: InteriorDB
+// demoDB
+
 CREATE TABLE block (
     blockid VARCHAR(2) PRIMARY KEY NOT NULL,
     maxRoom INT
@@ -19,4 +22,106 @@ CREATE TABLE Users (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     usertype VARCHAR(50) NOT NULL
+);
+
+// IKUT PROPOSAL
+// IKUT PROPOSAL
+// IKUT PROPOSAL
+
+CREATE TABLE BLOCK (
+    blockID INT NOT NULL,
+    blockName VARCHAR(30) NOT NULL,
+    blockRoomCount INT NOT NULL,
+
+    PRIMARY KEY (blockID)
+);
+
+CREATE TABLE ROOM (
+    roomID INT GENERATED ALWAYS AS IDENTITY(START WITH 400, INCREMENT BY 1),	
+    roomNumber INT NOT NULL,
+    roomPrice DECIMAL(10, 2) NOT NULL,
+    roomCapacity INT NOT NULL,
+    roomDesc VARCHAR(255),
+
+    blockID INT NOT NULL,
+
+    PRIMARY KEY (roomID),
+    FOREIGN KEY (blockID) REFERENCES BLOCK(blockID)
+);
+
+CREATE TABLE STUDENT(
+    stdID INT GENERATED ALWAYS AS IDENTITY(START WITH 20241, INCREMENT BY 1),
+    stdName VARCHAR(255) NOT NULL,
+    stdIC VARCHAR(12) NOT NULL,
+    stdPhone VARCHAR(20) NOT NULL,
+    stdAddress VARCHAR(255) NOT NULL,
+    stdIncome DECIMAL(10, 2) NOT NULL,
+    stdParentPhoneNum VARCHAR(30) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+
+    PRIMARY KEY(stdID)
+);
+
+CREATE TABLE STAFF(
+    staffID INT GENERATED ALWAYS AS IDENTITY(START WITH 3011, INCREMENT BY 1),
+    staffName VARCHAR(255) NOT NULL,
+    staffType VARCHAR(30) NOT NULL,
+
+    PRIMARY KEY(staffID)
+);
+
+CREATE TABLE REPORT(
+    reportID INT GENERATED ALWAYS AS IDENTITY(START WITH 10010, INCREMENT BY 1),
+    reportTitle VARCHAR(100) NOT NULL,
+    reportdesc VARCHAR(255) NOT NULL,
+    reportStatus VARCHAR(20) NOT NULL,
+    
+    stdID INT NOT NULL,
+    managerID INT NOT NULL,
+    staffMaintenanceID INT NOT NULL,
+
+    PRIMARY KEY(reportID),
+    FOREIGN KEY (stdID) REFERENCES STUDENT(stdID),
+    FOREIGN KEY (managerID) REFERENCES STAFF(staffID),
+    FOREIGN KEY (staffMaintenanceID) REFERENCES STAFF(staffID)
+);
+
+CREATE TABLE BOOKING(
+    bookingID INT GENERATED ALWAYS AS IDENTITY(START WITH 100, INCREMENT BY 1),
+    bookingDate DATE NOT NULL,
+    checkIn DATE NOT NULL,
+    checkOut DATE NOT NULL,
+    
+    stdID INT NOT NULL,
+    staffID INT NOT NULL,
+    roomID INT NOT NULL,
+
+    PRIMARY KEY(bookingID),
+    FOREIGN KEY (stdID) REFERENCES STUDENT(stdID),
+    FOREIGN KEY (staffID) REFERENCES STAFF(staffID),
+    FOREIGN KEY (roomID) REFERENCES ROOM(roomID)
+);
+
+
+CREATE TABLE PAYMENT (
+    paymentNo INT GENERATED ALWAYS AS IDENTITY(START WITH 100, INCREMENT BY 1),
+    paymentRemark VARCHAR(255) NOT NULL,
+    paymentTotalPrice DECIMAL(10, 2) NOT NULL,
+    paymentStatus VARCHAR(30) NOT NULL,
+
+    bookingID INT NOT NULL,
+
+    PRIMARY KEY (paymentNo),
+    FOREIGN KEY (bookingID) REFERENCES BOOKING(bookingID)
+);
+
+CREATE TABLE RECEIPT(
+    receiptNo INT GENERATED ALWAYS AS IDENTITY(START WITH 100, INCREMENT BY 1),
+    receiptDate DATE NOT NULL,
+
+    paymentNo INT NOT NULL,
+    
+    PRIMARY KEY(receiptNo),
+    FOREIGN KEY (paymentNo) REFERENCES PAYMENT(paymentNo)
 );

@@ -48,6 +48,14 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.interior.controller.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>insertStaff</servlet-name>
+        <servlet-class>com.interior.controller.insertStaff</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateStaff</servlet-name>
+        <servlet-class>com.interior.controller.updateStaff</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertStaff</servlet-name>
+        <url-pattern>/insertStaff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateStaff</servlet-name>
+        <url-pattern>/updateStaff</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

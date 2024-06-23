@@ -1,17 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.interior.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
+
 /**
  *
  * @author Iqmal
  */
-public class insertBooking extends HttpServlet {
+public class updateStaff extends HttpServlet {
 
     private PreparedStatement pstmt;
     private Connection conn;
@@ -23,7 +33,7 @@ public class insertBooking extends HttpServlet {
     private void initializeJdbc() {
         try {
             String driver = "org.apache.derby.jdbc.ClientDriver";
-            String connectionString = "jdbc:derby://localhost:1527/Interior";
+            String connectionString = "jdbc:derby://localhost:1527/InteriorDB";
             String usr = "root", pass = " ";
 
             Class.forName(driver);
@@ -32,23 +42,27 @@ public class insertBooking extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet staffUpdateReport</title>");
+            out.println("<title>Servlet updateStaff</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet staffUpdateReport at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet updateStaff at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -57,44 +71,43 @@ public class insertBooking extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         // obtain parameter
-        String roomDesc = request.getParameter("roomType");
-        String roomNumber = request.getParameter("roomNumber");
-        String IC = request.getParameter("IC");
-        String phoneNo = request.getParameter("phone-no");
-        String address = request.getParameter("address");
-        String income = request.getParameter("income");
+        String name = request.getParameter("name");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String phoneNo = request.getParameter("phone");
+        String staffType = request.getParameter("type");
         
         try{
-            createBooking(roomDesc, roomNumber, IC, phoneNo, address, income);
-            return;
+            updateStaff(name, phoneNo, staffType);
         }catch(Exception e){
             out.println("Error: " + e.getMessage());
         }finally{
             out.close();
         }
+        
+        // Forward to page
+        RequestDispatcher dispatcher = request.getRequestDispatcher("staffS.jsp");
+        dispatcher.forward(request, response);
+        
     }
 
-    protected void createBooking(String roomDesc, String roomNumber, String IC, String phoneNo, String address, String income)
+    protected void updateStaff(String name, String phone, String type)
             throws SQLException{
         
         // create a statement
-        String sql = "INSERT INTO BOOKING (BOOKINGDATE, CHECKIN, CHECKOUT, STDID, STAFFID, ROOMID)"
-                + "VALUES(?, ?, ?, ?, ?)";
+        String sql = "UPDATE TABLE STAFF SET STAFFNAME = ? AND STAFFPHONE = ? AND STAFFTYPE = ?";
         
         pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, roomDesc);
-        pstmt.setString(2, roomNumber);
-        pstmt.setString(3, IC);
-        pstmt.setString(4, phoneNo);
-        pstmt.setString(5, address);
-        pstmt.setString(6, income);
+        pstmt.setString(1, name);
+        pstmt.setString(2, phone);
+        pstmt.setString(2, type);
         
         pstmt.executeUpdate();
     }
     
-    @Override
+   @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 }
-
