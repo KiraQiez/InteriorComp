@@ -122,7 +122,7 @@
     <div class="main-content">
         <div class="login-container">
             <h2>Login</h2>
-            <form action="CheckLogin" method="POST">
+            <form action="${pageContext.request.contextPath}/CheckLogin" method="POST">
                 <div class="input-group">
                     <i class="fa fa-user"></i>
                     <input type="text" name="username" placeholder="Username" required>

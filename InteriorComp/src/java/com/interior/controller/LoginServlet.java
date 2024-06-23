@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class CheckLogin extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private PreparedStatement pstmt;
     private Connection conn;
@@ -63,11 +63,11 @@ public class CheckLogin extends HttpServlet {
                             break;
                         
                         case "Cleaner":
-                            session.setAttribute("rank", "Manager");
+                            session.setAttribute("rank", "Cleaner");
                             break;
     
                         case "Chef":
-                            session.setAttribute("rank", "Manager");
+                            session.setAttribute("rank", "Chef");
                             break;
                     
                         default:
@@ -78,7 +78,7 @@ public class CheckLogin extends HttpServlet {
                 }
                 else{
                     session.setAttribute("rank", "Guest");
-                    response.sendRedirect(request.getContextPath() + "/home.html");
+                    response.sendRedirect(request.getContextPath() + "/guest/dashboard.jsp");
                 }
                 
                 session.setAttribute("loggedIn", true);

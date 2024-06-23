@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
         Connection connection = null;
         PreparedStatement checkUsernameStatement = null;
         PreparedStatement checkEmailStatement = null;
+        PreparedStatement selectStatement = null;
         PreparedStatement insertStatement = null;
         ResultSet resultSet = null;
         boolean success = false;
@@ -37,7 +38,7 @@ public class RegisterServlet extends HttpServlet {
             connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
             System.out.println("Connected to the database");
 
-            // Check if username already exists
+            // Check if email already exists
             String checkEmailSql = "SELECT COUNT(*) FROM USERS WHERE email = ?";
             checkEmailStatement = connection.prepareStatement(checkEmailSql);
             checkEmailStatement.setString(1, email);
@@ -46,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
             if (resultSet.next() && resultSet.getInt(1) > 0) {
                 message = "Email already exists";
             } else {
-                // Check if email already exists
+                // Check if username already exists
                 String checkUsernameSql = "SELECT COUNT(*) FROM USERS WHERE username = ?";
                 checkUsernameStatement = connection.prepareStatement(checkUsernameSql);
                 checkUsernameStatement.setString(1, username);
@@ -57,8 +58,8 @@ public class RegisterServlet extends HttpServlet {
                 } else {
                     // Get the highest existing user ID
                     String selectSql = "SELECT USERID FROM USERS ORDER BY USERID DESC FETCH FIRST ROW ONLY";
-                    PreparedStatement selectStatement = connection.prepareStatement(selectSql);
-                    resultSet = selectStatement.executeQuery(selectSql);
+                    selectStatement = connection.prepareStatement(selectSql);
+                    resultSet = selectStatement.executeQuery();
 
                     String newId = "U001"; 
                     if (resultSet.next()) {
@@ -94,6 +95,9 @@ public class RegisterServlet extends HttpServlet {
                 }
                 if (checkEmailStatement != null) {
                     checkEmailStatement.close();
+                }
+                if (selectStatement != null) {
+                    selectStatement.close();
                 }
                 if (insertStatement != null) {
                     insertStatement.close();
