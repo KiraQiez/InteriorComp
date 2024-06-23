@@ -35,8 +35,8 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="roomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="Staffdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="StaffroomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
                 <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                 <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>                
                 <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
@@ -80,39 +80,21 @@
             <div class="content">
                 <h1>Room</h1>
                 <!-- Room List Card -->
-                <div class="navigation-card" onclick="window.location.href='roomSL.jsp';">
+                <div class="navigation-card" onclick="window.location.href='StaffroomSL.jsp';">
                     <img src="resource/bookingList.png" alt="Room List" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Room List</div>
+                    <div class="card-content">  
+                        <div class="card-title">Room Management</div>
                         <div class="card-description">Explore our comprehensive list of available rooms.</div>
                         <button class="card-button">View Room List</button>
                     </div>
                 </div>
-                <!-- Create Room Card -->
-                <div class="navigation-card" onclick="window.location.href='roomSC.jsp';">
-                    <img src="resource/house.png" alt="Create Room" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Create Room</div>
-                        <div class="card-description">Set up a new room within our system.</div>
-                        <button class="card-button">Create Room</button>
-                    </div>
-                </div>
                 <!-- Block List Card -->
-                <div class="navigation-card" onclick="window.location.href='blockSL.jsp';">
+                <div class="navigation-card" onclick="window.location.href='StaffblockSL.jsp';">
                     <img src="resource/block-list.png" alt="Block List" class="card-image">
                     <div class="card-content">
-                        <div class="card-title">Block List</div>
+                        <div class="card-title">Block Management</div>
                         <div class="card-description">Manage and review all room blocks and their statuses.</div>
                         <button class="card-button">View Block List</button>
-                    </div>
-                </div>
-                <!-- Create Block Card -->
-                <div class="navigation-card" onclick="window.location.href='blockSC.jsp';">
-                    <img src="resource/block.png" alt="Create Block" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Create Block</div>
-                        <div class="card-description">Initiate new blocks for room allocation, perfect for expanding your property's capacity.</div>
-                        <button class="card-button">Create Block</button>
                     </div>
                 </div>
             </div>

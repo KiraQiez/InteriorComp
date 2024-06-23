@@ -43,8 +43,8 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="roomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="Staffdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="StaffroomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
                 <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                 <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
                 <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
@@ -83,7 +83,7 @@
                 </div>
             </header>
             <div class="breadcrumb">
-                <a href="roomS.jsp">Room</a> / <a href="#" class="active">Room List</a>
+                <a href="StaffroomS.jsp">Room</a> / <a href="#" class="active">Room List</a>
             </div>
 
             <div class="content">
@@ -112,7 +112,7 @@
 
                 <div class="table-container">
                     <div class="header-actions">
-                        <form action="roomSC.jsp" method="get" style="display:inline;">
+                        <form action="StaffroomSLC.jsp" method="get" style="display:inline;">
                             <button class="action-button">Create Room</button>
                         </form>
                     </div>
@@ -145,11 +145,11 @@
                                                     <input type="hidden" name="roomID" value="${row.roomID}"/>
                                                     <button type="submit" class="view-button">View</button>
                                                 </form>
-                                                <form action="UpdateRoomServlet" method="get" style="display:inline;">
+                                                <form action="StaffroomSLU.jsp" method="get" style="display:inline;">
                                                     <input type="hidden" name="roomID" value="${row.roomID}"/>
                                                     <button type="submit" class="view-button">Update</button>
                                                 </form>
-                                                <form action="${pageContext.request.contextPath}/DeleteRoomServlet" method="post" style="display:inline;">
+                                                <form action="DeleteRoomServlet" method="post" style="display:inline;">
                                                     <input type="hidden" name="roomID" value="${row.roomID}"/>
                                                     <button type="submit" class="view-button">Delete</button>
                                                 </form>
@@ -214,12 +214,12 @@
                     </c:if>
 
                     <div class="pagination-container">
-                        <form action="roomSL.jsp" method="get" style="display:inline;">
+                        <form action="StaffroomSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
                             <button type="submit" class="pagination-button">Prev</button>
                         </form>
                         <span>Page <%= currentPage %></span>
-                        <form action="roomSL.jsp" method="get" style="display:inline;">
+                        <form action="StaffroomSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage + 1 %>" />
                             <button type="submit" class="pagination-button">Next</button>
                         </form>
@@ -234,7 +234,7 @@
         
         if (alertBox) {
             setTimeout(() => {
-                alertBoxCreate.classList.remove('show');
+                alertBox.classList.remove('show');
             }, 3000);
         }
 

@@ -50,8 +50,8 @@ public class LoginServlet extends HttpServlet {
                 String usertype = getUserType(username);
                 session.setAttribute("usertype", usertype);
 
-                if(usertype.equals("staff")){
-                    response.sendRedirect(request.getContextPath() + "/staff/dashboard.jsp");
+                if(usertype.equals("Staff")){
+                    response.sendRedirect(request.getContextPath() + "/Staffdashboard.jsp");
                     String rank = "Admin";
                     switch (rank) {
                         case "Admin":

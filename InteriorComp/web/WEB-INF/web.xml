@@ -58,7 +58,7 @@
     </servlet>
     <servlet>
         <servlet-name>CreateRoom</servlet-name>
-        <servlet-class>com.interior.controller.CreateRoom</servlet-class>
+        <servlet-class>com.interior.controller.CreateRoomServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>java</servlet-name>

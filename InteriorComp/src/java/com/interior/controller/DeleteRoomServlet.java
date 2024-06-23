@@ -47,7 +47,7 @@ public class DeleteRoomServlet extends HttpServlet {
             }
         }
 
-        response.sendRedirect(request.getContextPath() + "/staff/roomSL.jsp");
+        response.sendRedirect(request.getContextPath() + "/StaffroomSL.jsp");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

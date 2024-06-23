@@ -57,6 +57,6 @@ public class UpdateRoomServlet extends HttpServlet {
             }
         }
 
-        response.sendRedirect("roomSL.jsp");
+        response.sendRedirect(request.getContextPath() + "/StaffroomSL.jsp");
     }
 }

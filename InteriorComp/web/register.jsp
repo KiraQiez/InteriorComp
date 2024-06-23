@@ -92,7 +92,7 @@
 <body>
     <div class="header">
         <h1>
-            <img src="logo.svg" alt="INTERIOR Logo">
+            <img src="resource/logo.svg" alt="INTERIOR Logo">
             INTERIOR
         </h1>
         <div class="nav">
@@ -105,7 +105,7 @@
     <div class="main-content">
         <div class="register-container">
             <h2>Register</h2>
-            <form action="${pageContext.request.contextPath}/RegisterServlet" method="POST">
+            <form action="RegisterServlet" method="POST">
                 <div class="input-group">
                     <i class="fa fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email" required>
