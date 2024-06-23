@@ -1,3 +1,6 @@
+name database: InteriorDB
+// demoDB
+
 CREATE TABLE block (
     blockid VARCHAR(2) PRIMARY KEY NOT NULL,
     maxRoom INT
@@ -21,8 +24,8 @@ CREATE TABLE Users (
     usertype VARCHAR(50) NOT NULL
 );
 
-//
-//
+// IKUT PROPOSAL
+// IKUT PROPOSAL
 // IKUT PROPOSAL
 
 CREATE TABLE BLOCK (
