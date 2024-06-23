@@ -1,5 +1,6 @@
-package com.interior.controller;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import java.io.IOException;
-import java.io.PrintWriter;
+package com.interior.controller;
+
+import java.io.IOException;
 import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class CheckLogin extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private PreparedStatement pstmt;
     private Connection conn;
 
@@ -21,7 +23,6 @@ public class CheckLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String userType = "Student";
 
         String errorMessage = null;
 
@@ -36,27 +37,52 @@ public class CheckLogin extends HttpServlet {
                 } else if (loginStatus == 2) {
                     errorMessage = "Password is incorrect.";
                 }
-                 else if (loginStatus == 3) {
-                    errorMessage = "Username already exist.";
-                }
             }
 
             if (errorMessage != null) {
-                request.setAttribute("errorMessage", errorMessage);
-                request.setAttribute("username", username);
-                request.setAttribute("password", password);
+                request.setAttribute("result", false);
+                request.setAttribute("message", errorMessage);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             } else {
-                // Create a new session if it doesn't exist
                 HttpSession session = request.getSession(true);
-                // Set session attributes
+
                 session.setAttribute("username", username);
-                if(userType != "Student"){
-                    response.sendRedirect(request.getContextPath() + "/StaffHome.jsp");
+                String usertype = getUserType(username);
+                session.setAttribute("usertype", usertype);
+
+                if(usertype.equals("staff")){
+                    response.sendRedirect(request.getContextPath() + "/staff/dashboard.jsp");
+                    String rank = "Admin";
+                    switch (rank) {
+                        case "Admin":
+                            session.setAttribute("rank", "Admin");
+                            break;
+                        
+                        case "Manager":
+                            session.setAttribute("rank", "Manager");
+                            break;
+                        
+                        case "Cleaner":
+                            session.setAttribute("rank", "Manager");
+                            break;
+    
+                        case "Chef":
+                            session.setAttribute("rank", "Manager");
+                            break;
+                    
+                        default:
+                            
+                            break;
+                    }
+
                 }
                 else{
-                    response.sendRedirect(request.getContextPath() + "/home.jsp");
+                    session.setAttribute("rank", "Guest");
+                    response.sendRedirect(request.getContextPath() + "/home.html");
                 }
+                
+                session.setAttribute("loggedIn", true);
+
                 
             }
         } catch (Exception ex) {
@@ -78,27 +104,38 @@ public class CheckLogin extends HttpServlet {
     }
 
     private int loginPass(String username, String password) throws SQLException {
-        String sqlCheckUsername = "SELECT * FROM STUDENT WHERE username = ?";
+        String sqlCheckUsername = "SELECT * FROM USERS WHERE username = ?";
         pstmt = conn.prepareStatement(sqlCheckUsername);
         pstmt.setString(1, username);
         ResultSet rs = pstmt.executeQuery();
 
         if (!rs.next()) {
-            return 1; // Username does not exist
+            return 1; 
         }
 
-        String sqlCheckPassword = "SELECT * FROM STUDENT WHERE username = ? AND password = ?";
+        String sqlCheckPassword = "SELECT * FROM USERS WHERE username = ? AND password = ?";
         pstmt = conn.prepareStatement(sqlCheckPassword);
         pstmt.setString(1, username);
         pstmt.setString(2, password);
         rs = pstmt.executeQuery();
-    
 
         if (!rs.next()) {
-            return 2; // Password is incorrect
+            return 2; 
         }
-        
 
-        return 0; // login account successfully
+        return 0; 
+    }
+
+    private String getUserType(String username) throws SQLException {
+        String sql = "SELECT usertype FROM USERS WHERE username = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getString("usertype");
+        }
+
+        return null;
     }
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start; /* Align items to the top */
+            background: url('resource/background.png') no-repeat center center fixed;
+            background-size: cover;
+            padding: 60px;
+            color: #c9d1d9;
+            padding-top: 15vh; 
+        }
+        .content-wrapper {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: left;
+            max-width: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .content-wrapper h2 {
+            color: #58a6ff;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .content-wrapper p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .cta-button {
+            text-decoration: none;
+            padding: 15px 30px;
+            background-color: #0366d6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #0255b6;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <img src="resource/logo.svg" alt="INTERIOR Logo">
+            INTERIOR
+        </h1>
+        <div class="nav">
+            <a href="home.html">Home</a>
+            <a href="login.jsp">Login</a>
+            <a href="register.jsp">Register</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="content-wrapper">
+            <h2>"LUXURY IS NO LONGER A DREAM"</h2>
+            <p>Experience luxury and comfort at the best price. Enjoy premium amenities in beautifully furnished spaces. Your perfect home away from home awaits.<br><br>
+                Book now and discover the INTERIOR difference.</p><br>
+
+             <a class="cta-button" href="login.html">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>

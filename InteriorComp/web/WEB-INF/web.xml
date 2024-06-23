@@ -5,10 +5,6 @@
         <servlet-class>com.interior.controller.CheckLogin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateRoom</servlet-name>
-        <servlet-class>com.interior.controller.CreateRoom</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.interior.controller.LogoutServlet</servlet-class>
     </servlet>
@@ -40,13 +36,21 @@
         <servlet-name>DeleteBlock</servlet-name>
         <servlet-class>com.interior.controller.DeleteBlock</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterSevlet</servlet-name>
+        <servlet-class>com.interior.controller.RegisterSevlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegitserServlet</servlet-name>
+        <servlet-class>com.interior.controller.RegitserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.interior.controller.RegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreateRoom</servlet-name>
-        <url-pattern>/CreateRoom</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
@@ -80,12 +84,24 @@
         <servlet-name>DeleteBlock</servlet-name>
         <url-pattern>/DeleteBlock</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterSevlet</servlet-name>
+        <url-pattern>/RegisterSevlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegitserServlet</servlet-name>
+        <url-pattern>/RegitserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>staff/dashboard.jsp</welcome-file>
+        <welcome-file>home.html</welcome-file>
     </welcome-file-list>
 </web-app>
