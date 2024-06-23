@@ -1,3 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<sql:setDataSource var="myDatasource" 
+    driver="org.apache.derby.jdbc.ClientDriver"
+    url="jdbc:derby://localhost:1527/InteriorDB" 
+    user="root" 
+    password="root" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +23,13 @@
         response.sendRedirect("home.jsp");
         return;
     }
+
+    String blockId = request.getParameter("blockID");
     %>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Room</title>
+    <title>Update Block</title>
     <link rel="stylesheet" href="staff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -49,7 +59,6 @@
             color: #c9d1d9;
         }
 
-        .form-group select, 
         .form-group input {
             width: 100%;
             padding: 10px;
@@ -59,7 +68,6 @@
             color: #c9d1d9;
         }
 
-        .form-group select:focus, 
         .form-group input:focus {
             outline: none;
             border-color: #58a6ff;
@@ -81,9 +89,17 @@
             background-color: #0255b6;
         }
 
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
 
-
-        
+        .back-button:hover {
+            color: #0366d6;
+        }
     </style>
 </head>
 <body>
@@ -97,17 +113,17 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="Staffdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="Staffdashboard.jsp" ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="StaffroomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="booking.html"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guest.html"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staff.html"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
 
         <div class="main-content">
             <header>
-                <h1>Create Room</h1>
+                <h1>Update Block</h1>
                 <div class="search-profile">
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
@@ -122,60 +138,54 @@
                             <span class="staff-rank"><%= rank %></span>
                         </div>
                         <div class="dropdown-menu">
-                            
                             <form action="editSP.jsp" method="GET">
                                 <button type="submit" class="menu-button">Edit Profile</button>
                             </form>
-                        
-                            
                             <form action="settingS.jsp" method="GET">
                                 <button type="event" class="menu-button">Settings</button>
                             </form>
-                        
-                           
                             <form action="LogoutServlet" method="GET">
                                 <input type="hidden" name="action" value="logout">
-                                <button type="submit" class="menu-button">Log Out</civ>
+                                <button type="submit" class="menu-button">Log Out</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </header>
             <div class="breadcrumb">
-                <a href="StaffroomS.jsp">Room</a> / <a href="StaffroomSL.jsp">Room List</a> / <a href="#" class="active">Create Room</a>
+                <a href="StaffblockSL.jsp">Block</a> / <a href="StaffblockSL.jsp">Block List</a> / <a href="#" class="active">Update Block</a>
             </div>
             <div class="back-button" onclick="history.back()">
                 <i class="fas fa-arrow-left"></i> Back
             </div>
             <div class="content">
                 <div class="form-container">
-                    <h1>Create Room</h1>
-                    <form action="CreateRoomServlet" method="post">
-                        <div class="form-group">
-                            <label for="roomType">Room Type:</label>
-                            <select id="roomType" name="roomType" required>
-                                <option value="Normal">Normal</option>
-                                <option value="Deluxe">Deluxe</option>
-                                <option value="Luxury">Luxury</option>
-                            </select>
-                        </div>
+                    <h1>Update Block</h1>
+                    <sql:query var="blockDetails" dataSource="${myDatasource}">
+                        SELECT * FROM BLOCK WHERE BLOCKID = ?
+                        <sql:param value="<%= blockId %>" />
+                    </sql:query>
+                    <c:forEach var="block" items="${blockDetails.rows}">
+                        <form action="UpdateBlockServlet" method="post">
+                            <input type="hidden" name="blockID" value="${block.blockID}">
+                            <div class="form-group">
+                                <label for="blockID">Block ID:</label>
+                                <input type="text" id="blockID" name="blockID" value="${block.blockID}" readonly>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="block">Block:</label>
-                            <select id="block" name="block" required>
-                                <option value="A">Block A</option>
-                                <option value="B">Block B</option>
-                                <option value="C">Block C</option>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label for="blockName">Block Name:</label>
+                                <input type="text" id="blockName" name="blockName" value="${block.blockName}" required>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="capacity">Capacity:</label>
-                            <input type="number" id="capacity" name="capacity" required>
-                        </div>
+                            <div class="form-group">
+                                <label for="blockDesc">Block Description:</label>
+                                <input type="text" id="blockDesc" name="blockDesc" value="${block.blockDesc}" required>
+                            </div>
 
-                        <button type="submit">Create Room</button>
-                    </form>
+                            <button type="submit">Update Block</button>
+                        </form>
+                    </c:forEach>
                 </div>
             </div>
         </div>

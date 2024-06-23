@@ -29,14 +29,6 @@
         <servlet-class>com.interior.controller.RoomFilterServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateBlock</servlet-name>
-        <servlet-class>com.interior.controller.CreateBlock</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeleteBlock</servlet-name>
-        <servlet-class>com.interior.controller.DeleteBlock</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>RegisterSevlet</servlet-name>
         <servlet-class>com.interior.controller.RegisterSevlet</servlet-class>
     </servlet>
@@ -72,6 +64,18 @@
         <servlet-name>UpdateRoomServlet</servlet-name>
         <servlet-class>com.interior.controller.UpdateRoomServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateBlockServlet</servlet-name>
+        <servlet-class>com.interior.controller.CreateBlockServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBlockServlet</servlet-name>
+        <servlet-class>com.interior.controller.DeleteBlockServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateBlockServlet</servlet-name>
+        <servlet-class>com.interior.controller.UpdateBlockServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -99,14 +103,6 @@
     <servlet-mapping>
         <servlet-name>RoomFilterServlet</servlet-name>
         <url-pattern>/RoomFilterServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreateBlock</servlet-name>
-        <url-pattern>/CreateBlock</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeleteBlock</servlet-name>
-        <url-pattern>/DeleteBlock</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterSevlet</servlet-name>
@@ -143,6 +139,18 @@
     <servlet-mapping>
         <servlet-name>UpdateRoomServlet</servlet-name>
         <url-pattern>/UpdateRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateBlockServlet</servlet-name>
+        <url-pattern>/CreateBlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBlockServlet</servlet-name>
+        <url-pattern>/DeleteBlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateBlockServlet</servlet-name>
+        <url-pattern>/UpdateBlockServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
