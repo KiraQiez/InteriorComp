@@ -19,11 +19,11 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guestS.jsp" class="active"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="Staffdashboard.jsp" ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="StaffroomS.jsp" ><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="StaffbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="StaffguestS.jsp" class="active"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="StaffstaffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
         
@@ -69,7 +69,7 @@
 
             <div class="content">
                 <h1>Guest</h1>
-                <div class="navigation-card" onclick="window.location.href='guestList.jsp';">
+                <div class="navigation-card" onclick="window.location.href='StaffguestSL.jsp';">
                     <img src="resource/guest-list.png" alt="Guest List" class="card-image">
                     <div class="card-content">
                         <div class="card-title">Guest List</div>

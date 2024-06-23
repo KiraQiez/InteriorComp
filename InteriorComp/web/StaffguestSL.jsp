@@ -27,7 +27,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Block</title>
+    <title>Guest List</title>
     <link rel="stylesheet" href="staff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -43,17 +43,17 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="Staffdashboard.jsp" ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="StaffroomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="Staffdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="StaffroomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
                 <li><a href="StaffbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="StaffguestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="StaffguestS.jsp" class="active"><i class="fas fa-user"></i> <span>Guest</span></a></li>
                 <li><a href="StaffstaffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
-        
+
         <div class="main-content">
             <header>
-                <h1>Block</h1>
+                <h1>Guest List</h1>
                 <div class="search-profile">
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
@@ -83,11 +83,11 @@
                 </div>
             </header>
             <div class="breadcrumb">
-                <a href="StaffblockSL.jsp">Block</a> / <a href="#" class="active">Block List</a>
+                <a href="StaffguestS.jsp">Guest</a> / <a href="#" class="active">Guest List</a>
             </div>
 
             <div class="content">
-                <h1>Block List</h1>
+                <h1>Guest List</h1>
                 <%
                     int rowsPerPage = 10; 
                     int currentPage = 1; 
@@ -103,50 +103,56 @@
                     int offset = (currentPage - 1) * rowsPerPage;
                  %>
                 
-                <sql:query var="block_list" dataSource="${myDatasource}">
-                    SELECT * FROM BLOCK 
-                    ORDER BY blockID 
+                <sql:query var="student_list" dataSource="${myDatasource}">
+                    SELECT s.stdID, s.stdName, s.stdIC, s.stdPhone, s.stdIncome, b.roomID 
+                    FROM STUDENT s 
+                    LEFT JOIN BOOKING b ON s.stdID = b.stdID
+                    ORDER BY s.stdID
                     OFFSET <%= offset %> ROWS 
                     FETCH NEXT <%= rowsPerPage %> ROWS ONLY
                 </sql:query>
 
                 <div class="table-container">
                     <div class="header-actions">
-                        <form action="StaffblockSLC.jsp" method="get" style="display:inline;">
-                            <button class="action-button">Create Block</button>
+                        <form action="StaffguestSLC.jsp" method="get" style="display:inline;">
+                            <button class="action-button">Create Guest</button>
                         </form>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Block ID</th>
-                                <th>Block Name</th>
-                                <th>Block Description</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>IC</th>
+                                <th>Phone No</th>
+                                <th>Room ID</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:choose>
-                                <c:when test="${empty block_list.rows}">
-                                    <tr><td colspan="3">No block available.</td></tr>
+                                <c:when test="${empty student_list.rows}">
+                                    <tr><td colspan="7">No data available.</td></tr>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:forEach var="row" items="${block_list.rows}">
+                                    <c:forEach var="row" items="${student_list.rows}">
                                         <tr>
-                                            <td><c:out value="${row.blockID}"/></td>
-                                            <td><c:out value="${row.blockName}"/></td>
-                                            <td><c:out value="${row.blockDesc}"/></td>
+                                            <td><c:out value="${row.stdID}"/></td>
+                                            <td><c:out value="${row.stdName}"/></td>
+                                            <td><c:out value="${row.stdIC}"/></td>
+                                            <td><c:out value="${row.stdPhone}"/></td>
+                                            <td><c:out value="${row.roomID != null ? row.roomID : 'No Data'}"/></td>
                                             <td class="actions">
-                                                <form action="StaffBlockDetails.jsp" method="get" style="display:inline;">
-                                                    <input type="hidden" name="blockID" value="${row.blockID}"/>
+                                                <form action="StaffguestDetails.jsp" method="get" style="display:inline;">
+                                                    <input type="hidden" name="stdID" value="${row.stdID}"/>
                                                     <button type="submit" class="view-button">View</button>
                                                 </form>
-                                                <form action="StaffblockSLU.jsp" method="get" style="display:inline;">
-                                                    <input type="hidden" name="blockID" value="${row.blockID}"/>
+                                                <form action="StaffguestSLU.jsp" method="get" style="display:inline;">
+                                                    <input type="hidden" name="stdID" value="${row.stdID}"/>
                                                     <button type="submit" class="view-button">Update</button>
                                                 </form>
-                                                <form action="DeleteBlockServlet" method="post" style="display:inline;">
-                                                    <input type="hidden" name="blockID" value="${row.blockID}"/>
+                                                <form action="DeleteGuestServlet" method="post" style="display:inline;">
+                                                    <input type="hidden" name="stdID" value="${row.stdID}"/>
                                                     <button type="submit" class="view-button">Delete</button>
                                                 </form>
                                             </td>
@@ -161,10 +167,10 @@
                         <div id="alert-box" class="alert-box show">
                             <c:choose>
                                 <c:when test="${sessionScope.createResult}">
-                                    Block created successfully!
+                                    Guest created successfully!
                                 </c:when>
                                 <c:otherwise>
-                                    Block creation failed: <c:out value="${sessionScope.createMessage}" />
+                                    Guest creation failed: <c:out value="${sessionScope.createMessage}" />
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -178,10 +184,10 @@
                         <div id="alert-box" class="alert-box show">
                             <c:choose>
                                 <c:when test="${sessionScope.deleteResult}">
-                                    Block deleted successfully!
+                                    Guest deleted successfully!
                                 </c:when>
                                 <c:otherwise>
-                                    Block deletion failed: <c:out value="${sessionScope.deleteMessage}" />
+                                    Guest deletion failed: <c:out value="${sessionScope.deleteMessage}" />
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -195,10 +201,10 @@
                         <div id="alert-box" class="alert-box show">
                             <c:choose>
                                 <c:when test="${sessionScope.updateResult}">
-                                    Block updated successfully!
+                                    Guest updated successfully!
                                 </c:when>
                                 <c:otherwise>
-                                    Block update failed: <c:out value="${sessionScope.updateMessage}" />
+                                    Guest update failed: <c:out value="${sessionScope.updateMessage}" />
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -209,12 +215,12 @@
                     </c:if>
 
                     <div class="pagination-container">
-                        <form action="StaffblockSL.jsp" method="get" style="display:inline;">
+                        <form action="StaffguestSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
                             <button type="submit" class="pagination-button">Prev</button>
                         </form>
                         <span>Page <%= currentPage %></span>
-                        <form action="StaffblockSL.jsp" method="get" style="display:inline;">
+                        <form action="StaffguestSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage + 1 %>" />
                             <button type="submit" class="pagination-button">Next</button>
                         </form>

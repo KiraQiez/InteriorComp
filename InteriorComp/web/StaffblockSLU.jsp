@@ -33,74 +33,6 @@
     <link rel="stylesheet" href="staff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        .form-container {
-            background-color: #161b22;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .form-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #c9d1d9;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #c9d1d9;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #30363d;
-            border-radius: 4px;
-            background-color: #0d1117;
-            color: #c9d1d9;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #58a6ff;
-        }
-
-        button[type="submit"] {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #0366d6;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0255b6;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #58a6ff;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .back-button:hover {
-            color: #0366d6;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -115,9 +47,9 @@
             <ul>
                 <li><a href="Staffdashboard.jsp" ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="StaffroomS.jsp" class="active"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="StaffbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="StaffguestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="StaffstaffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
 

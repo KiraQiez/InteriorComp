@@ -76,6 +76,18 @@
         <servlet-name>UpdateBlockServlet</servlet-name>
         <servlet-class>com.interior.controller.UpdateBlockServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateGuestServlet</servlet-name>
+        <servlet-class>com.interior.controller.CreateGuestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteGuestServlet</servlet-name>
+        <servlet-class>com.interior.controller.DeleteGuestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateGuestServlet</servlet-name>
+        <servlet-class>com.interior.controller.UpdateGuestServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>UpdateBlockServlet</servlet-name>
         <url-pattern>/UpdateBlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateGuestServlet</servlet-name>
+        <url-pattern>/CreateGuestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteGuestServlet</servlet-name>
+        <url-pattern>/DeleteGuestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateGuestServlet</servlet-name>
+        <url-pattern>/UpdateGuestServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
