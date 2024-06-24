@@ -22,6 +22,9 @@
     if(rank.equals("Guest")) {
         response.sendRedirect("home.jsp");
         return;
+    }else if (!rank.equals("Receptionist") && !rank.equals("Admin") && !rank.equals("Manager")) {
+        response.sendRedirect("noPermS.jsp");
+        return;
     }
 
     String stdID = request.getParameter("stdID");
@@ -58,7 +61,7 @@
                 <h1>Update Guest</h1>
             </header>
             <div class="breadcrumb">
-                <a href="StaffguestS.jsp">Guest</a> / <a href="StaffguestSL.jsp" class="active">Guest List</a> / <a href="#" class="active">Update Guest</a>
+                <a href="StaffguestS.jsp">Guest</a> / <a href="StaffguestSL.jsp">Guest List</a> / <a href="#" class="active">Update Guest</a>
             </div>
             <div class="back-button" onclick="history.back()">
                 <i class="fas fa-arrow-left"></i> Back

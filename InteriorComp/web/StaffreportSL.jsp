@@ -23,13 +23,11 @@
         response.sendRedirect("home.jsp");
         return;
     }
-
-    
     %>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest List</title>
+    <title>Report List</title>
     <link rel="stylesheet" href="staff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -55,7 +53,7 @@
 
         <div class="main-content">
             <header>
-                <h1>Guest List</h1>
+                <h1>Report List</h1>
                 <div class="search-profile">
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
@@ -85,11 +83,11 @@
                 </div>
             </header>
             <div class="breadcrumb">
-                <a href="StaffguestS.jsp">Guest</a> / <a href="#" class="active">Guest List</a>
+                <a href="StaffreportSL.jsp">Report</a> / <a href="#" class="active">Report List</a>
             </div>
 
             <div class="content">
-                <h1>Guest List</h1>
+                <h1>Report List</h1>
                 <%
                     int rowsPerPage = 10; 
                     int currentPage = 1; 
@@ -105,56 +103,46 @@
                     int offset = (currentPage - 1) * rowsPerPage;
                  %>
                 
-                <sql:query var="student_list" dataSource="${myDatasource}">
-                    SELECT s.stdID, s.stdName, s.stdIC, s.stdPhone, s.stdIncome, b.roomID 
-                    FROM STUDENT s 
-                    LEFT JOIN BOOKING b ON s.stdID = b.stdID
-                    ORDER BY s.stdID
+                <sql:query var="report_list" dataSource="${myDatasource}">
+                    SELECT reportID, reportTitle, reportStatus 
+                    FROM REPORT 
+                    ORDER BY reportID 
                     OFFSET <%= offset %> ROWS 
                     FETCH NEXT <%= rowsPerPage %> ROWS ONLY
                 </sql:query>
 
                 <div class="table-container">
-                    <div class="header-actions">
-                        <form action="StaffguestSLC.jsp" method="get" style="display:inline;">
-                            <button class="action-button">Create Guest</button>
-                        </form>
-                    </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>IC</th>
-                                <th>Phone No</th>
-                                <th>Room ID</th>
+                                <th>Report ID</th>
+                                <th>Title</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:choose>
-                                <c:when test="${empty student_list.rows}">
-                                    <tr><td colspan="7">No data available.</td></tr>
+                                <c:when test="${empty report_list.rows}">
+                                    <tr><td colspan="4">No reports available.</td></tr>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:forEach var="row" items="${student_list.rows}">
+                                    <c:forEach var="row" items="${report_list.rows}">
                                         <tr>
-                                            <td><c:out value="${row.stdID}"/></td>
-                                            <td><c:out value="${row.stdName}"/></td>
-                                            <td><c:out value="${row.stdIC}"/></td>
-                                            <td><c:out value="${row.stdPhone}"/></td>
-                                            <td><c:out value="${row.roomID != null ? row.roomID : 'No Data'}"/></td>
+                                            <td><c:out value="${row.reportID}"/></td>
+                                            <td><c:out value="${row.reportTitle}"/></td>
+                                            <td><c:out value="${row.reportStatus}"/></td>
                                             <td class="actions">
-                                                <form action="StaffguestDetails.jsp" method="get" style="display:inline;">
-                                                    <input type="hidden" name="stdID" value="${row.stdID}"/>
+                                                <form action="StaffreportSLV.jsp" method="get" style="display:inline;">
+                                                    <input type="hidden" name="reportID" value="${row.reportID}"/>
                                                     <button type="submit" class="view-button">View</button>
                                                 </form>
-                                                <form action="StaffguestSLU.jsp" method="get" style="display:inline;">
-                                                    <input type="hidden" name="stdID" value="${row.stdID}"/>
+                                                <form action="StaffreportSLU.jsp" method="get" style="display:inline;">
+                                                    <input type="hidden" name="reportID" value="${row.reportID}"/>
                                                     <button type="submit" class="view-button">Update</button>
                                                 </form>
-                                                <form action="DeleteGuestServlet" method="post" style="display:inline;">
-                                                    <input type="hidden" name="stdID" value="${row.stdID}"/>
+                                                <form action="DeleteReportServlet" method="post" style="display:inline;">
+                                                    <input type="hidden" name="reportID" value="${row.reportID}"/>
                                                     <button type="submit" class="view-button">Delete</button>
                                                 </form>
                                             </td>
@@ -169,10 +157,10 @@
                         <div id="alert-box" class="alert-box show">
                             <c:choose>
                                 <c:when test="${sessionScope.createResult}">
-                                    Guest created successfully!
+                                    Report created successfully!
                                 </c:when>
                                 <c:otherwise>
-                                    Guest creation failed: <c:out value="${sessionScope.createMessage}" />
+                                    Report creation failed: <c:out value="${sessionScope.createMessage}" />
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -186,10 +174,10 @@
                         <div id="alert-box" class="alert-box show">
                             <c:choose>
                                 <c:when test="${sessionScope.deleteResult}">
-                                    Guest deleted successfully!
+                                    Report deleted successfully!
                                 </c:when>
                                 <c:otherwise>
-                                    Guest deletion failed: <c:out value="${sessionScope.deleteMessage}" />
+                                    Report deletion failed: <c:out value="${sessionScope.deleteMessage}" />
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -203,10 +191,10 @@
                         <div id="alert-box" class="alert-box show">
                             <c:choose>
                                 <c:when test="${sessionScope.updateResult}">
-                                    Guest updated successfully!
+                                    Report updated successfully!
                                 </c:when>
                                 <c:otherwise>
-                                    Guest update failed: <c:out value="${sessionScope.updateMessage}" />
+                                    Report update failed: <c:out value="${sessionScope.updateMessage}" />
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -217,12 +205,12 @@
                     </c:if>
 
                     <div class="pagination-container">
-                        <form action="StaffguestSL.jsp" method="get" style="display:inline;">
+                        <form action="StaffreportSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>" />
                             <button type="submit" class="pagination-button">Prev</button>
                         </form>
                         <span>Page <%= currentPage %></span>
-                        <form action="StaffguestSL.jsp" method="get" style="display:inline;">
+                        <form action="StaffreportSL.jsp" method="get" style="display:inline;">
                             <input type="hidden" name="page" value="<%= currentPage + 1 %>" />
                             <button type="submit" class="pagination-button">Next</button>
                         </form>

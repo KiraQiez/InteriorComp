@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%
+    HttpSession currentSession = request.getSession(false);
+    if (currentSession == null || currentSession.getAttribute("loggedIn") == null || !(Boolean) currentSession.getAttribute("loggedIn")) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+
+    String username = (String) currentSession.getAttribute("username");
+    String rank = (String) currentSession.getAttribute("rank");
+
+    if(rank.equals("Guest")) {
+        response.sendRedirect("home.jsp");
+        return;
+    }
+
+    String roomId = request.getParameter("roomID");
+    %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Permission</title>
@@ -110,8 +127,8 @@
                             <img src="resource/adminPic.png" alt="Profile Picture">
                         </div>
                         <div class="profile-info">
-                            <span class="username">Username</span>
-                            <span class="staff-rank">Manager</span>
+                            <span class="username"><%= username %></span>
+                            <span class="staff-rank"><%= rank %></span>
                         </div>
                         <div class="dropdown-menu">
                             <form action="editSP.jsp" method="GET">

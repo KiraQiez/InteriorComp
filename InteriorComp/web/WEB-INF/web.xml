@@ -88,6 +88,30 @@
         <servlet-name>UpdateGuestServlet</servlet-name>
         <servlet-class>com.interior.controller.UpdateGuestServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateReportServlet</servlet-name>
+        <servlet-class>com.interior.controller.UpdateReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteReportServlet</servlet-name>
+        <servlet-class>com.interior.controller.DeleteReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateRoomServlet</servlet-name>
+        <servlet-class>com.interior.controller.CreateRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStaffServlet</servlet-name>
+        <servlet-class>com.interior.controller.UpdateStaffServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateStaffServlet</servlet-name>
+        <servlet-class>com.interior.controller.CreateStaffServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStaffServlet</servlet-name>
+        <servlet-class>com.interior.controller.DeleteStaffServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -175,6 +199,30 @@
     <servlet-mapping>
         <servlet-name>UpdateGuestServlet</servlet-name>
         <url-pattern>/UpdateGuestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateReportServlet</servlet-name>
+        <url-pattern>/UpdateReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteReportServlet</servlet-name>
+        <url-pattern>/DeleteReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateRoomServlet</servlet-name>
+        <url-pattern>/CreateRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStaffServlet</servlet-name>
+        <url-pattern>/UpdateStaffServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateStaffServlet</servlet-name>
+        <url-pattern>/CreateStaffServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStaffServlet</servlet-name>
+        <url-pattern>/DeleteStaffServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

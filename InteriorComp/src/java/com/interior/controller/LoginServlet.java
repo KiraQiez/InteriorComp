@@ -49,35 +49,13 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", username);
                 String usertype = getUserType(username);
                 session.setAttribute("usertype", usertype);
-
+                String rank = getUserRank(username);
+                session.setAttribute("rank", rank);
                 if(usertype.equals("Staff")){
                     response.sendRedirect(request.getContextPath() + "/Staffdashboard.jsp");
-                    String rank = "Admin";
-                    switch (rank) {
-                        case "Admin":
-                            session.setAttribute("rank", "Admin");
-                            break;
-                        
-                        case "Manager":
-                            session.setAttribute("rank", "Manager");
-                            break;
-                        
-                        case "Cleaner":
-                            session.setAttribute("rank", "Cleaner");
-                            break;
-    
-                        case "Chef":
-                            session.setAttribute("rank", "Chef");
-                            break;
-                    
-                        default:
-                            
-                            break;
-                    }
 
                 }
-                else{
-                    session.setAttribute("rank", "Guest");
+                else{                  
                     response.sendRedirect(request.getContextPath() + "/guest/dashboard.jsp");
                 }
                 
@@ -137,5 +115,18 @@ public class LoginServlet extends HttpServlet {
         }
 
         return null;
+    }
+
+    private String getUserRank(String username) throws SQLException {
+        String sql = "SELECT staffType FROM STAFF WHERE staffID = (SELECT userID FROM USERS WHERE username = ?)";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getString("staffType");
+        }
+
+        return "Guest";
     }
 }

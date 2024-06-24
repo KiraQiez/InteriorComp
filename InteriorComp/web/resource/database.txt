@@ -14,7 +14,7 @@ CREATE TABLE ROOM (
     blockID VARCHAR(2),
     roomType VARCHAR(8),
     maxCapacity INT,
-    availability VARCHAR(8),
+    availability VARCHAR(20),
     FOREIGN KEY (blockID) REFERENCES BLOCK(blockID)
 );
 
@@ -44,8 +44,10 @@ CREATE TABLE STAFF (
     staffID VARCHAR(8) PRIMARY KEY NOT NULL,
     staffName VARCHAR(255) NOT NULL,
     staffType VARCHAR(30) NOT NULL,
+    staffAge INT NOT NULL,
     FOREIGN KEY (staffID) REFERENCES USERS(userID)
 );
+
 
 -- Create the BOOKING table
 CREATE TABLE BOOKING (
@@ -61,6 +63,19 @@ CREATE TABLE BOOKING (
     FOREIGN KEY (roomID) REFERENCES ROOM(roomID)
 );
 
+-- Create the REPORT table
+CREATE TABLE REPORT (
+    reportID VARCHAR(8) PRIMARY KEY NOT NULL,
+    reportTitle VARCHAR(255) NOT NULL,
+    reportDesc VARCHAR(255) NOT NULL,
+    reportStatus VARCHAR(50) NOT NULL,
+    studentID VARCHAR(8) NOT NULL,
+    handledByStaffID VARCHAR(8),
+    checkedByStaffID VARCHAR(8),
+    FOREIGN KEY (studentID) REFERENCES STUDENT(stdID),
+    FOREIGN KEY (handledByStaffID) REFERENCES STAFF(staffID),
+    FOREIGN KEY (checkedByStaffID) REFERENCES STAFF(staffID)
+);
 
 
 
@@ -109,13 +124,18 @@ INSERT INTO USERS (userID, email, username, password, userType) VALUES
 ('S004', 'staff4@example.com', 'staff4', 'password4', 'Staff'),
 ('S005', 'staff5@example.com', 'staff5', 'password5', 'Staff');
 
--- Insert data into STAFF table
-INSERT INTO STAFF (staffID, staffName, staffType) VALUES 
-('S001', 'Alice Smith', 'Manager'),
-('S002', 'Bob Johnson', 'Receptionist'),
-('S003', 'Carol White', 'Housekeeper'),
-('S004', 'David Brown', 'Security'),
-('S005', 'Eve Black', 'Technician');
+-- Insert 10 staff members into the STAFF table
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S001', 'John Doe', 'Admin', 45);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S002', 'Jane Smith', 'Manager', 38);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S003', 'Michael Brown', 'Receptionist', 29);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S004', 'Emily Davis', 'Housekeeper', 40);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S005', 'Chris Johnson', 'Chef', 50);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S006', 'Jessica Wilson', 'Manager', 34);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S007', 'David Lee', 'Receptionist', 31);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S008', 'Sarah Walker', 'Housekeeper', 44);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S009', 'Daniel Harris', 'Chef', 47);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S010', 'Laura Clark', 'Admin', 39);
+
 
 -- Insert data into STUDENT table
 INSERT INTO STUDENT (stdID, stdName, stdIC, stdPhone, stdAddress, stdIncome, stdParentPhoneNum) VALUES 
@@ -141,10 +161,13 @@ INSERT INTO STUDENT (stdID, stdName, stdIC, stdPhone, stdAddress, stdIncome, std
 ('U020', 'Oscar Wright', '012345678901', '2023456789', '117 Elm St', 3000.00, '0987654340');
 
 
-
-
-
-
+-- Insert data into the REPORT table
+INSERT INTO REPORT (reportID, reportTitle, reportDesc, reportStatus, studentID, handledByStaffID, checkedByStaffID) VALUES
+('REP001', 'Water Leakage', 'Water leakage in room A101', 'Pending', 'U001', 'S001', 'S002'),
+('REP002', 'Broken Window', 'Broken window in room B202', 'In Progress', 'U002', 'S003', 'S001'),
+('REP003', 'No Electricity', 'No electricity in room C303', 'Resolved', 'U003', 'S002', 'S003'),
+('REP004', 'Internet Issue', 'No internet connection in room D404', 'Pending', 'U004', 'S001', 'S002'),
+('REP005', 'Pest Problem', 'Pest problem in room E505', 'In Progress', 'U005', 'S003', 'S001');
 
 
 

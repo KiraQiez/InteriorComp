@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="navigation-card" onclick="window.location.href='reportList.jsp';">
+                <div class="navigation-card" onclick="window.location.href='StaffreportSL.jsp';">
                     <img src="resource/report-list.png" alt="Report List" class="card-image">
                     <div class="card-content">
                         <div class="card-title">Report List</div>

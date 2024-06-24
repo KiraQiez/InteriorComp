@@ -14,7 +14,11 @@
     if(rank.equals("Guest")) {
         response.sendRedirect("home.jsp");
         return;
+    }else if (!rank.equals("Admin") && !rank.equals("Manager")) {
+        response.sendRedirect("noPermS.jsp");
+        return;
     }
+
     %>
     
     <meta charset="UTF-8">

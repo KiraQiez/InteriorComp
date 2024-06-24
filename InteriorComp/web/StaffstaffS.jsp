@@ -21,11 +21,11 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp" class="active"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="Staffdashboard.jsp" ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="StaffroomS.jsp" ><i class="fas fa-bed"></i> <span>Room</span></a></li>
+                <li><a href="StaffbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="StaffguestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
+                <li><a href="StaffstaffS.jsp" class="active"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
 
@@ -71,15 +71,13 @@
 
             <div class="content">
                 <h1>Staff</h1>
-                <button class="card-button" onclick="window.location.href='staffInsert.jsp';">Create New Staff</button>
-                <button class="card-button" onclick="window.location.href='staffSL.jsp';">Update Staff</button>
-                <div class="navigation-card" onclick="window.location.href='staffSL.jsp';">
+                <div class="navigation-card" onclick="window.location.href='StaffstaffSL.jsp';">
                     <img src="resource/guest-list.png" alt="Guest List" class="card-image">
                     <div class="card-content">
                         <div class="card-title">Staff List</div>
                         <div class="card-description">View and manage all registered guests. This section allows for
                             quick access to guest profiles, stay history, and contact information.</div>
-                        <button class="card-button">View StaffList</button>
+                        <button class="card-button">View Staff List</button>
                     </div>
                 </div>
 
