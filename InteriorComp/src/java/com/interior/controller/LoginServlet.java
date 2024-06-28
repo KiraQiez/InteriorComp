@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 
                 }
                 else{                  
-                    response.sendRedirect(request.getContextPath() + "/guest/dashboard.jsp");
+                    response.sendRedirect(request.getContextPath() + "/dashboardS.jsp");
                 }
                 
                 session.setAttribute("loggedIn", true);
