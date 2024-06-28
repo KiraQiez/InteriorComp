@@ -122,7 +122,8 @@ INSERT INTO USERS (userID, email, username, password, userType) VALUES
 ('S002', 'staff2@example.com', 'staff2', 'password2', 'Staff'),
 ('S003', 'staff3@example.com', 'staff3', 'password3', 'Staff'),
 ('S004', 'staff4@example.com', 'staff4', 'password4', 'Staff'),
-('S005', 'staff5@example.com', 'staff5', 'password5', 'Staff');
+('S005', 'staff5@example.com', 'staff5', 'password5', 'Staff'),
+('S010', 'staff5@example.com', 'staff10', 'password10', 'Staff');
 
 -- Insert 10 staff members into the STAFF table
 INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S001', 'John Doe', 'Admin', 45);
@@ -167,7 +168,9 @@ INSERT INTO REPORT (reportID, reportTitle, reportDesc, reportStatus, studentID, 
 ('REP002', 'Broken Window', 'Broken window in room B202', 'In Progress', 'U002', 'S003', 'S001'),
 ('REP003', 'No Electricity', 'No electricity in room C303', 'Resolved', 'U003', 'S002', 'S003'),
 ('REP004', 'Internet Issue', 'No internet connection in room D404', 'Pending', 'U004', 'S001', 'S002'),
-('REP005', 'Pest Problem', 'Pest problem in room E505', 'In Progress', 'U005', 'S003', 'S001');
+('REP005', 'Pest Problem', 'Pest problem in room E505', 'In Progress', 'U005', 'S003', 'S001'),
+('REP006', 'Pest Problem', 'Pest problem in room E505', 'In Progress', 'U001', 'S003', 'S010');
+
 
 
 
