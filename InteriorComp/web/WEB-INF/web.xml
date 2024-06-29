@@ -112,6 +112,10 @@
         <servlet-name>DeleteStaffServlet</servlet-name>
         <servlet-class>com.interior.controller.DeleteStaffServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FetchRoomServlet</servlet-name>
+        <servlet-class>com.interior.controller.FetchRoomServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -223,6 +227,10 @@
     <servlet-mapping>
         <servlet-name>DeleteStaffServlet</servlet-name>
         <url-pattern>/DeleteStaffServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FetchRoomServlet</servlet-name>
+        <url-pattern>/FetchRoomServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
