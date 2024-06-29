@@ -21,6 +21,7 @@
 
             String username = (String) currentSession.getAttribute("username");
             String rank = (String) currentSession.getAttribute("rank");
+            String ID = (String) currentSession.getAttribute("ID");
         %>
 
         <meta charset="UTF-8">

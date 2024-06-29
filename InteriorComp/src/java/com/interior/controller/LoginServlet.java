@@ -46,11 +46,16 @@ public class LoginServlet extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
 
+                // session control
                 session.setAttribute("username", username);
                 String usertype = getUserType(username);
                 session.setAttribute("usertype", usertype);
+                String ID = getUserID(username);
+                session.setAttribute("ID", ID);
                 String rank = getUserRank(username);
                 session.setAttribute("rank", rank);
+                
+                // redirect
                 if(usertype.equals("Staff")){
                     response.sendRedirect(request.getContextPath() + "/Staffdashboard.jsp");
 
@@ -128,5 +133,20 @@ public class LoginServlet extends HttpServlet {
         }
 
         return "Guest";
+    }
+    
+    private String getUserID(String username) throws SQLException {
+        String sql = "SELECT userID FROM USERS U JOIN STUDENT S ON U.userID = S.stdID WHERE U.username = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();
+
+        // retriving ID from SQL
+        String userID = "";
+        if (rs.next()) {
+            userID = rs.getString("userID");
+        }
+
+        return userID;
     }
 }

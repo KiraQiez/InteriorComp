@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -54,7 +55,18 @@ public class insertBooking extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         PrintWriter out = response.getWriter();
+        
+        // session control
+        HttpSession currentSession = request.getSession(false);
+            if (currentSession == null || currentSession.getAttribute("loggedIn") == null || !(Boolean) currentSession.getAttribute("loggedIn")) {
+                response.sendRedirect("login.jsp");
+                return;
+            }
 
+            String username = (String) currentSession.getAttribute("username");
+            String rank = (String) currentSession.getAttribute("rank");
+            String ID = (String) currentSession.getAttribute("ID");
+            
         // Get the current system date
         LocalDate currentDate = LocalDate.now();
 
@@ -66,7 +78,7 @@ public class insertBooking extends HttpServlet {
         String bookingDate = currentDate.format(formatter);
 
         // foreign key
-        String stdID = "U001";
+        String stdID = ID;
         String staffID = "S010";
         String roomID = request.getParameter("roomID");
         int sessionID = Integer.parseInt(request.getParameter("sessionID"));

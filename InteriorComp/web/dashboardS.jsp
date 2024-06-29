@@ -8,6 +8,7 @@
 
     String username = (String) currentSession.getAttribute("username");
     String rank = (String) currentSession.getAttribute("rank");
+    String ID = (String) currentSession.getAttribute("ID");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +52,7 @@
                             <img src="resource/adminPic.png" alt="Profile Picture">
                         </div>
                         <div class="profile-info">
-                            <span class="username"><%= username %></span>
+                            <span class="username"><%= ID %></span>
                             <span class="staff-rank"><%= rank %></span>
                         </div>
                         <div class="dropdown-menu">
