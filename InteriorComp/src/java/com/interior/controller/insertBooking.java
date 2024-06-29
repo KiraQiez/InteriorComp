@@ -62,7 +62,6 @@ public class insertBooking extends HttpServlet {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         // obtain parameter
-        String bookingID = "B100100";
         String bookingStatus = "PENDING";
         String bookingDate = currentDate.format(formatter);
 
@@ -70,13 +69,19 @@ public class insertBooking extends HttpServlet {
         String stdID = "U001";
         String staffID = "S010";
         String roomID = request.getParameter("roomID");
-        String sessionID = request.getParameter("sessionID");
+        int sessionID = Integer.parseInt(request.getParameter("sessionID"));
 
         try {
+            // obtain parameter
+            String bookingID = getNextBookingID();
             if (checkIncome(stdID)) {
                 bookingStatus = "SUCCESS";
+                createBooking(bookingID, bookingDate, bookingStatus, stdID, staffID, roomID, sessionID);
+                updateAvailability(roomID);
+            }else{
+                createBooking(bookingID, bookingDate, bookingStatus, stdID, staffID, roomID, sessionID);
             }
-            createBooking(bookingID, bookingDate, bookingStatus, stdID, staffID, roomID, sessionID);
+            
             return;
         } catch (Exception e) {
             out.println("Error: " + e.getMessage());
@@ -85,7 +90,7 @@ public class insertBooking extends HttpServlet {
         }
     }
 
-    protected void createBooking(String bookingID, String bookingDate, String bookingStatus, String stdID, String staffID, String roomID, String sessionID)
+    protected void createBooking(String bookingID, String bookingDate, String bookingStatus, String stdID, String staffID, String roomID, int sessionID)
             throws SQLException {
 
         // create a statement
@@ -100,8 +105,40 @@ public class insertBooking extends HttpServlet {
         pstmt.setString(4, stdID);
         pstmt.setString(5, staffID);
         pstmt.setString(6, roomID);
-        pstmt.setString(7, sessionID);
+        pstmt.setInt(7, sessionID);
         pstmt.executeUpdate();
+    }
+
+    public String getNextBookingID() throws SQLException {
+        // Initialize the next booking ID variable
+        String nextBookingID = "B100001"; // default value if no booking ID exists in the table
+
+        // Create the SQL query to get the maximum current booking ID
+        String sql = "SELECT MAX(BOOKINGID) AS maxBookingID FROM BOOKING";
+
+        // Prepare the statement
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
+        // Execute the query
+        ResultSet rs = pstmt.executeQuery();
+
+        // Check the result and generate the next booking ID
+        if (rs.next()) {
+            String maxBookingID = rs.getString("maxBookingID");
+            if (maxBookingID != null && !maxBookingID.isEmpty()) {
+                // Extract the numeric part of the booking ID
+                int maxID = Integer.parseInt(maxBookingID.substring(1));
+                // Increment the numeric part and format the new booking ID
+                nextBookingID = "B" + String.format("%06d", maxID + 1);
+            }
+        }
+
+        // Close the result set and the prepared statement
+        rs.close();
+        pstmt.close();
+
+        // Return the next booking ID
+        return nextBookingID;
     }
 
     public boolean checkIncome(String stdID) throws SQLException {
@@ -129,7 +166,7 @@ public class insertBooking extends HttpServlet {
         return false;
     }
 
-    public void updateAvailability(Connection conn, String roomID) throws SQLException {
+    public void updateAvailability(String roomID) throws SQLException {
         // Create the SQL query to get the current availability
         String sql = "SELECT AVAILABILITY FROM ROOM WHERE ROOMID = ?";
 
