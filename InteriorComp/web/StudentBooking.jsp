@@ -215,9 +215,9 @@
                     <img src="resource/adminPic.png" alt="Admin Profile Picture">
                 </div>
                 <ul>
-                    <li><a href="dashboardS.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                    <li><a href="Studentdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                     <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                    <li><a href="bookingS.jsp" class="active"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                    <li><a href="StudentBooking.jsp" class="active"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                     <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
                     <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
                 </ul>

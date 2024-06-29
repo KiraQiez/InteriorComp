@@ -15,6 +15,7 @@ public class insertBooking extends HttpServlet {
 
     private PreparedStatement pstmt;
     private Connection conn;
+    boolean isBookingSuccess = false;
 
     public void init() throws ServletException {
         initializeJdbc();
@@ -36,37 +37,37 @@ public class insertBooking extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet INSERT BOOKING</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet successINSERTBOOKING at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet INSERTBOOKING at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            response.sendRedirect("dashboardS.jsp");
         }
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
         PrintWriter out = response.getWriter();
-        
+
         // session control
         HttpSession currentSession = request.getSession(false);
-            if (currentSession == null || currentSession.getAttribute("loggedIn") == null || !(Boolean) currentSession.getAttribute("loggedIn")) {
-                response.sendRedirect("login.jsp");
-                return;
-            }
+        if (currentSession == null || currentSession.getAttribute("loggedIn") == null || !(Boolean) currentSession.getAttribute("loggedIn")) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
 
-            String username = (String) currentSession.getAttribute("username");
-            String rank = (String) currentSession.getAttribute("rank");
-            String ID = (String) currentSession.getAttribute("ID");
-            
+        String username = (String) currentSession.getAttribute("username");
+        String rank = (String) currentSession.getAttribute("rank");
+        String ID = (String) currentSession.getAttribute("ID");
+
         // Get the current system date
         LocalDate currentDate = LocalDate.now();
 
@@ -74,7 +75,7 @@ public class insertBooking extends HttpServlet {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         // obtain parameter
-        String bookingStatus = "PENDING";
+        String bookStatus = "PENDING";
         String bookingDate = currentDate.format(formatter);
 
         // foreign key
@@ -87,13 +88,14 @@ public class insertBooking extends HttpServlet {
             // obtain parameter
             String bookingID = getNextBookingID();
             if (checkIncome(stdID)) {
-                bookingStatus = "SUCCESS";
-                createBooking(bookingID, bookingDate, bookingStatus, stdID, staffID, roomID, sessionID);
+                bookStatus = "SUCCESS";
+                createBooking(bookingID, bookingDate, bookStatus, stdID, staffID, roomID, sessionID);
+                isBookingSuccess = true;
                 updateAvailability(roomID);
-            }else{
-                createBooking(bookingID, bookingDate, bookingStatus, stdID, staffID, roomID, sessionID);
+            } else {
+                createBooking(bookingID, bookingDate, bookStatus, stdID, staffID, roomID, sessionID);
+                isBookingSuccess = true;
             }
-            
             return;
         } catch (Exception e) {
             out.println("Error: " + e.getMessage());
@@ -102,18 +104,18 @@ public class insertBooking extends HttpServlet {
         }
     }
 
-    protected void createBooking(String bookingID, String bookingDate, String bookingStatus, String stdID, String staffID, String roomID, int sessionID)
+    protected void createBooking(String bookingID, String bookingDate, String bookStatus, String stdID, String staffID, String roomID, int sessionID)
             throws SQLException {
 
         // create a statement
-        String sql = "INSERT INTO BOOKING (BOOKINGID, BOOKINGDATE, BOOKINGSTATUS, STDID, STAFFID, ROOMID, SESSIONID)"
+        String sql = "INSERT INTO BOOKING (BOOKINGID, BOOKINGDATE, BOOKSTATUS, STDID, STAFFID, ROOMID, SESSIONID)"
                 + "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
         // Set parameters
         pstmt.setString(1, bookingID);
         pstmt.setString(2, bookingDate);
-        pstmt.setString(3, bookingStatus);
+        pstmt.setString(3, bookStatus);
         pstmt.setString(4, stdID);
         pstmt.setString(5, staffID);
         pstmt.setString(6, roomID);
