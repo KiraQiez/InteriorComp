@@ -116,6 +116,14 @@
         <servlet-name>FetchRoomServlet</servlet-name>
         <servlet-class>com.interior.controller.FetchRoomServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AcceptBookingServlet</servlet-name>
+        <servlet-class>com.interior.controller.AcceptBookingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RejectBookingServlet</servlet-name>
+        <servlet-class>com.interior.controller.RejectBookingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -231,6 +239,14 @@
     <servlet-mapping>
         <servlet-name>FetchRoomServlet</servlet-name>
         <url-pattern>/FetchRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AcceptBookingServlet</servlet-name>
+        <url-pattern>/AcceptBookingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RejectBookingServlet</servlet-name>
+        <url-pattern>/RejectBookingServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
