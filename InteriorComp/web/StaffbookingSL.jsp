@@ -104,7 +104,7 @@
                     %>
 
                     <sql:query var="book_list" dataSource="${myDatasource}">
-                        SELECT * FROM BOOKING WHERE BOOKSTATUS='PENDING'
+                        SELECT * FROM BOOKING B JOIN SESSION S ON B.SESSIONID= S.SESSIONID WHERE BOOKSTATUS='PENDING'
                         ORDER BY BOOKINGID
                         OFFSET <%= offset%> ROWS 
                         FETCH NEXT <%= rowsPerPage%> ROWS ONLY
@@ -112,8 +112,8 @@
 
                     <div class="table-container">
                         <div class="header-actions">
-                            <form action="StaffroomSLC.jsp" method="get" style="display:inline;">
-                                <button class="action-button">Create Room</button>
+                            <form action="AcceptAllBooking" method="post" style="display:inline;">
+                                <button class="action-button">Accept All Booking</button>
                             </form>
                         </div>
                         <table>
@@ -122,15 +122,15 @@
                                     <th>Booking ID</th>
                                     <th>Booking Date</th>
                                     <th>Student ID</th>
-                                    <th>SESSION</th>
-                                    <th>BOOK STATUS</th>
+                                    <th>Session</th>
+                                    <th>Book Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:choose>
                                     <c:when test="${empty book_list.rows}">
-                                        <tr><td colspan="6">No room available.</td></tr>
+                                        <tr><td colspan="6">No pending booking.</td></tr>
                                     </c:when>
                                     <c:otherwise>
                                         <c:forEach var="row" items="${book_list.rows}">
@@ -138,7 +138,7 @@
                                                 <td><c:out value="${row.bookingID}"/></td>
                                                 <td><c:out value="${row.bookingDate}"/></td>
                                                 <td><c:out value="${row.STDID}"/></td>
-                                                <td><c:out value="${row.SESSIONID}"/></td>
+                                                <td><c:out value="${row.SESSIONNAME}"/></td>
                                                 <td><c:out value="${row.BOOKSTATUS}"/></td>
                                                 <td class="actions">
                                                     <form action="AcceptBookingServlet" method="get" style="display:inline;">

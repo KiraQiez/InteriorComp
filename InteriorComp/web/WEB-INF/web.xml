@@ -124,6 +124,10 @@
         <servlet-name>RejectBookingServlet</servlet-name>
         <servlet-class>com.interior.controller.RejectBookingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AcceptAllBooking</servlet-name>
+        <servlet-class>com.interior.controller.AcceptAllBooking</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLogin</servlet-name>
         <url-pattern>/CheckLogin</url-pattern>
@@ -247,6 +251,10 @@
     <servlet-mapping>
         <servlet-name>RejectBookingServlet</servlet-name>
         <url-pattern>/RejectBookingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AcceptAllBooking</servlet-name>
+        <url-pattern>/AcceptAllBooking</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
