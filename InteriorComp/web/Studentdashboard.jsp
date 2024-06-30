@@ -35,7 +35,7 @@
                 <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
                 <li><a href="StudentbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                 <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="Studentreport.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
         
