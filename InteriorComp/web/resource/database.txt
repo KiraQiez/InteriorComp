@@ -46,6 +46,7 @@ CREATE TABLE STAFF (
     staffName VARCHAR(255) NOT NULL,
     staffType VARCHAR(30) NOT NULL,
     staffAge INT NOT NULL,
+
     FOREIGN KEY (staffID) REFERENCES USERS(userID)
 );
 
