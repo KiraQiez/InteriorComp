@@ -8,6 +8,7 @@
 
     String username = (String) currentSession.getAttribute("username");
     String rank = (String) currentSession.getAttribute("rank");
+    String ID = (String) currentSession.getAttribute("ID");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +31,11 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="Studentdashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="web\bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="StudentbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                 <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="Studentreport.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
         
@@ -51,7 +52,7 @@
                             <img src="resource/adminPic.png" alt="Profile Picture">
                         </div>
                         <div class="profile-info">
-                            <span class="username"><%= username %></span>
+                            <span class="username"><%= ID %></span>
                             <span class="staff-rank"><%= rank %></span>
                         </div>
                         <div class="dropdown-menu">
