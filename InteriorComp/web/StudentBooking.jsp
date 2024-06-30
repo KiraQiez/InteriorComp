@@ -337,8 +337,6 @@
 
                             <button type="submit">Book Now</button>
                         </form>
-
-
                     </div>
                 </div>
             </div>
