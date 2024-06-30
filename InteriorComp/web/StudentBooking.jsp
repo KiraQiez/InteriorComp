@@ -255,7 +255,7 @@
                     </div>
                 </header>
                 <div class="breadcrumb">
-                    <a href="StaffroomS.jsp">Room</a> / <a href="StaffroomSL.jsp">Room List</a> / <a href="#" class="active">Booking</a>
+                    <a href="StudentbookingS.jsp">Booking</a> / <a href="StudentBooking.jsp" class="active">Booking Now</a>
                 </div>
                 <div class="back-button" onclick="history.back()">
                     <i class="fas fa-arrow-left"></i> Back
@@ -284,7 +284,7 @@
 
                                             conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
-                                            String query = "SELECT SESSIONID, SESSIONNAME FROM SESSION";
+                                            String query = "SELECT SESSIONID, SESSIONNAME FROM SESSION WHERE SESSIONSTATUS='ACTIVE'";
                                             pstmt = conn.prepareStatement(query);
                                             rs = pstmt.executeQuery();
 
