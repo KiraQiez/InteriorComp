@@ -64,11 +64,11 @@ public class CreateStaffServlet extends HttpServlet {
                     selectStatement = connection.prepareStatement(selectSql);
                     resultSet = selectStatement.executeQuery();
 
-                    String newId = "S001"; 
+                    String newId = "U001"; 
                     if (resultSet.next()) {
                         String highestUserId = resultSet.getString("USERID");
                         int nextId = Integer.parseInt(highestUserId.substring(1)) + 1;
-                        newId = "S" + String.format("%03d", nextId);
+                        newId = "U" + String.format("%03d", nextId);
                     }
 
                     // Insert into USERS table

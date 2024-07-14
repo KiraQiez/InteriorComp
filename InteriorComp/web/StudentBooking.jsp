@@ -28,6 +28,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
         <link rel="stylesheet" href="guest.css">
+        <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
         <style>
@@ -331,7 +332,8 @@
                             <div class="form-group">
                                 <label for="roomID">Room ID:</label>
                                 <select id="roomID" name="roomID" required>
-                                    <!-- Room options will be populated here by AJAX -->
+                                    <option value="" selected disabled>Select an option</option>
+
                                 </select>
                             </div>
 

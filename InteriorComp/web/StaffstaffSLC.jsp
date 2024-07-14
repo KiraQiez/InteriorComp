@@ -1,55 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%
-    HttpSession currentSession = request.getSession(false);
-    if (currentSession == null || currentSession.getAttribute("loggedIn") == null || !(Boolean) currentSession.getAttribute("loggedIn")) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
 
-    String username = (String) currentSession.getAttribute("username");
-    String rank = (String) currentSession.getAttribute("rank");
-
-    if(rank.equals("Guest")) {
-        response.sendRedirect("home.jsp");
-        return;
-    } else if (!rank.equals("Admin") && !rank.equals("Manager")) {
-        response.sendRedirect("noPermS.jsp");
-        return;
-    }
-    %>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Staff</title>
-    <link rel="stylesheet" href="staff.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="resource/logo.svg" alt="Logo">
-                <span>INTERIOR</span>
-            </div>
-            <div class="profile">
-                <img src="resource/adminPic.png" alt="Admin Profile Picture">
-            </div>
-            <ul>
-                <li><a href="Staffdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="StaffroomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="StaffbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="StaffguestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="StaffstaffS.jsp" class="active"><i class="fas fa-users"></i> <span>Staff</span></a></li>
-            </ul>
-        </nav>
-
-        <div class="main-content">
-            <header>
-                <h1>Create Staff</h1>
-            </header>
+<<% String Header="Staff List"; %>
+<% String dHeader="Staff"; %>
+<%@ include file="StaffHeader.jsp" %>
             <div class="breadcrumb">
                 <a href="StaffstaffS.jsp">Staff</a> / <a href="StaffstaffSL.jsp">Staff List</a> / <a href="#" class="active">Create Staff</a>
             </div>

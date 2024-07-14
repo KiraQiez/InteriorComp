@@ -13,15 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateRoomServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         String roomType = request.getParameter("roomType");
         String block = request.getParameter("block");
         int capacity = Integer.parseInt(request.getParameter("capacity"));
 
         String jdbcUrl = "jdbc:derby://localhost:1527/InteriorDB";
-        String dbUser = "root"; 
-        String dbPassword = "root"; 
+        String dbUser = "root";
+        String dbPassword = "root";
 
         Connection connection = null;
         PreparedStatement insertStatement = null;
@@ -65,10 +66,14 @@ public class CreateRoomServlet extends HttpServlet {
             request.getSession().setAttribute("createMessage", "An error occurred: " + e.getMessage());
         } finally {
             try {
-                if (resultSet != null) resultSet.close();
-                if (selectStatement != null) selectStatement.close();
-                if (insertStatement != null) insertStatement.close();
-                if (connection != null) connection.close();
+                if (resultSet != null)
+                    resultSet.close();
+                if (selectStatement != null)
+                    selectStatement.close();
+                if (insertStatement != null)
+                    insertStatement.close();
+                if (connection != null)
+                    connection.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }

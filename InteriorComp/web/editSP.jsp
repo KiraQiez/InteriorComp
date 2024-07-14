@@ -89,57 +89,11 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="resource/logo.svg" alt="Logo">
-                <span>INTERIOR</span>
-            </div>
-            <div class="profile">
-                <img src="resource/adminPic.png" alt="Admin Profile Picture">
-            </div>
-            <ul>
-                <li><a href="Studentdashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="StudentbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
-            </ul>
-        </nav>
-
-        <div class="main-content">
-            <header>
-                <h1>Edit Profile</h1>
-                <div class="search-profile">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search...">
-                        <button><i class="fas fa-search"></i></button>
-                    </div>
-                    <div class="user-profile">
-                        <div class="profile-pic-container">
-                            <img src="resource/adminPic.png" alt="Profile Picture">
-                        </div>
-                        <div class="profile-info">
-                            <span class="username">Username</span>
-                            <span class="staff-rank">Manager</span>
-                        </div>
-                        <div class="dropdown-menu">
-                            <form action="editSP.jsp" method="GET">
-                                <button type="submit" class="menu-button">Edit Profile</button>
-                            </form>
-                            <form action="settingS.jsp" method="GET">
-                                <button type="event" class="menu-button">Settings</button>
-                            </form>
-                            <form action="LogoutServlet" method="GET">
-                                <input type="hidden" name="action" value="logout">
-                                <button type="submit" class="menu-button">Log Out</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </header>
+    <% String Header="Student List" ; %>
+    <% String dHeader="Student" ; %>
+        <%@ include file="StaffHeader.jsp" %>
             <div class="breadcrumb">
-                <a href="dashboard.jsp">Dashboard</a> / <a href="#" class="active">Edit Profile</a>
+                <a href="Staffdashboard.jsp">Dashboard</a> / <a href="#" class="active">Edit Profile</a>
             </div>
 
             <div class="profile-container">

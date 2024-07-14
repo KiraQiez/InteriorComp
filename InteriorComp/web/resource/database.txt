@@ -36,8 +36,14 @@ CREATE TABLE STUDENT (
     stdAddress VARCHAR(255) NOT NULL,
     stdIncome DECIMAL(10, 2) NOT NULL,
     stdParentPhoneNum VARCHAR(30) NOT NULL,
-    
     FOREIGN KEY (stdID) REFERENCES USERS(userID)
+);
+
+-- Create the SESSION table
+CREATE TABLE SESSION (
+    SESSIONID INT PRIMARY KEY,
+    SESSIONNAME VARCHAR(30),
+    SESSIONSTATUS VARCHAR(10)
 );
 
 -- Create the STAFF table
@@ -46,10 +52,8 @@ CREATE TABLE STAFF (
     staffName VARCHAR(255) NOT NULL,
     staffType VARCHAR(30) NOT NULL,
     staffAge INT NOT NULL,
-
     FOREIGN KEY (staffID) REFERENCES USERS(userID)
 );
-
 
 -- Create the BOOKING table
 CREATE TABLE BOOKING (
@@ -59,10 +63,11 @@ CREATE TABLE BOOKING (
     stdID VARCHAR(8) NOT NULL,
     staffID VARCHAR(8) NOT NULL,
     roomID VARCHAR(8) NOT NULL,
-
+    SESSIONID INT,
     FOREIGN KEY (stdID) REFERENCES STUDENT(stdID),
     FOREIGN KEY (staffID) REFERENCES STAFF(staffID),
-    FOREIGN KEY (roomID) REFERENCES ROOM(roomID)
+    FOREIGN KEY (roomID) REFERENCES ROOM(roomID),
+    FOREIGN KEY (SESSIONID) REFERENCES SESSION(SESSIONID)
 );
 
 -- Create the REPORT table
@@ -79,29 +84,6 @@ CREATE TABLE REPORT (
     FOREIGN KEY (checkedByStaffID) REFERENCES STAFF(staffID)
 );
 
-
---NEW TABLE SESSION
--- Step 1: Create the SESSION table
-CREATE TABLE SESSION (
-    SESSIONID INT PRIMARY KEY,
-    SESSIONNAME VARCHAR(30),
-    SESSIONSTATUS VARCHAR(10)
-);
-
--- Step 2: Add SESSIONID column to the BOOKING table
-ALTER TABLE BOOKING
-ADD COLUMN SESSIONID INT;
-
--- Step 3: Establish the foreign key relationship
-ALTER TABLE BOOKING
-ADD CONSTRAINT FK_SESSION
-FOREIGN KEY (SESSIONID) REFERENCES SESSION(SESSIONID);
-
-
-
-===========================
-       INSERT DATA
-===========================
 -- Insert data into BLOCK table
 INSERT INTO BLOCK (blockID, blockName, blockDesc) VALUES 
 ('A', 'Alpha Block', 'This is the Alpha Block.'),
@@ -142,20 +124,15 @@ INSERT INTO USERS (userID, email, username, password, userType) VALUES
 ('S002', 'staff2@example.com', 'staff2', 'password2', 'Staff'),
 ('S003', 'staff3@example.com', 'staff3', 'password3', 'Staff'),
 ('S004', 'staff4@example.com', 'staff4', 'password4', 'Staff'),
-('S005', 'staff5@example.com', 'staff5', 'password5', 'Staff'),
-('S010', 'staff5@example.com', 'staff10', 'password10', 'Staff');
+('S005', 'staff5@example.com', 'staff5', 'password5', 'Staff');
 
 -- Insert 10 staff members into the STAFF table
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S001', 'John Doe', 'Admin', 45);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S002', 'Jane Smith', 'Manager', 38);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S003', 'Michael Brown', 'Receptionist', 29);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S004', 'Emily Davis', 'Housekeeper', 40);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S005', 'Chris Johnson', 'Chef', 50);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S006', 'Jessica Wilson', 'Manager', 34);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S007', 'David Lee', 'Receptionist', 31);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S008', 'Sarah Walker', 'Housekeeper', 44);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S009', 'Daniel Harris', 'Chef', 47);
-INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES ('S010', 'Laura Clark', 'Admin', 39);
+INSERT INTO STAFF (staffID, staffName, staffType, staffAge) VALUES 
+('S001', 'John Doe', 'Admin', 45),
+('S002', 'Jane Smith', 'Manager', 38),
+('S003', 'Michael Brown', 'Receptionist', 29),
+('S004', 'Emily Davis', 'Housekeeper', 40),
+('S005', 'Chris Johnson', 'Chef', 50);
 
 
 -- Insert data into STUDENT table
@@ -180,18 +157,6 @@ INSERT INTO STUDENT (stdID, stdName, stdIC, stdPhone, stdAddress, stdIncome, std
 ('U018', 'Mia Harris', '890123456789', '1823456789', '115 Bamboo St', 2800.00, '0987654338'),
 ('U019', 'Nina Davis', '901234567890', '1923456789', '116 Teak St', 2900.00, '0987654339'),
 ('U020', 'Oscar Wright', '012345678901', '2023456789', '117 Elm St', 3000.00, '0987654340');
-
-
--- Insert data into the REPORT table
-INSERT INTO REPORT (reportID, reportTitle, reportDesc, reportStatus, studentID, handledByStaffID, checkedByStaffID) VALUES
-('REP001', 'Water Leakage', 'Water leakage in room A101', 'Pending', 'U001', 'S001', 'S002'),
-('REP002', 'Broken Window', 'Broken window in room B202', 'In Progress', 'U002', 'S003', 'S001'),
-('REP003', 'No Electricity', 'No electricity in room C303', 'Resolved', 'U003', 'S002', 'S003'),
-('REP004', 'Internet Issue', 'No internet connection in room D404', 'Pending', 'U004', 'S001', 'S002'),
-('REP005', 'Pest Problem', 'Pest problem in room E505', 'In Progress', 'U005', 'S003', 'S001'),
-('REP006', 'Pest Problem', 'Pest problem in room E505', 'In Progress', 'U001', 'S003', 'S010');
-
-
 
 
 
