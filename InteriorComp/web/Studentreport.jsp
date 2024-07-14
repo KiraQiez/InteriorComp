@@ -39,85 +39,165 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        .report-title {
-            text-align: center;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-size: 24px;
-        }
+            .dashboard-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: space-between;
+            }
 
-        .report-card {
-            background-color: #1f242a; /* Darker background color */
-            border-radius: 10px;
-            padding: 20px;
-            width: 60%;
-            margin: 0 auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
-        }
+            .dashboard-card {
+                background-color: #21262d;
+                border-radius: 8px;
+                padding: 20px;
+                flex: 1;
+                min-width: 250px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s, box-shadow 0.3s;
+                display: flex;
+                align-items: center;
+            }
 
-        .report-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            color: #c9d1d9;
-            border-bottom: 1px solid #30363d; /* Separator line */
-        }
+            .dashboard-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            }
 
-        .problem-container {
-            flex-grow: 1; /* Take remaining space */
-        }
+            .dashboard-card .icon {
+                font-size: 40px;
+                margin-right: 20px;
+                color: #58a6ff;
+            }
 
-        .problem-details1,
-        .problem-details2 {
-            margin-bottom: 15px;
-        }
+            .dashboard-card h2 {
+                margin: 0;
+                font-size: 24px;
+                color: #58a6ff;
+            }
 
-        .problem-details1 input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #30363d;
-            border-radius: 4px;
-            background-color: #21262d;
-            color: #c9d1d9;
-            font-size: 16px;
-        }
+            .dashboard-card p {
+                font-size: 18px;
+                color: #c9d1d9;
+                margin: 5px 0 0;
+            }
 
-        .problem-details2 textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #30363d;
-            border-radius: 4px;
-            background-color: #21262d;
-            color: #c9d1d9;
-            font-size: 16px;
-            resize: vertical; 
-        }
+            .chart-container {
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
 
-        .submit-button {
-            padding: 10px 20px;
-            background-color: #0366d6;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
+            .chart {
+                background-color: #21262d;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                flex: 1;
+                min-width: 300px;
+            }
 
-        .submit-button:hover {
-            background-color: #0255b6;
-        }
-        .report-details {
-            margin-left: 20px;
-        margin-top: 20px; /* Adjusted margin-top to create space */
-        }
+            .statistics {
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+            }
 
-        .report-info {
-            margin-bottom: 10px; /* Adjusted margin-bottom for spacing between items */
-        }
-    </style>
+            .stat-item {
+                background-color: #21262d;
+                border-radius: 8px;
+                padding: 20px;
+                flex: 1;
+                text-align: center;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .stat-item h3 {
+                margin: 0;
+                font-size: 22px;
+                color: #58a6ff;
+            }
+
+            .stat-item p {
+                font-size: 18px;
+                color: #c9d1d9;
+                margin: 5px 0 0;
+            }
+
+            .content {
+                background: #161b22;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                color: #c9d1d9;
+                margin-top: 20px;
+            }
+            .form-container {
+                background-color: #161b22;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                margin: auto;
+            }
+
+            .form-container h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #c9d1d9;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #c9d1d9;
+            }
+
+            .form-group select{
+                width: 100%;
+            }
+
+            .form-group input{
+                width: 97%;
+            }
+
+            .form-group select, 
+            .form-group input,
+            .form-group textarea{ 
+                padding: 10px;
+                border: 1px solid #30363d;
+                border-radius: 4px;
+                background-color: #0d1117;
+                color: #c9d1d9;
+            }
+    
+            .form-group select:focus, 
+            .form-group input:focus,
+            .form-group textarea:focus{
+                outline: none;
+                border-color: #58a6ff;
+            }
+
+            .form-container button[type="submit"] {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #0366d6;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            .form-container button[type="submit"]:hover {
+                background-color: #0255b6;
+            }
+        </style>
 </head>
 <body>
     <div class="container">
@@ -130,11 +210,11 @@
                 <img src="resource/adminPic.png" alt="Admin Profile Picture">
             </div>
             <ul>
-                <li><a href="dashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="Studentdashboard.jsp"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="roomS.jsp"><i class="fas fa-bed"></i> <span>Room</span></a></li>
-                <li><a href="bookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                <li><a href="StudentbookingS.jsp"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
                 <li><a href="guestS.jsp"><i class="fas fa-user"></i> <span>Guest</span></a></li>
-                <li><a href="staffS.jsp"><i class="fas fa-users"></i> <span>Staff</span></a></li>
+                <li><a href="Studentreport.jsp"  class="active"><i class="fas fa-users"></i> <span>Staff</span></a></li>
             </ul>
         </nav>
         
@@ -171,25 +251,18 @@
             </header>
 
             <div class="content">
-                <h2 class="report-title">REPORT</h2>
-                    <div class="report-card">
-                        <div class="report-header">
-                            <div class="problem-container">
-                                <form method="post" action="studentReport">
-                                    <div class="problem-details1">
-                                        <input type="text" class="problem-input" name="reportTitle" placeholder="Enter your problem" required>
-                                    </div>
-                                    <div class="problem-details2">
-                                        <textarea name="reportDesc" placeholder="Elaborate your concern" required></textarea>
-                                    </div>
-                                    <button type="submit" class="submit-button">SUBMIT</button>
-                                </form>
+                <div class="form-container">
+                        <h1>Report</h1>
+
+                        <form action="insertReport" method="post">
+                            <div class="form-group">
+                                <input type="text" class="problem-input" name="reportTitle" placeholder="Report Title" required>
                             </div>
-                            <div class="report-details">
-                                <p class="report-info"><b id="current-date"></b></p>
-                                <p class="report-info"><b>Current Status:</b><span class="status-pending"><br>PENDING</span></p>
+                            <div class="form-group">
+                                <textarea name="reportDesc" placeholder="Elaborate your concern" required></textarea>
                             </div>
-                        </div>
+                            <button type="submit">Submit Report</button>
+                        </form>
                     </div>
                     <script>
                     // Function to format date as DD-MM-YYYY

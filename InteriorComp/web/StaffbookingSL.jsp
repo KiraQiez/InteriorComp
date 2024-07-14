@@ -23,8 +23,12 @@
                     %>
 
                     <sql:query var="book_list" dataSource="${myDatasource}">
-                        SELECT * FROM BOOKING B JOIN SESSION S ON B.SESSIONID= S.SESSIONID WHERE BOOKSTATUS='PENDING'
-                        ORDER BY BOOKINGID
+                        SELECT *
+                        FROM BOOKING B
+                        JOIN SESSION S ON B.SESSIONID = S.SESSIONID
+                        JOIN ROOM R ON B.ROOMID = R.ROOMID
+                        WHERE B.BOOKSTATUS = 'PENDING'
+                        ORDER BY B.BOOKINGID
                         OFFSET <%= offset%> ROWS 
                         FETCH NEXT <%= rowsPerPage%> ROWS ONLY
                     </sql:query>
@@ -62,14 +66,15 @@
                                                 <td class="actions">
                                                     <form action="AcceptBookingServlet" method="get" style="display:inline;">
                                                         <input type="hidden" name="bookingID" value="${row.bookingID}"/>
+                                                        <input type="hidden" name="roomID" value="${row.roomID}"/>
                                                         <button type="submit" class="view-button">Accept</button>
                                                     </form>
-                                                        
+
                                                     <form action="StaffBookingDetails.jsp" method="get" style="display:inline;">
                                                         <input type="hidden" name="bookingID" value="${row.bookingID}"/>
                                                         <button type="submit" class="view-button">View</button>
                                                     </form>
-                                                    
+
                                                     <form action="RejectBookingServlet" method="get" style="display:inline;">
                                                         <input type="hidden" name="bookingID" value="${row.bookingID}"/>
                                                         <button type="submit" class="view-button">Reject</button>

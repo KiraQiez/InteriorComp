@@ -47,7 +47,7 @@ public class insertBooking extends HttpServlet {
             out.println("<h1>Servlet INSERTBOOKING at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-            response.sendRedirect("dashboardS.jsp");
+            response.sendRedirect("StudentbookingS.jsp");
         }
 
     }
